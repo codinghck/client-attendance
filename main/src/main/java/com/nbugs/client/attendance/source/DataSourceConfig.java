@@ -27,26 +27,39 @@ public class DataSourceConfig {
   @Qualifier("attendanceDataSource")
   @Primary
   @ConfigurationProperties(prefix = "attendance.db")
-  public DataSource primaryDataSource() {
+  public DataSource attendanceDataSource() {
     return DataSourceBuilder.create().build();
   }
 
   @Bean(name = "userDataSource")
   @Qualifier("userDataSource")
   @ConfigurationProperties(prefix = "user.db")
-  public DataSource secondaryDataSource() {
+  public DataSource userDataSource() {
+    return DataSourceBuilder.create().build();
+  }
+
+  @Bean(name = "deptDataSource")
+  @Qualifier("deptDataSource")
+  @ConfigurationProperties(prefix = "dept.db")
+  public DataSource deptDataSource() {
     return DataSourceBuilder.create().build();
   }
 
   @Bean(name = "attendanceJdbcTemplate")
-  public JdbcTemplate primaryJdbcTemplate(
+  public JdbcTemplate attendanceJdbcTemplate(
       @Qualifier("attendanceDataSource") DataSource dataSource) {
     return new JdbcTemplate(dataSource);
   }
 
   @Bean(name = "userJdbcTemplate")
-  public JdbcTemplate secondaryJdbcTemplate(
+  public JdbcTemplate userJdbcTemplate(
       @Qualifier("userDataSource") DataSource dataSource) {
+    return new JdbcTemplate(dataSource);
+  }
+
+  @Bean(name = "deptJdbcTemplate")
+  public JdbcTemplate deptJdbcTemplate(
+      @Qualifier("deptDataSource") DataSource dataSource) {
     return new JdbcTemplate(dataSource);
   }
 }

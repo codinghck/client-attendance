@@ -16,5 +16,5 @@ import org.springframework.stereotype.Component;
 @PropertySource("classpath:tasks/dept.properties")
 @ConfigurationProperties(prefix = "dept")
 public class DeptSource {
-
+  private String sendDeptUrl;
 }

@@ -16,5 +16,5 @@ import org.springframework.stereotype.Component;
 @PropertySource("classpath:tasks/user.properties")
 @ConfigurationProperties(prefix = "user")
 public class UserSource {
-  private String dbUrl;
+  private String sendUserUrl;
 }

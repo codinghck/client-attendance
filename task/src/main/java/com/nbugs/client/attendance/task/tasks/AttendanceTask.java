@@ -2,7 +2,9 @@ package com.nbugs.client.attendance.task.tasks;
 
 import com.nbugs.client.attendance.dao.pojo.AttendanceDataDTO;
 import com.nbugs.client.attendance.service.AttendanceService;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,12 +19,14 @@ import org.springframework.stereotype.Component;
 @Component
 @PropertySource("classpath:tasks/attendance.properties")
 public class AttendanceTask {
-  @Value("${attendance.attendance-data-max-size}")
+  @Value("${attendance.send-attendance-max-size}")
   private int attendanceDataMaxSize;
   private final AttendanceService attendanceService;
 
   @Scheduled(cron = "${attendance.task.schedule}")
   public void doTask() {
+    SimpleDateFormat smt = new SimpleDateFormat("yyyy-mm-dd HH:mm:ss");
+    System.out.println("AttendanceTask: " + smt.format(new Date()));
     List<AttendanceDataDTO> attendances = attendanceService.getLocalAttendances();
     if (null != attendances && !attendances.isEmpty()) {
       sendAttendanceToOpenCenter(attendances);

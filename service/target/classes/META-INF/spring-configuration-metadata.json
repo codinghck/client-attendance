@@ -29,6 +29,11 @@
       "type": "java.lang.String"
     },
     {
+      "sourceType": "com.nbugs.client.attendance.service.source.DeptSource",
+      "name": "dept.send-dept-url",
+      "type": "java.lang.String"
+    },
+    {
       "sourceType": "com.nbugs.client.attendance.service.source.OpenCenterSource",
       "name": "open.center.client-id",
       "type": "java.lang.String"
@@ -55,7 +60,7 @@
     },
     {
       "sourceType": "com.nbugs.client.attendance.service.source.UserSource",
-      "name": "user.db-url",
+      "name": "user.send-user-url",
       "type": "java.lang.String"
     }
   ]

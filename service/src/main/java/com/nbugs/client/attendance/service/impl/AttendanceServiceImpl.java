@@ -7,8 +7,8 @@ import com.hck.util.http.HttpUtil;
 import com.nbugs.client.attendance.dao.AttendanceDAO;
 import com.nbugs.client.attendance.dao.pojo.AttendanceDataDTO;
 import com.nbugs.client.attendance.service.AttendanceService;
+import com.nbugs.client.attendance.service.OpenCenterService;
 import com.nbugs.client.attendance.service.source.AttendanceSource;
-import com.nbugs.client.attendance.service.source.OpenCenterSource;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,7 +22,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class AttendanceServiceImpl implements AttendanceService {
   private final AttendanceDAO attendanceDAO;
-  private final OpenCenterSource openCenterSource;
+  private final OpenCenterService openCenterService;
   private final AttendanceSource attendanceSource;
 
   @Override
@@ -32,11 +32,17 @@ public class AttendanceServiceImpl implements AttendanceService {
 
   @Override
   public void sendAttendanceMsg(List<AttendanceDataDTO> dataDTOS) {
-    String accessToken = getAccessToken();
+    String accessToken = openCenterService.getAccessToken();
     String attendanceUrl = getAttendanceUrl(accessToken);
     String params = getTerminalAttendanceParams(dataDTOS);
     // TODO: 等正式使用的时候再加上这一行：HttpUtil.postJson(attendanceUrl, params)，不然呢会带来脏数据
-    System.out.println("attendanceUrl:" + attendanceUrl + "params: " + params);
+  }
+
+  private String getAttendanceUrl(String accessToken) {
+    String terminalAttendanceUrl = attendanceSource.getTerminalAttendanceUrl();
+    Map<String, String> args = new HashMap<>(1);
+    args.put("access_token", accessToken);
+    return HttpUtil.addMapToUrl(terminalAttendanceUrl, args);
   }
 
   private String getTerminalAttendanceParams(List<AttendanceDataDTO> dataDTOS) {
@@ -50,31 +56,13 @@ public class AttendanceServiceImpl implements AttendanceService {
     return json.toJSONString();
   }
 
-  private String getAccessToken() {
-    Map<String, String> args = new HashMap<>(5);
-    args.put("client_id", openCenterSource.getClientId());
-    args.put("client_secret", openCenterSource.getClientSecret());
-    args.put("grant_type", openCenterSource.getGrantType());
-    args.put("response_type", openCenterSource.getResponseType());
-    String res = HttpUtil.getMap(openCenterSource.getTokenUrl(), args);
-    JSONObject jsonObject = JSONObject.parseObject(res);
-    return jsonObject.getJSONObject("data").get("accessToken").toString();
-  }
-
-  private String getAttendanceUrl(String accessToken) {
-    String terminalAttendanceUrl = attendanceSource.getTerminalAttendanceUrl();
-    Map<String, String> args = new HashMap<>(1);
-    args.put("access_token", accessToken);
-    return HttpUtil.addMapToUrl(terminalAttendanceUrl, args);
-  }
-
   @Autowired
   public AttendanceServiceImpl(
       AttendanceDAO attendanceDAO,
-      OpenCenterSource openCenterSource,
+      OpenCenterService openCenterService,
       AttendanceSource attendanceSource) {
     this.attendanceDAO = attendanceDAO;
-    this.openCenterSource = openCenterSource;
+    this.openCenterService = openCenterService;
     this.attendanceSource = attendanceSource;
   }
 }
