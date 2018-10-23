@@ -13,8 +13,9 @@ import org.springframework.stereotype.Component;
 @Component
 @PropertySource("classpath:tasks/dept.properties")
 public class DeptTask {
-  @Scheduled(cron = "${schedule}")
+  @Scheduled(cron = "${dept.task.schedule}")
   public void doTask() {
-    System.out.println("DeptTask:" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    System.out.println("DeptTask:" + sdf.format(new Date()));
   }
 }

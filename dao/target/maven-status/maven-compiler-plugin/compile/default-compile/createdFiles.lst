@@ -1,0 +1,3 @@
+com/nbugs/client/attendance/dao/UserDAO.class
+com/nbugs/client/attendance/dao/AttendanceDAO.class
+com/nbugs/client/attendance/dao/DeptDAO.class

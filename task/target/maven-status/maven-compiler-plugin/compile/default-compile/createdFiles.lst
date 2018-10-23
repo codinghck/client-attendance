@@ -1,7 +1,3 @@
-META-INF/spring-configuration-metadata.json
-com/nbugs/client/attendance/task/tasks/AttendanceTask.class
-com/nbugs/client/attendance/task/source/UserSource.class
-com/nbugs/client/attendance/task/source/AttendanceSource.class
-com/nbugs/client/attendance/task/tasks/UserTask.class
 com/nbugs/client/attendance/task/tasks/DeptTask.class
-com/nbugs/client/attendance/task/source/DeptSource.class
+com/nbugs/client/attendance/task/tasks/UserTask.class
+com/nbugs/client/attendance/task/tasks/AttendanceTask.class

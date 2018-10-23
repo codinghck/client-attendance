@@ -14,8 +14,21 @@
 
   <dependencies>
     <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-configuration-processor</artifactId>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+    </dependency>
+    <dependency>
       <groupId>com.nbugs.client.attendance</groupId>
       <artifactId>dao</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.hck</groupId>
+      <artifactId>util</artifactId>
     </dependency>
   </dependencies>
 </project>
