@@ -17,5 +17,5 @@ public interface DeptService {
   /**
    * 发送组织数据到开放平台接入中心
    */
-  public void sendDeptsToOpenCenter(List<DeptDataDTO> dataDTOS);
+  public String sendDeptsToOpenCenter(List<DeptDataDTO> dataDTOS);
 }

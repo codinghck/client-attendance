@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 属性描述 scan：设置为true时，配置文件如果发生改变，将会被重新加载，默认值为true -->
+<!-- scanPeriod: 设置监测配置文件是否有修改的时间间隔，如果没有给出时间单位，默认单位是毫秒。
+     当scan为true时，此属性生效。默认的时间间隔为1分钟。-->
+<!-- debug: 当此属性设置为true时，将打印出 logback 内部日志信息，实时查看logback运行状态。默认值为false。 -->
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+  <!-- 定义输出位置：默认输出到 tomcat 的 bin 目录下 -->
+  <property name="dir" value="../logs/client_attendance"/>
+  <!-- 定义最大历史 -->
+  <property name="maxHistory" value="60"/>
+
+  <!-- 控制台输出 -->
+  <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+    <!-- 此日志 appender 是为开发使用，只配置 info 以上级别，控制台输出的日志级别是大于或等于此级别的日志 -->
+    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+      <level>info</level>
+    </filter>
+    <encoder>
+      <!--%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+      <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{80} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <!-- 输出到 info -->
+  <!-- 滚动记录文件，先将日志记录到指定文件，当符合某个条件时，将日志记录到其他文件 RollingFileAppender -->
+  <appender name="info" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <!-- 过滤器，只记录 INFO 级别的日志 -->
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+      <level>INFO</level>
+      <onMatch>ACCEPT</onMatch>
+      <onMismatch>DENY</onMismatch>
+    </filter>
+    <!-- 常用滚动策略，它根据时间来制定滚动策略.既负责滚动也负责出发滚动 -->
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${dir}/info/%d{yyyy_MM_dd}.html</fileNamePattern>
+      <!-- 可选节点，超出数量就删除旧文件 -->
+      <MaxHistory>${maxHistory}</MaxHistory>
+    </rollingPolicy>
+    <!-- 触发器，查看当前活动文件的大小，如果超过指定大小会告知 RollingFileAppender 触发当前活动文件滚动 -->
+    <!-- 如果是 TimeBasedRollingPolicy 使用了此触发器，达到触发条件时可能会终止输出日志，也许是没设置对 -->
+    <!--<triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">-->
+    <!--<maxFileSize>1MB</maxFileSize>-->
+    <!--</triggeringPolicy>-->
+    <!-- 必须指定，否则不会往文件输出内容 -->
+    <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+      <layout class="ch.qos.logback.classic.html.HTMLLayout">
+        <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{80} - %msg%n</pattern>
+      </layout>
+    </encoder>
+  </appender>
+
+  <appender name="warn" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+      <level>WARN</level>
+      <onMatch>ACCEPT</onMatch>
+      <onMismatch>DENY</onMismatch>
+    </filter>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${dir}/warn/%d{yyyy_MM_dd}.html</fileNamePattern>
+      <MaxHistory>${maxHistory}</MaxHistory>
+    </rollingPolicy>
+    <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+      <layout class="ch.qos.logback.classic.html.HTMLLayout">
+        <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{80} - %msg%n</pattern>
+      </layout>
+    </encoder>
+  </appender>
+
+  <appender name="error" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+      <level>ERROR</level>
+      <onMatch>ACCEPT</onMatch>
+      <onMismatch>DENY</onMismatch>
+    </filter>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${dir}/error/%d{yyyy_MM_dd}.html</fileNamePattern>
+      <MaxHistory>${maxHistory}</MaxHistory>
+    </rollingPolicy>
+    <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+      <layout class="ch.qos.logback.classic.html.HTMLLayout">
+        <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{80} - %msg%n</pattern>
+      </layout>
+    </encoder>
+  </appender>
+
+  <root>
+    <level value="debug"/>
+    <appender-ref ref="console"/>
+    <appender-ref ref="info"/>
+    <appender-ref ref="warn"/>
+    <appender-ref ref="error"/>
+  </root>
+</configuration>

@@ -17,5 +17,5 @@ public interface UserService {
   /**
    * 发送用户数据到开放平台接入中心
    */
-  public void sendUsersToOpenCenter(List<UserDataDTO> dataDTOS);
+  public String sendUsersToOpenCenter(List<UserDataDTO> dataDTOS);
 }

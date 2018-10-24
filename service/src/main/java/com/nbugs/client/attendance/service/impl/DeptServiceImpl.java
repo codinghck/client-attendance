@@ -31,11 +31,12 @@ public class DeptServiceImpl implements DeptService {
   }
 
   @Override
-  public void sendDeptsToOpenCenter(List<DeptDataDTO> dataDTOS) {
+  public String sendDeptsToOpenCenter(List<DeptDataDTO> dataDTOS) {
     String accessToken = openCenterService.getAccessToken();
     String sendDeptsUrl = getSendDeptsUrl(accessToken);
     String params = getSendDeptParams(dataDTOS);
-    // TODO: 等正式使用的时候再加上这一行：HttpUtil.postJson(sendDeptsUrl, params)，不然呢会带来脏数据
+    // TODO: 等正式使用的时候再加上这一行：return HttpUtil.postJson(sendDeptsUrl, params)，不然呢会带来脏数据
+    return "";
   }
 
   private String getSendDeptsUrl(String accessToken) {

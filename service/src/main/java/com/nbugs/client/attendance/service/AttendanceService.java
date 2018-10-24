@@ -17,5 +17,5 @@ public interface AttendanceService {
   /**
    * 发送考勤数据到开放平台接入中心
    */
-  public void sendAttendanceMsg(List<AttendanceDataDTO> dataDTOS);
+  public String sendAttendanceMsg(List<AttendanceDataDTO> dataDTOS);
 }

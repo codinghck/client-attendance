@@ -34,11 +34,12 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
-  public void sendUsersToOpenCenter(List<UserDataDTO> dataDTOS) {
+  public String sendUsersToOpenCenter(List<UserDataDTO> dataDTOS) {
     String accessToken = openCenterService.getAccessToken();
     String sendUsersUrl = getSendUsersUrl(accessToken);
     String params = getSendUserParams(dataDTOS);
-    // TODO: 等正式使用的时候再加上这一行：HttpUtil.postJson(sendUsersUrl, params)，不然呢会带来脏数据
+    // TODO: 等正式使用的时候再加上这一行：return HttpUtil.postJson(sendUsersUrl, params)，不然呢会带来脏数据
+    return "";
   }
 
   private String getSendUsersUrl(String accessToken) {

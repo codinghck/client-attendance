@@ -1,3 +1,6 @@
 com/nbugs/client/attendance/dao/UserDAO.class
+com/nbugs/client/attendance/dao/pojo/AttendanceDataDTO.class
 com/nbugs/client/attendance/dao/AttendanceDAO.class
+com/nbugs/client/attendance/dao/pojo/UserDataDTO.class
+com/nbugs/client/attendance/dao/pojo/DeptDataDTO.class
 com/nbugs/client/attendance/dao/DeptDAO.class
