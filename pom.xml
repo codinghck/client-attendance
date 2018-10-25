@@ -94,8 +94,8 @@
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>com.hck</groupId>
-        <artifactId>util</artifactId>
+        <groupId>com.hongtiancai</groupId>
+        <artifactId>base-util</artifactId>
         <version>1.0.0-RELEASE</version>
       </dependency>
     </dependencies>

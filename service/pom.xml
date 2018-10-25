@@ -27,8 +27,8 @@
       <artifactId>dao</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.hck</groupId>
-      <artifactId>util</artifactId>
+      <groupId>com.hongtiancai</groupId>
+      <artifactId>base-util</artifactId>
     </dependency>
   </dependencies>
 </project>

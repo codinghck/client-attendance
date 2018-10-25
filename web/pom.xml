@@ -26,8 +26,8 @@
       <artifactId>commons-configuration</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.hck</groupId>
-      <artifactId>util</artifactId>
+      <groupId>com.hongtiancai</groupId>
+      <artifactId>base-util</artifactId>
     </dependency>
     <dependency>
       <groupId>com.nbugs.client.attendance</groupId>
