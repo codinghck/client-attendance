@@ -20,13 +20,14 @@ public class DeptDAO {
 
   @Value("${dept.db.get-dept-sql}")
   private String getDeptSql;
-  @Value("${dept.db.last-execute-id}")
-  private String lastExecuteId;
   @Value("${dept.org-id}")
   private String orgId;
+  @Value("${dept.local-dir}")
+  private String localDir;
 
   public List<DeptDataDTO> getAttendance() {
-    return deptJdbcTemp.query(getDeptSql, new Object[]{lastExecuteId}, (rs, rowNum) -> {
+    String lastId = PropsUtil.getProp(localDir + "dept.properties", "dept.db.last-execute-id");
+    List<DeptDataDTO> res = deptJdbcTemp.query(getDeptSql, new Object[]{null == lastId ? 0 : lastId}, (rs, rowNum) -> {
       DeptDataDTO dataDTO = new DeptDataDTO();
       dataDTO.setDataId(rs.getInt("id") + "");
       dataDTO.setOrgId(orgId);
@@ -35,6 +36,10 @@ public class DeptDAO {
       dataDTO.setParentId(Util.getByRs(rs, "parent_id"));
       return dataDTO;
     });
+    if (res.size() > 0) {
+      PropsUtil.setProp(localDir + "dept.properties", "dept.db.last-execute-id", res.get(res.size() - 1).getDataId());
+    }
+    return res;
   }
 
   @Autowired

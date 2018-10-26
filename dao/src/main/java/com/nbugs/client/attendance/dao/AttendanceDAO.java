@@ -23,13 +23,14 @@ public class AttendanceDAO {
   private String attendanceSql;
   @Value("${attendance.db.attendance-pics-sql}")
   private String attendancePicsSql;
-  @Value("${attendance.db.last-execute-id}")
-  private String lastExecuteId;
   @Value("${attendance.db.time.format}")
   private String dataPattern;
+  @Value("${attendance.local-dir}")
+  private String localDir;
 
   public List<AttendanceDataDTO> getAttendance() {
-    return attendanceJdbcTemp.query(attendanceSql, new Object[]{lastExecuteId}, (rs, rowNum) -> {
+    String lastId = PropsUtil.getProp(localDir + "attendance.properties", "attendance.db.last-execute-id");
+    List<AttendanceDataDTO> res =  attendanceJdbcTemp.query(attendanceSql, new Object[]{null == lastId ? 0 : lastId}, (rs, rowNum) -> {
       AttendanceDataDTO dataDTO = new AttendanceDataDTO();
       dataDTO.setDataId(rs.getInt("id") + "");
       dataDTO.setDeviceId(Util.getByRs(rs, "device_id"));
@@ -39,6 +40,10 @@ public class AttendanceDAO {
       dataDTO.setPicUrls(Collections.singletonList(Util.getByRs(rs, "file_url")));
       return dataDTO;
     });
+    if (res.size() > 0) {
+      PropsUtil.setProp(localDir + "attendance.properties", "attendance.db.last-execute-id", res.get(res.size() - 1).getDataId());
+    }
+    return res;
   }
 
   @Autowired

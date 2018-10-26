@@ -37,7 +37,8 @@ public class AttendanceTask {
 
   private List<String> sendAttendanceToOpenCenter(List<AttendanceDataDTO> attendances) {
     List<String> res = new ArrayList<>();
-    int partNum = attendances.size() / attendanceDataMaxSize + 1;
+    boolean needExPart = attendances.size() % attendanceDataMaxSize != 0;
+    int partNum = attendances.size() / attendanceDataMaxSize + (needExPart ? 1 : 0);
     for (int i = 0; i < partNum; i++) {
       boolean isLast = (i == (partNum - 1));
       int start = i * attendanceDataMaxSize;

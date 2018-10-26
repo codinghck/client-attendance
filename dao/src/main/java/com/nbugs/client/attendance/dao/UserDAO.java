@@ -20,13 +20,14 @@ public class UserDAO {
 
   @Value("${user.db.get-user-sql}")
   private String getUserSql;
-  @Value("${user.db.last-execute-id}")
-  private String lastExecuteId;
   @Value("${user.org-id}")
   private String orgId;
+  @Value("${user.local-dir}")
+  private String localDir;
 
   public List<UserDataDTO> getUsers() {
-    return userJdbcTemp.query(getUserSql, new Object[]{lastExecuteId}, (rs, rowNum) -> {
+    String lastId = PropsUtil.getProp(localDir + "user.properties", "user.db.last-execute-id");
+    List<UserDataDTO> res = userJdbcTemp.query(getUserSql, new Object[]{null == lastId ? 0 : lastId}, (rs, rowNum) -> {
       UserDataDTO dataDTO = new UserDataDTO();
       dataDTO.setDataId(rs.getInt("id") + "");
       dataDTO.setOrgId(orgId);
@@ -37,6 +38,10 @@ public class UserDAO {
       dataDTO.setDeptName(Util.getByRs(rs, "dept_name"));
       return dataDTO;
     });
+    if (res.size() > 0) {
+      PropsUtil.setProp(localDir + "user.properties", "user.db.last-execute-id", res.get(res.size() - 1).getDataId());
+    }
+    return res;
   }
 
   @Autowired
