@@ -9,6 +9,7 @@ import lombok.Data;
 @Data
 public class DeptDataDTO {
   private String dataId;
+  private String orgId;
   private String deptId;
   private String deptName;
   private String parentId;

@@ -1,6 +1,7 @@
 package com.nbugs.client.attendance.dao;
 
 import com.nbugs.client.attendance.dao.pojo.AttendanceDataDTO;
+import java.util.Collections;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -20,22 +21,22 @@ public class AttendanceDAO {
 
   @Value("${attendance.db.attendance-sql}")
   private String attendanceSql;
+  @Value("${attendance.db.attendance-pics-sql}")
+  private String attendancePicsSql;
   @Value("${attendance.db.last-execute-id}")
   private String lastExecuteId;
+  @Value("${attendance.db.time.format}")
+  private String dataPattern;
 
-  /**
-   * 正式使用或测试的时候再把这个代码复制到TODO下面，因为没有测试数据库直接写相应的 sql
-   * dataDTO.setDeviceId(rs.getString("device_id"));
-   * dataDTO.setTerminalId(rs.getString("terminal_id"));
-   * dataDTO.setTime(rs.getString("time"));
-   * dataDTO.setBehavior(rs.getString("behavior"));
-   * dataDTO.setPicUrls(Arrays.asList((String[]) rs.getArray("picUrls").getArray()));
-   */
   public List<AttendanceDataDTO> getAttendance() {
     return attendanceJdbcTemp.query(attendanceSql, new Object[]{lastExecuteId}, (rs, rowNum) -> {
       AttendanceDataDTO dataDTO = new AttendanceDataDTO();
       dataDTO.setDataId(rs.getInt("id") + "");
-      // TODO: 正式使用或测试的时候再取消注释
+      dataDTO.setDeviceId(Util.getByRs(rs, "device_id"));
+      dataDTO.setTerminalId(Util.getByRs(rs, "terminal_id"));
+      dataDTO.setTime(Util.timeToMills(Util.getByRs(rs, "time"), dataPattern));
+      dataDTO.setBehavior(Util.getByRs(rs, "behavior"));
+      dataDTO.setPicUrls(Collections.singletonList(Util.getByRs(rs, "file_url")));
       return dataDTO;
     });
   }

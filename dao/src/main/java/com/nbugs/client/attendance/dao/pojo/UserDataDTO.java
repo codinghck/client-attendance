@@ -9,6 +9,7 @@ import lombok.Data;
 @Data
 public class UserDataDTO {
   private String dataId;
+  private String orgId;
   private String userId;
   private String userName;
   private String card;
