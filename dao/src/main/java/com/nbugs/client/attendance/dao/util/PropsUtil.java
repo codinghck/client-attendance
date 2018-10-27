@@ -1,4 +1,4 @@
-package com.nbugs.client.attendance.dao;
+package com.nbugs.client.attendance.dao.util;
 
 import java.io.File;
 import java.io.IOException;
@@ -7,11 +7,12 @@ import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
 
 /**
- * @author hongtiancai create: 2018/10/26 3:52 PM
+ * @author hongtiancai
+ * create: 2018/10/26 3:52 PM
  */
 @Slf4j
-class PropsUtil {
-  static void setProp(String filePath, String key, String value) {
+public class PropsUtil {
+  public static void setProp(String filePath, String key, String value) {
     try {
       PropertiesConfiguration config = new PropertiesConfiguration(filePath);
       config.setAutoSave(true);
@@ -30,7 +31,7 @@ class PropsUtil {
     }
   }
 
-  static String getProp(String filePath, String key) {
+  public static String getProp(String filePath, String key) {
     try {
       createIfNotExist(filePath);
       PropertiesConfiguration config = new PropertiesConfiguration(filePath);

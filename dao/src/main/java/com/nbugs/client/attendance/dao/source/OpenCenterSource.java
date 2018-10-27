@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * @author 洪天才
- * @date 2018/10/23 1:45 PM client-attendance
+ * create: 2018/10/23 1:45 PM
  */
 @Data
 @Component
