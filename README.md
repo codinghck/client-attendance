@@ -25,13 +25,14 @@
 
 1. 配置文件所在目录
 
-  > 注：文件中都有注释说明，需要改动部分参照注释修改即可。配置文件目录结构如下
+  > 注：文件中有注释说明，需要改动部分参照注释修改即可。配置文件目录结构如下
    * client-attendance
      * main  
        * resources
          * log
            * logback.xml ---- 日志，一般不做更改
          * tasks
+           * open_center.properties ---- 开放平台访问凭证配置
            * attendance.properties ---- 考勤数据上传配置
            * dept.properties ---- 组织数据上传配置
            * user.properties ---- 用户数据上传配置
