@@ -1,4 +1,4 @@
-package com.nbugs.client.attendance.service.source;
+package com.nbugs.client.attendance.dao.source;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

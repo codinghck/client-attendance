@@ -1,4 +1,4 @@
-package com.nbugs.client.attendance.service.source;
+package com.nbugs.client.attendance.dao.source;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -13,8 +13,13 @@ import org.springframework.stereotype.Component;
 @Data
 @Component
 @Configuration
-@PropertySource("classpath:tasks/dept.properties")
-@ConfigurationProperties(prefix = "dept")
-public class DeptSource {
-  private String sendDeptUrl;
+@PropertySource("classpath:tasks/attendance.properties")
+@ConfigurationProperties(prefix = "attendance")
+public class AttendanceSource {
+  private String schedule;
+  private String attendanceSql;
+  private String format;
+  private String terminalAttendanceUrl;
+  private String sendAttendanceMaxSize;
+  private String localDir;
 }

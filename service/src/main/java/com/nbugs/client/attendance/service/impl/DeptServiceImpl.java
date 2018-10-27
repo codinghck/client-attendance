@@ -8,7 +8,7 @@ import com.nbugs.client.attendance.dao.DeptDAO;
 import com.nbugs.client.attendance.dao.pojo.DeptDataDTO;
 import com.nbugs.client.attendance.service.DeptService;
 import com.nbugs.client.attendance.service.OpenCenterService;
-import com.nbugs.client.attendance.service.source.DeptSource;
+import com.nbugs.client.attendance.dao.source.DeptSource;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

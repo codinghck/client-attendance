@@ -3,7 +3,7 @@ package com.nbugs.client.attendance.service.impl;
 import com.alibaba.fastjson.JSONObject;
 import com.hck.util.http.HttpUtil;
 import com.nbugs.client.attendance.service.OpenCenterService;
-import com.nbugs.client.attendance.service.source.OpenCenterSource;
+import com.nbugs.client.attendance.dao.source.OpenCenterSource;
 import java.util.HashMap;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
