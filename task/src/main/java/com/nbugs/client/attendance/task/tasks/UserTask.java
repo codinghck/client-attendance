@@ -23,7 +23,7 @@ public class UserTask {
   private int sendUserMaxSize;
   private final UserService userService;
 
-  @Scheduled(cron = "${user.task.schedule}")
+  @Scheduled(cron = "${user.schedule}")
   public void doTask() {
     log.info("上传用户数据任务开始");
     List<UserDataDTO> users = userService.getLocalUsers();

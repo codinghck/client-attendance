@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 public class AttendanceSource {
   private String schedule;
   private String attendanceSql;
-  private String format;
+  private String timeFormat;
   private String terminalAttendanceUrl;
   private String sendAttendanceMaxSize;
   private String localDir;

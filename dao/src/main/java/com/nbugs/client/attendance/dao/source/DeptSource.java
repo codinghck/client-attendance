@@ -16,5 +16,10 @@ import org.springframework.stereotype.Component;
 @PropertySource("classpath:tasks/dept.properties")
 @ConfigurationProperties(prefix = "dept")
 public class DeptSource {
+  private String schedule;
+  private String getDeptSql;
+  private String orgId;
   private String sendDeptUrl;
+  private String sendDeptMaxSize;
+  private String localDir;
 }

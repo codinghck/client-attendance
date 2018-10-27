@@ -24,7 +24,7 @@ public class DeptTask {
   private int sendDeptMaxSize;
   private final DeptService deptService;
 
-  @Scheduled(cron = "${dept.task.schedule}")
+  @Scheduled(cron = "${dept.schedule}")
   public void doTask() {
     log.info("上传组织数据任务开始");
     List<DeptDataDTO> depts = deptService.getLocalDepts();

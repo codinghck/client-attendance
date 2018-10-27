@@ -16,5 +16,10 @@ import org.springframework.stereotype.Component;
 @PropertySource("classpath:tasks/user.properties")
 @ConfigurationProperties(prefix = "user")
 public class UserSource {
+  private String schedule;
+  private String getUserSql;
+  private String orgId;
   private String sendUserUrl;
+  private String sendUserMaxSize;
+  private String localDir;
 }

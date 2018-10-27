@@ -23,7 +23,7 @@ public class AttendanceTask {
   private int attendanceDataMaxSize;
   private final AttendanceService attendanceService;
 
-  @Scheduled(cron = "${attendance.task.schedule}")
+  @Scheduled(cron = "${attendance.schedule}")
   public void doTask() {
     log.info("上传考勤任务开始");
     List<AttendanceDataDTO> attendances = attendanceService.getLocalAttendances();
