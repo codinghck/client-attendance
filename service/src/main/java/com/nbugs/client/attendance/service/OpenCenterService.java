@@ -9,5 +9,5 @@ public interface OpenCenterService {
    * 获取开放平台的 token
    * @return 开放平台的 token 字符串
    */
-  public String getAccessToken();
+  String getAccessToken();
 }

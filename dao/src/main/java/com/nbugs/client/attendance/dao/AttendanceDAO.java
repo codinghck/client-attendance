@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 
 /**
  * @author 洪天才
- * create: 2018/10/22 11:25 PM
+ * @date 2018/10/22 11:25 PM
  */
 @Repository
 public class AttendanceDAO {

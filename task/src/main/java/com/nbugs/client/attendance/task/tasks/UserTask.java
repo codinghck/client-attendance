@@ -1,27 +1,27 @@
 package com.nbugs.client.attendance.task.tasks;
 
 import com.nbugs.client.attendance.dao.pojo.UserDataDTO;
+import com.nbugs.client.attendance.dao.source.UserSource;
 import com.nbugs.client.attendance.service.UserService;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 /**
  * @author 洪天才
- * @date 2018/10/22 4:06 PM client-attendance
+ * @date 2018/10/22 4:06 PM
  */
 @Component
 @PropertySource("classpath:tasks/user.properties")
 @Slf4j
 public class UserTask {
-  @Value("${user.send-user-max-size}")
-  private int sendUserMaxSize;
+
   private final UserService userService;
+  private final UserSource source;
 
   @Scheduled(cron = "${user.schedule}")
   public void doTask() {
@@ -37,11 +37,12 @@ public class UserTask {
 
   private List<String> sendUsersToOpenCenter(List<UserDataDTO> users) {
     List<String> res = new ArrayList<>();
-    int partNum = users.size()/sendUserMaxSize + 1;
+    int max = Integer.valueOf(source.getSendUserMaxSize());
+    int partNum = users.size() / max + 1;
     for (int i = 0; i < partNum; i++) {
       boolean isLast = (i == (partNum - 1));
-      int start = i * sendUserMaxSize;
-      int end = isLast ? (users.size() - 1) : (i + 1) * sendUserMaxSize;
+      int start = i * max;
+      int end = isLast ? (users.size() - 1) : (i + 1) * max;
       List<UserDataDTO> tempUsers = new ArrayList<>(users.subList(start, end));
       res.add(userService.sendUsersToOpenCenter(tempUsers));
     }
@@ -49,7 +50,8 @@ public class UserTask {
   }
 
   @Autowired
-  public UserTask(UserService userService) {
+  public UserTask(UserService userService, UserSource userSource) {
     this.userService = userService;
+    this.source = userSource;
   }
 }

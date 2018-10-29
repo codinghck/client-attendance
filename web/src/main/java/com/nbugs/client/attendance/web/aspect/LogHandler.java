@@ -31,7 +31,7 @@ public class LogHandler {
   @SuppressWarnings("unchecked")
   public  <T> RqResult<T> doLog(ProceedingJoinPoint pjp) throws Throwable {
     RqResult<T> res = (RqResult<T>)pjp.proceed();
-    log.warn("className = " + pjp.getTarget().getClass().getName()
+    log.info("className = " + pjp.getTarget().getClass().getName()
         + ", methodName = " + pjp.getSignature().getName()
         + ", paramNames = " + Arrays.toString(((CodeSignature) pjp.getSignature()).getParameterNames())
         + ", paramArgs = " + Arrays.toString(pjp.getArgs())

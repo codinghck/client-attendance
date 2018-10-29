@@ -12,10 +12,12 @@ public interface UserService {
    * 获取本地数据库中用户的数据
    * @return 本地数据库中用户的数据
    */
-  public List<UserDataDTO> getLocalUsers();
+  List<UserDataDTO> getLocalUsers();
 
   /**
    * 发送用户数据到开放平台接入中心
+   * @param dataDTOS 需要上传到开放平台的用户数据列表
+   * @return 开发平台返回的上传结果
    */
-  public String sendUsersToOpenCenter(List<UserDataDTO> dataDTOS);
+  String sendUsersToOpenCenter(List<UserDataDTO> dataDTOS);
 }

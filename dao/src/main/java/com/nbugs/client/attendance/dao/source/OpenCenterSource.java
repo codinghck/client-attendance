@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * @author 洪天才
- * create: 2018/10/23 1:45 PM
+ * @date 2018/10/23 1:45 PM
  */
 @Data
 @Component
@@ -21,4 +21,5 @@ public class OpenCenterSource {
   private String clientSecret;
   private String grantType;
   private String responseType;
+  private String leaveUrl;
 }

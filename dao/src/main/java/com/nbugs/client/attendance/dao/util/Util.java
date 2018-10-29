@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
 
 /**
  * @author hongtiancai
- * create: 2018/10/26 11:17 AM
+ * @date 2018/10/26 11:17 AM
  */
 public class Util {
   public static String getByRs(ResultSet rs, String name) {

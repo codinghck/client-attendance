@@ -4,7 +4,7 @@ import lombok.Data;
 
 /**
  * @author 洪天才
- * create: 2018/10/23 6:05 PM
+ * @date 2018/10/23 6:05 PM
  */
 @Data
 public class UserDataDTO {

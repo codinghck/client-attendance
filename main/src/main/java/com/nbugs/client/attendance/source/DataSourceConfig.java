@@ -13,7 +13,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
  * @author 洪天才
- * @date 2018/10/23 9:53 AM client-attendance
+ * @date 2018/10/23 9:53 AM
  */
 @Configuration
 @PropertySources({
@@ -22,7 +22,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
     @PropertySource("classpath:tasks/attendance.properties")
 })
 public class DataSourceConfig {
-
   @Bean(name = "attendanceDataSource")
   @Qualifier("attendanceDataSource")
   @Primary

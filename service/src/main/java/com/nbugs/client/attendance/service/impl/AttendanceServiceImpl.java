@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * @author 洪天才
- * @date 2018/10/23 10:23 AM client-attendance
+ * @date 2018/10/23 10:23 AM
  */
 @Service
 public class AttendanceServiceImpl implements AttendanceService {

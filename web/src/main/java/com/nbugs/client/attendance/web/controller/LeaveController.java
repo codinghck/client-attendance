@@ -2,18 +2,19 @@ package com.nbugs.client.attendance.web.controller;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.hck.util.base.DateUtil;
+import com.hck.util.base.LogUtil;
 import com.hck.util.http.HttpUtil;
 import com.hck.util.request.RqResult;
 import com.hck.util.request.RqResultHandler;
 import com.hck.util.validate.Date;
-import com.hck.util.validate.JsonArrayStr;
 import com.hck.util.validate.NotEmpty;
 import com.hck.util.validate.Size;
+import com.hck.util.validate.exception.ValidateException;
 import com.hck.util.validate.pojo.NormalDataOut;
+import com.nbugs.client.attendance.dao.source.OpenCenterSource;
 import com.nbugs.client.attendance.service.OpenCenterService;
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
@@ -24,88 +25,91 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @author hongtiancai create: 2018/10/26 6:09 PM
+ * @author hongtiancai
+ * @date 2018/10/26 6:09 PM
  */
 @RestController
 @RequestMapping("/leave")
 @Slf4j
 public class LeaveController {
-  private static final String OPEN_CENTER_LEAVE_URL = "https://open.api.xiaoyuanhao.com/leave/leave_times/batchget";
+
   private final OpenCenterService openCenterService;
+  private final OpenCenterSource source;
 
   @RequestMapping(value = "/is_on_leave", method = RequestMethod.GET)
   public RqResult<NormalDataOut> isOnLeaveTime(
-      @NotEmpty @Size(max = 20) @RequestParam("requestId") String requestId,
-      @NotEmpty @Date(fmtPattern = "yyyy-MM-dd hh:mm:ss") @RequestParam("time") String time,
-      @NotEmpty @Size(max = 30) @RequestParam("orgId") String orgId,
+      @NotEmpty @RequestParam("requestId") @Size(max = 20) String requestId,
+      @NotEmpty @RequestParam("time") @Date String time,
+      @NotEmpty @RequestParam("orgId") @Size(max = 30) String orgId,
       @NotEmpty @RequestParam("userId") String userId) {
-    RqResultHandler<NormalDataOut> handler = new RqResultHandler<>();
+    NormalDataOut<String> outData = new NormalDataOut<>(requestId, "0");
 
-    String res = "0";
+    JSONArray leaveTimes = reqForLeaveTimes(userId, orgId, time);
+    if (null != leaveTimes) {
+      outData.setData(isInLeave(time, leaveTimes) ? "0" : "1");
+    }
 
+    return new RqResultHandler<NormalDataOut>().getSuccessInvalidRqRes(outData);
+  }
+
+  private JSONArray reqForLeaveTimes(String userId, String orgId, String time) {
+    Map<String, String> params = getParams(userId, orgId, time);
+    String reqRes = HttpUtil.getMap(source.getLeaveUrl(), params);
+    log.info("请求开放平台是否请假时间参数为: {}, 返回结果为: {}", params, reqRes);
+    return getLeaveTimes(reqRes);
+  }
+
+  private JSONArray getLeaveTimes(String reqRes) {
+    try {
+      JSONObject leave = JSONObject.parseObject(reqRes).getJSONObject("data");
+      JSONArray users = leave.getJSONArray("users");
+      if (users.size() > 0) {
+        Object userLeave = users.get(0);
+        String userLeaveStr = JSONObject.toJSONString(userLeave);
+        JSONObject userLeaveJsonObj = JSONObject.parseObject(userLeaveStr);
+        return userLeaveJsonObj.getJSONArray("leaveTimes");
+      }
+    } catch (Exception ignored) {}
+    return null;
+  }
+
+  private Map<String, String> getParams(
+      String userId, String orgId, String time) throws ValidateException {
     Map<String, String> params = new HashMap<>(4);
     params.put("access_token", openCenterService.getAccessToken());
-    try {
-      params.put("day_string", new SimpleDateFormat("yyyy-MM-dd").format(new SimpleDateFormat("yyyy-MM-dd").parse(time)));
-    } catch (ParseException e) {
-      log.error("prop err, e = {}, msg = {}, stackTrace = {}",
-          e, e.getMessage(), e.getStackTrace());
-    }
     params.put("user_ids", userId);
     params.put("org_id", orgId);
-    String reqRes = HttpUtil.getMap(OPEN_CENTER_LEAVE_URL, params);
-
-
-      JSONArray userLeaveDatas = JSONObject.parseObject(reqRes).getJSONObject("data").getJSONArray("users");
-      if (userLeaveDatas.size() > 0) {
-        try {
-          Object userLeaveData = userLeaveDatas.get(0);
-          JSONArray leaveTimes = JSONObject.parseObject(JSONObject.toJSONString(userLeaveData)).getJSONArray("leaveTimes");
-
-          for (Object obj : leaveTimes) {
-            JSONObject leaveTime = JSONObject.parseObject(JSONObject.toJSONString(obj));
-            String dateStart = leaveTime.getString("leaveTime");
-            String dateEnd = leaveTime.getString("backTime");
-            if (compare(dateStart, time) == -1 || compare(dateEnd, time) == 1) {
-              res = "0";
-            } else {
-              res = "1";
-            }
-          }
-        } catch (Exception e) {
-          log.error("prop err, e = {}, msg = {}, stackTrace = {}",
-              e, e.getMessage(), e.getStackTrace());
-        }
-      }
-
-
-
-    return handler.getSuccessInvalidRqRes(new NormalDataOut<>(requestId, res));
+    params.put("day_string", getFormatTime(time));
+    return params;
   }
 
-  private static int compare(String date1, String date2) {
-    DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-    try {
-      java.util.Date dt1 = df.parse(date1);
-      java.util.Date dt2 = df.parse(date2);
-      if (dt1.getTime() > dt2.getTime()) {
-        // "dt1 在 dt2 前"
-        return 1;
-      } else if (dt1.getTime() <dt2.getTime()) {
-        // "dt1 在 dt2 后"
-        return -1;
-      } else {
-        return 0;
+  private boolean isInLeave(String time, JSONArray leaveTimes) {
+    for (Object obj : leaveTimes) {
+      String objStr = JSONObject.toJSONString(obj);
+      JSONObject leaveTime = JSONObject.parseObject(objStr);
+      String start = leaveTime.getString("leaveTime");
+      String end = leaveTime.getString("backTime");
+      if (DateUtil.isInRange(time, start, end)) {
+        return true;
       }
-    } catch (Exception exception) {
-      exception.printStackTrace();
     }
-    return 0;
+    return false;
   }
 
+  private String getFormatTime(String time) {
+    try {
+      return DateUtil.changeDateStrByPattern(time, "yyyy-MM-dd");
+    } catch (ParseException e) {
+      LogUtil.logErr(log, e);
+      throw new ValidateException("请检查日期格式!");
+    }
+  }
 
   @Autowired
-  public LeaveController(OpenCenterService openCenterService) {
+  public LeaveController(
+      OpenCenterService openCenterService,
+      OpenCenterSource openCenterSource) {
     this.openCenterService = openCenterService;
+    this.source = openCenterSource;
   }
 }

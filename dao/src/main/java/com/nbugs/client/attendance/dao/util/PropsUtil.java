@@ -8,7 +8,7 @@ import org.apache.commons.configuration.PropertiesConfiguration;
 
 /**
  * @author hongtiancai
- * create: 2018/10/26 3:52 PM
+ * @date 2018/10/26 3:52 PM
  */
 @Slf4j
 public class PropsUtil {

@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 
 /**
  * @author 洪天才
- * create: 2018/10/22 11:24 PM
+ * @date 2018/10/22 11:24 PM
  */
 @Repository
 public class UserDAO {
@@ -28,8 +28,8 @@ public class UserDAO {
   }
 
   private String getLastId() {
-    String path = source.getLocalDir() + "dept.properties";
-    String key = "dept.last-execute-id";
+    String path = source.getLocalDir() + "user.properties";
+    String key = "user.last-execute-id";
     String lastId = PropsUtil.getProp(path, key);
     return null == lastId ? "0" : lastId;
   }
