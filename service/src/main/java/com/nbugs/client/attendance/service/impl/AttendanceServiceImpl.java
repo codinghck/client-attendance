@@ -35,8 +35,7 @@ public class AttendanceServiceImpl implements AttendanceService {
     String accessToken = openCenterService.getAccessToken();
     String attendanceUrl = getAttendanceUrl(accessToken);
     String params = getTerminalAttendanceParams(dataDTOS);
-    // TODO: 等正式使用的时候再加上这一行：return HttpUtil.postJson(attendanceUrl, params)，不然呢会带来脏数据
-    return "";
+    return HttpUtil.postJson(attendanceUrl, params);
   }
 
   private String getAttendanceUrl(String accessToken) {

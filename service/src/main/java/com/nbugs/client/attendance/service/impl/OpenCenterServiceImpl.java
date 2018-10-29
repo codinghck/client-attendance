@@ -16,17 +16,38 @@ import org.springframework.stereotype.Service;
 @Service
 public class OpenCenterServiceImpl implements OpenCenterService {
   private final OpenCenterSource openCenterSource;
+  private String token;
+  private Long validTime;
+  private Long lastTime;
 
   @Override
   public String getAccessToken() {
-    Map<String, String> args = new HashMap<>(5);
-    args.put("client_id", openCenterSource.getClientId());
-    args.put("client_secret", openCenterSource.getClientSecret());
-    args.put("grant_type", openCenterSource.getGrantType());
-    args.put("response_type", openCenterSource.getResponseType());
-    String res = HttpUtil.getMap(openCenterSource.getTokenUrl(), args);
-    JSONObject jsonObject = JSONObject.parseObject(res);
-    return jsonObject.getJSONObject("data").get("accessToken").toString();
+    if (isExpired()) {
+      Map<String, String> args = new HashMap<>(5);
+      args.put("client_id", openCenterSource.getClientId());
+      args.put("client_secret", openCenterSource.getClientSecret());
+      args.put("grant_type", openCenterSource.getGrantType());
+      args.put("response_type", openCenterSource.getResponseType());
+      String res = HttpUtil.getMap(openCenterSource.getTokenUrl(), args);
+      JSONObject jsonObject = JSONObject.parseObject(res);
+      this.token = jsonObject.getJSONObject("data").get("accessToken").toString();
+      this.validTime = getValidTime(res);
+      this.lastTime = System.currentTimeMillis() / 1000;
+    }
+    return this.token;
+  }
+
+  private boolean isExpired() {
+    if (null == this.token || null == this.validTime || null == this.lastTime) {
+      return true;
+    }
+    return System.currentTimeMillis() / 1000 - this.lastTime > this.validTime;
+  }
+
+  private Long getValidTime(String res) {
+    JSONObject resJson = JSONObject.parseObject(res);
+    JSONObject data = resJson.getJSONObject("data");
+    return data.getLong("expiresIn");
   }
 
   @Autowired

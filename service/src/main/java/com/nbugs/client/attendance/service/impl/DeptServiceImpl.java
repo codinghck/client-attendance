@@ -35,8 +35,7 @@ public class DeptServiceImpl implements DeptService {
     String accessToken = openCenterService.getAccessToken();
     String sendDeptsUrl = getSendDeptsUrl(accessToken);
     String params = getSendDeptParams(dataDTOS);
-    // TODO: 等正式使用的时候再加上这一行：return HttpUtil.postJson(sendDeptsUrl, params)，不然呢会带来脏数据
-    return "";
+    return HttpUtil.postJson(sendDeptsUrl, params);
   }
 
   private String getSendDeptsUrl(String accessToken) {

@@ -35,8 +35,7 @@ public class UserServiceImpl implements UserService {
     String accessToken = openCenterService.getAccessToken();
     String sendUsersUrl = getSendUsersUrl(accessToken);
     String params = getSendUserParams(dataDTOS);
-    // TODO: 等正式使用的时候再加上这一行：return HttpUtil.postJson(sendUsersUrl, params)，不然呢会带来脏数据
-    return "";
+    return HttpUtil.postJson(sendUsersUrl, params);
   }
 
   private String getSendUsersUrl(String accessToken) {
