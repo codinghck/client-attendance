@@ -114,6 +114,8 @@
   </dependencies>
 
   <build>
+    <!-- pom.xml - build 加入 finalName。避免生成 war 包名歧义-->
+    <finalName>ClientAttendance</finalName>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

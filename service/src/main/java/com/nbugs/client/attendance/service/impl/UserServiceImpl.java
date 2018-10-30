@@ -35,15 +35,15 @@ public class UserServiceImpl implements UserService {
     String accessToken = openCenterService.getAccessToken();
     String sendUsersUrl = getSendUsersUrl(accessToken);
     String params = getSendUserParams(dataDTOS);
-    return HttpUtil.postJson(sendUsersUrl, params);
+//    return HttpUtil.postJson(sendUsersUrl, params);
+    return "";
   }
 
   private String getSendUsersUrl(String accessToken) {
     String sendUsersUrl = userSource.getSendUserUrl();
     Map<String, String> args = new HashMap<>(1);
     args.put("access_token", accessToken);
-//    return HttpUtil.addMapToUrl(sendUsersUrl, args);
-    return "";
+    return HttpUtil.addMapToUrl(sendUsersUrl, args);
   }
 
   private String getSendUserParams(List<UserDataDTO> dataDTOS) {

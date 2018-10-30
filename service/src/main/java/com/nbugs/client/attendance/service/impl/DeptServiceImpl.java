@@ -35,15 +35,15 @@ public class DeptServiceImpl implements DeptService {
     String accessToken = openCenterService.getAccessToken();
     String sendDeptsUrl = getSendDeptsUrl(accessToken);
     String params = getSendDeptParams(dataDTOS);
-    return HttpUtil.postJson(sendDeptsUrl, params);
+    return "";
+//    return HttpUtil.postJson(sendDeptsUrl, params);
   }
 
   private String getSendDeptsUrl(String accessToken) {
     String sendDeptsUrl = deptSource.getSendDeptUrl();
     Map<String, String> args = new HashMap<>(1);
     args.put("access_token", accessToken);
-//    return HttpUtil.addMapToUrl(sendDeptsUrl, args);
-    return "";
+    return HttpUtil.addMapToUrl(sendDeptsUrl, args);
   }
 
   private String getSendDeptParams(List<DeptDataDTO> dataDTOS) {

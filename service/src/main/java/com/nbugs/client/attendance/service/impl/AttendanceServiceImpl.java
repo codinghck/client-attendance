@@ -35,15 +35,15 @@ public class AttendanceServiceImpl implements AttendanceService {
     String accessToken = openCenterService.getAccessToken();
     String attendanceUrl = getAttendanceUrl(accessToken);
     String params = getTerminalAttendanceParams(dataDTOS);
-    return HttpUtil.postJson(attendanceUrl, params);
+//    return HttpUtil.postJson(attendanceUrl, params);
+    return "";
   }
 
   private String getAttendanceUrl(String accessToken) {
     String terminalAttendanceUrl = attendanceSource.getTerminalAttendanceUrl();
     Map<String, String> args = new HashMap<>(1);
     args.put("access_token", accessToken);
-//    return HttpUtil.addMapToUrl(terminalAttendanceUrl, args);
-    return "";
+    return HttpUtil.addMapToUrl(terminalAttendanceUrl, args);
   }
 
   private String getTerminalAttendanceParams(List<AttendanceDataDTO> dataDTOS) {
