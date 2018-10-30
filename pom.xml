@@ -94,9 +94,14 @@
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>com.hongtiancai</groupId>
+        <groupId>com.hongtiancai.base.util.common</groupId>
         <artifactId>base-util</artifactId>
-        <version>1.0.5-RELEASE</version>
+        <version>1.0.6-RELEASE</version>
+      </dependency>
+      <dependency>
+        <groupId>com.hongtiancai.base.util</groupId>
+        <artifactId>validation</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

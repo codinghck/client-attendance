@@ -1,14 +1,14 @@
 package com.nbugs.client.attendance.web.aspect;
 
 import com.alibaba.fastjson.JSONObject;
-import com.hck.util.base.BaseUtil;
-import com.hck.util.request.ErrData;
-import com.hck.util.request.RqResult;
-import com.hck.util.request.RqResultHandler;
-import com.hck.util.validate.checker.CheckHandler;
-import com.hck.util.validate.exception.ListParamException;
-import com.hck.util.validate.exception.ListParamsException;
-import com.hck.util.validate.pojo.ErrListDataOut;
+import com.hongtiancai.base.util.common.base.BaseUtil;
+import com.hongtiancai.base.util.validation.checker.CheckHandler;
+import com.hongtiancai.base.util.validation.exception.ListParamException;
+import com.hongtiancai.base.util.validation.exception.ListParamsException;
+import com.hongtiancai.base.util.validation.pojo.ErrListDataOut;
+import com.hongtiancai.base.util.validation.request.ErrData;
+import com.hongtiancai.base.util.validation.request.RqResult;
+import com.hongtiancai.base.util.validation.request.RqResultHandler;
 import java.lang.annotation.Annotation;
 import java.util.ArrayList;
 import java.util.List;

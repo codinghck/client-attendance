@@ -22,7 +22,7 @@
       <artifactId>dao</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.hongtiancai</groupId>
+      <groupId>com.hongtiancai.base.util.common</groupId>
       <artifactId>base-util</artifactId>
     </dependency>
   </dependencies>

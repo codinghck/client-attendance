@@ -2,8 +2,8 @@ package com.nbugs.client.attendance.service.impl;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.hck.util.base.BaseUtil;
-import com.hck.util.http.HttpUtil;
+import com.hongtiancai.base.util.common.base.BaseUtil;
+import com.hongtiancai.base.util.common.http.HttpUtil;
 import com.nbugs.client.attendance.dao.UserDAO;
 import com.nbugs.client.attendance.dao.pojo.UserDataDTO;
 import com.nbugs.client.attendance.service.OpenCenterService;
@@ -42,7 +42,8 @@ public class UserServiceImpl implements UserService {
     String sendUsersUrl = userSource.getSendUserUrl();
     Map<String, String> args = new HashMap<>(1);
     args.put("access_token", accessToken);
-    return HttpUtil.addMapToUrl(sendUsersUrl, args);
+//    return HttpUtil.addMapToUrl(sendUsersUrl, args);
+    return "";
   }
 
   private String getSendUserParams(List<UserDataDTO> dataDTOS) {

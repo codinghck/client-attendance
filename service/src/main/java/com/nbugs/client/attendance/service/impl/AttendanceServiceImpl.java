@@ -2,8 +2,8 @@ package com.nbugs.client.attendance.service.impl;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.hck.util.base.BaseUtil;
-import com.hck.util.http.HttpUtil;
+import com.hongtiancai.base.util.common.base.BaseUtil;
+import com.hongtiancai.base.util.common.http.HttpUtil;
 import com.nbugs.client.attendance.dao.AttendanceDAO;
 import com.nbugs.client.attendance.dao.pojo.AttendanceDataDTO;
 import com.nbugs.client.attendance.service.AttendanceService;
@@ -42,7 +42,8 @@ public class AttendanceServiceImpl implements AttendanceService {
     String terminalAttendanceUrl = attendanceSource.getTerminalAttendanceUrl();
     Map<String, String> args = new HashMap<>(1);
     args.put("access_token", accessToken);
-    return HttpUtil.addMapToUrl(terminalAttendanceUrl, args);
+//    return HttpUtil.addMapToUrl(terminalAttendanceUrl, args);
+    return "";
   }
 
   private String getTerminalAttendanceParams(List<AttendanceDataDTO> dataDTOS) {

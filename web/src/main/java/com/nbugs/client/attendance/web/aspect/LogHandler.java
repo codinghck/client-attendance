@@ -1,16 +1,11 @@
 package com.nbugs.client.attendance.web.aspect;
 
-import com.alibaba.fastjson.JSONObject;
-import com.hck.util.base.BaseUtil;
-import com.hck.util.request.RqResult;
-import java.util.Arrays;
-import lombok.extern.log4j.Log4j;
-import lombok.extern.log4j.Log4j2;
+import com.hongtiancai.base.util.common.base.LogUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
-import org.aspectj.lang.reflect.CodeSignature;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
@@ -21,22 +16,16 @@ import org.springframework.stereotype.Component;
  */
 @Aspect
 @Component
-@Order(10)
-@Log4j2
+@Order(1)
+@Slf4j
 public class LogHandler {
   @Pointcut("execution(public * com..controller..*.*(..))")
   public void logHandle() {}
 
   @Around("logHandle()")
-  @SuppressWarnings("unchecked")
-  public  <T> RqResult<T> doLog(ProceedingJoinPoint pjp) throws Throwable {
-    RqResult<T> res = (RqResult<T>)pjp.proceed();
-    log.info("className = " + pjp.getTarget().getClass().getName()
-        + ", methodName = " + pjp.getSignature().getName()
-        + ", paramNames = " + Arrays.toString(((CodeSignature) pjp.getSignature()).getParameterNames())
-        + ", paramArgs = " + Arrays.toString(pjp.getArgs())
-        + ", returnValue = " + JSONObject.toJSONString(res)
-        + ", time = " + BaseUtil.getCurrTime());
+  public Object doLog(ProceedingJoinPoint pjp) throws Throwable {
+    Object res = pjp.proceed();
+    LogUtil.aspectLogWithRes(log, pjp, res);
     return res;
   }
 }

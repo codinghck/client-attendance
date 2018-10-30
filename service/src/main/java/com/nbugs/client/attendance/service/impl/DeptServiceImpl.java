@@ -2,8 +2,8 @@ package com.nbugs.client.attendance.service.impl;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.hck.util.base.BaseUtil;
-import com.hck.util.http.HttpUtil;
+import com.hongtiancai.base.util.common.base.BaseUtil;
+import com.hongtiancai.base.util.common.http.HttpUtil;
 import com.nbugs.client.attendance.dao.DeptDAO;
 import com.nbugs.client.attendance.dao.pojo.DeptDataDTO;
 import com.nbugs.client.attendance.service.DeptService;
@@ -42,7 +42,8 @@ public class DeptServiceImpl implements DeptService {
     String sendDeptsUrl = deptSource.getSendDeptUrl();
     Map<String, String> args = new HashMap<>(1);
     args.put("access_token", accessToken);
-    return HttpUtil.addMapToUrl(sendDeptsUrl, args);
+//    return HttpUtil.addMapToUrl(sendDeptsUrl, args);
+    return "";
   }
 
   private String getSendDeptParams(List<DeptDataDTO> dataDTOS) {

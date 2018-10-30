@@ -1,7 +1,7 @@
 package com.nbugs.client.attendance.web.aspect;
 
 import com.alibaba.fastjson.JSONObject;
-import com.hck.util.validate.exception.ValidateException;
+import com.hongtiancai.base.util.validation.exception.ValidateException;
 import java.util.ArrayList;
 import java.util.List;
 
