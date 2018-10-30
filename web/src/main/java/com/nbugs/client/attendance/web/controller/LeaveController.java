@@ -15,11 +15,15 @@ import com.hongtiancai.base.util.validation.request.RqResult;
 import com.hongtiancai.base.util.validation.request.RqResultHandler;
 import com.nbugs.client.attendance.dao.source.OpenCenterSource;
 import com.nbugs.client.attendance.service.OpenCenterService;
+import com.nbugs.client.attendance.web.controller.pojo.LeaveParam;
+import com.nbugs.client.attendance.web.controller.pojo.Param;
 import java.text.ParseException;
 import java.util.HashMap;
 import java.util.Map;
+import javax.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -37,21 +41,29 @@ public class LeaveController {
   private final OpenCenterService openCenterService;
   private final OpenCenterSource source;
 
-  @RequestMapping(value = "/is_on_leave", method = RequestMethod.GET)
-  public RqResult<NormalDataOut> isOnLeaveTime(
-      @NotEmpty @RequestParam("requestId") @Size(max = 20) String requestId,
-      @NotEmpty @RequestParam("time") @Date String time,
-      @NotEmpty @RequestParam("orgId") @Size(max = 30) String orgId,
-      @NotEmpty @RequestParam("userId") String userId) {
-    NormalDataOut<String> outData = new NormalDataOut<>(requestId, "0");
+  @RequestMapping(value = "/is_on_leave", method = RequestMethod.POST)
+  public RqResult<NormalDataOut> isOnLeaveTime(@RequestBody @Valid Param<LeaveParam> param) {
+    NormalDataOut<String> outData = new NormalDataOut<>("dd", "0");
 
-    JSONArray leaveTimes = reqForLeaveTimes(userId, orgId, time);
-    if (null != leaveTimes) {
-      outData.setData(isInLeave(time, leaveTimes) ? "0" : "1");
-    }
 
     return new RqResultHandler<NormalDataOut>().getSuccessInvalidRqRes(outData);
   }
+
+//  @RequestMapping(value = "/is_on_leave", method = RequestMethod.GET)
+//  public RqResult<NormalDataOut> isOnLeaveTime(
+//      @NotEmpty @RequestParam("requestId") @Size(max = 20) String requestId,
+//      @NotEmpty @RequestParam("time") @Date String time,
+//      @NotEmpty @RequestParam("orgId") @Size(max = 30) String orgId,
+//      @NotEmpty @RequestParam("userId") String userId) {
+//    NormalDataOut<String> outData = new NormalDataOut<>(requestId, "0");
+//
+//    JSONArray leaveTimes = reqForLeaveTimes(userId, orgId, time);
+//    if (null != leaveTimes) {
+//      outData.setData(isInLeave(time, leaveTimes) ? "0" : "1");
+//    }
+//
+//    return new RqResultHandler<NormalDataOut>().getSuccessInvalidRqRes(outData);
+//  }
 
   private JSONArray reqForLeaveTimes(String userId, String orgId, String time) {
     Map<String, String> params = getParams(userId, orgId, time);
