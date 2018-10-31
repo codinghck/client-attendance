@@ -1,0 +1,898 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>Logback Log Messages</title>
+<style  type="text/css">
+table { margin-left: 2em; margin-right: 2em; border-left: 2px solid #AAA; }
+TR.even { background: #FFFFFF; }
+TR.odd { background: #EAEAEA; }
+TR.warn TD.Level, TR.error TD.Level, TR.fatal TD.Level {font-weight: bold; color: #FF4040 }
+TD { padding-right: 1ex; padding-left: 1ex; border-right: 2px solid #AAA; }
+TD.Time, TD.Date { text-align: right; font-family: courier, monospace; font-size: smaller; }
+TD.Thread { text-align: left; }
+TD.Level { text-align: right; }
+TD.Logger { text-align: left; }
+TR.header { background: #596ED5; color: #FFF; font-weight: bold; font-size: larger; }
+TD.Exception { background: #A2AEE8; font-family: courier, monospace;}
+</style>
+
+  </head>
+<body>
+<hr/>
+<p>Log session start time Wed Oct 31 12:24:14 CST 2018</p><p></p>
+
+<table cellspacing="0">
+<tr class="header">
+<td class="Date">Date</td>
+<td class="Literal">Literal</td>
+<td class="Thread">Thread</td>
+<td class="Literal">Literal</td>
+<td class="Level">Level</td>
+<td class="Literal">Literal</td>
+<td class="Logger">Logger</td>
+<td class="Literal">Literal</td>
+<td class="Message">Message</td>
+<td class="LineSeparator">LineSeparator</td>
+</tr>
+
+</table>
+</body></html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>Logback Log Messages</title>
+<style  type="text/css">
+table { margin-left: 2em; margin-right: 2em; border-left: 2px solid #AAA; }
+TR.even { background: #FFFFFF; }
+TR.odd { background: #EAEAEA; }
+TR.warn TD.Level, TR.error TD.Level, TR.fatal TD.Level {font-weight: bold; color: #FF4040 }
+TD { padding-right: 1ex; padding-left: 1ex; border-right: 2px solid #AAA; }
+TD.Time, TD.Date { text-align: right; font-family: courier, monospace; font-size: smaller; }
+TD.Thread { text-align: left; }
+TD.Level { text-align: right; }
+TD.Logger { text-align: left; }
+TR.header { background: #596ED5; color: #FFF; font-weight: bold; font-size: larger; }
+TD.Exception { background: #A2AEE8; font-family: courier, monospace;}
+</style>
+
+  </head>
+<body>
+<hr/>
+<p>Log session start time Wed Oct 31 12:24:15 CST 2018</p><p></p>
+
+<table cellspacing="0">
+<tr class="header">
+<td class="Date">Date</td>
+<td class="Literal">Literal</td>
+<td class="Thread">Thread</td>
+<td class="Literal">Literal</td>
+<td class="Level">Level</td>
+<td class="Literal">Literal</td>
+<td class="Logger">Logger</td>
+<td class="Literal">Literal</td>
+<td class="Message">Message</td>
+<td class="LineSeparator">LineSeparator</td>
+</tr>
+
+
+<tr class="error even">
+<td class="Date">2018-10-31 12:24:23.021</td>
+<td class="Literal"> [</td>
+<td class="Thread">pool-2-thread-1</td>
+<td class="Literal">] </td>
+<td class="Level">ERROR</td>
+<td class="Literal"> </td>
+<td class="Logger">com.nbugs.client.attendance.dao.util.PropsUtil</td>
+<td class="Literal"> - </td>
+<td class="Message">prop err, e = java.io.IOException: No such file or directory, msg = No such file or directory, stackTrace = [java.io.UnixFileSystem.createFileExclusively(Native Method), java.io.File.createNewFile(File.java:1012), com.nbugs.client.attendance.dao.util.PropsUtil.createFile(PropsUtil.java:54), com.nbugs.client.attendance.dao.util.PropsUtil.createIfNotExist(PropsUtil.java:48), com.nbugs.client.attendance.dao.util.PropsUtil.getProp(PropsUtil.java:36), com.nbugs.client.attendance.dao.DeptDAO.getLastId(DeptDAO.java:33), com.nbugs.client.attendance.dao.DeptDAO.getAttendance(DeptDAO.java:25), com.nbugs.client.attendance.dao.DeptDAO$$FastClassBySpringCGLIB$$d209c061.invoke(&lt;generated&gt;), org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204), org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746), org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163), org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139), org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185), org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688), com.nbugs.client.attendance.dao.DeptDAO$$EnhancerBySpringCGLIB$$efdf870e.getAttendance(&lt;generated&gt;), com.nbugs.client.attendance.service.impl.DeptServiceImpl.getLocalDepts(DeptServiceImpl.java:30), com.nbugs.client.attendance.task.tasks.DeptTask.doTask(DeptTask.java:28), sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method), sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62), sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43), java.lang.reflect.Method.invoke(Method.java:498), org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84), org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54), org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:93), java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511), java.util.concurrent.FutureTask.run(FutureTask.java:266), java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180), java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293), java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149), java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624), java.lang.Thread.run(Thread.java:748)]</td>
+<td class="LineSeparator">
+</td>
+</tr>
+
+<tr class="error odd">
+<td class="Date">2018-10-31 12:24:23.062</td>
+<td class="Literal"> [</td>
+<td class="Thread">pool-2-thread-1</td>
+<td class="Literal">] </td>
+<td class="Level">ERROR</td>
+<td class="Literal"> </td>
+<td class="Logger">com.nbugs.client.attendance.dao.util.PropsUtil</td>
+<td class="Literal"> - </td>
+<td class="Message">prop err, e = org.apache.commons.configuration.ConfigurationException: Unable to load the configuration file C:/tomcat8/dept.properties, msg = Unable to load the configuration file C:/tomcat8/dept.properties, stackTrace = [org.apache.commons.configuration.AbstractFileConfiguration.load(AbstractFileConfiguration.java:269), org.apache.commons.configuration.AbstractFileConfiguration.load(AbstractFileConfiguration.java:238), org.apache.commons.configuration.AbstractFileConfiguration.&lt;init&gt;(AbstractFileConfiguration.java:158), org.apache.commons.configuration.PropertiesConfiguration.&lt;init&gt;(PropertiesConfiguration.java:253), com.nbugs.client.attendance.dao.util.PropsUtil.getProp(PropsUtil.java:37), com.nbugs.client.attendance.dao.DeptDAO.getLastId(DeptDAO.java:33), com.nbugs.client.attendance.dao.DeptDAO.getAttendance(DeptDAO.java:25), com.nbugs.client.attendance.dao.DeptDAO$$FastClassBySpringCGLIB$$d209c061.invoke(&lt;generated&gt;), org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204), org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746), org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163), org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139), org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185), org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688), com.nbugs.client.attendance.dao.DeptDAO$$EnhancerBySpringCGLIB$$efdf870e.getAttendance(&lt;generated&gt;), com.nbugs.client.attendance.service.impl.DeptServiceImpl.getLocalDepts(DeptServiceImpl.java:30), com.nbugs.client.attendance.task.tasks.DeptTask.doTask(DeptTask.java:28), sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method), sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62), sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43), java.lang.reflect.Method.invoke(Method.java:498), org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84), org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54), org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:93), java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511), java.util.concurrent.FutureTask.run(FutureTask.java:266), java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180), java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293), java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149), java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624), java.lang.Thread.run(Thread.java:748)]</td>
+<td class="LineSeparator">
+</td>
+</tr>
+
+<tr class="error even">
+<td class="Date">2018-10-31 12:24:24.304</td>
+<td class="Literal"> [</td>
+<td class="Thread">pool-2-thread-1</td>
+<td class="Literal">] </td>
+<td class="Level">ERROR</td>
+<td class="Literal"> </td>
+<td class="Logger">com.zaxxer.hikari.pool.HikariPool</td>
+<td class="Literal"> - </td>
+<td class="Message">HikariPool-1 - Exception during pool initialization.</td>
+<td class="LineSeparator">
+</td>
+</tr>
+<tr><td class="Exception" colspan="6">com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:990)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.MysqlIO.&lt;init&gt;(MysqlIO.java:342)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2197)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2230)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2025)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.&lt;init&gt;(ConnectionImpl.java:778)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.JDBC4Connection.&lt;init&gt;(JDBC4Connection.java:47)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:386)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:330)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:117)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:123)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:365)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:194)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:460)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:534)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.HikariPool.&lt;init&gt;(HikariPool.java:115)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:151)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:115)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:78)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:600)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:657)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:688)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:700)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:751)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.dao.DeptDAO.getAttendance(DeptDAO.java:24)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.dao.DeptDAO$$FastClassBySpringCGLIB$$d209c061.invoke(&lt;generated&gt;)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.dao.DeptDAO$$EnhancerBySpringCGLIB$$efdf870e.getAttendance(&lt;generated&gt;)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.service.impl.DeptServiceImpl.getLocalDepts(DeptServiceImpl.java:30)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.task.tasks.DeptTask.doTask(DeptTask.java:28)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.reflect.Method.invoke(Method.java:498)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:93)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.Thread.run(Thread.java:748)
+<br />Caused by: java.net.UnknownHostException: 47.98.374.61: nodename nor servname provided, or not known
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.InetAddress$2.lookupAllHostAddr(InetAddress.java:928)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1323)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.InetAddress.getAllByName0(InetAddress.java:1276)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.InetAddress.getAllByName(InetAddress.java:1192)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.InetAddress.getAllByName(InetAddress.java:1126)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:188)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.MysqlIO.&lt;init&gt;(MysqlIO.java:301)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;	... 53 common frames omitted
+</td></tr>
+<tr class="error odd">
+<td class="Date">2018-10-31 12:24:24.316</td>
+<td class="Literal"> [</td>
+<td class="Thread">pool-2-thread-1</td>
+<td class="Literal">] </td>
+<td class="Level">ERROR</td>
+<td class="Literal"> </td>
+<td class="Logger">org.springframework.scheduling.support.TaskUtils$LoggingErrorHandler</td>
+<td class="Literal"> - </td>
+<td class="Message">Unexpected error occurred in scheduled task.</td>
+<td class="LineSeparator">
+</td>
+</tr>
+<tr><td class="Exception" colspan="6">org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:81)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:600)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:657)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:688)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:700)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:751)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.dao.DeptDAO.getAttendance(DeptDAO.java:24)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.dao.DeptDAO$$FastClassBySpringCGLIB$$d209c061.invoke(&lt;generated&gt;)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.dao.DeptDAO$$EnhancerBySpringCGLIB$$efdf870e.getAttendance(&lt;generated&gt;)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.service.impl.DeptServiceImpl.getLocalDepts(DeptServiceImpl.java:30)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.task.tasks.DeptTask.doTask(DeptTask.java:28)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.reflect.Method.invoke(Method.java:498)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:93)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.Thread.run(Thread.java:748)
+<br />Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:990)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.MysqlIO.&lt;init&gt;(MysqlIO.java:342)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2197)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2230)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2025)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.&lt;init&gt;(ConnectionImpl.java:778)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.JDBC4Connection.&lt;init&gt;(JDBC4Connection.java:47)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:386)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:330)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:117)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:123)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:365)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:194)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:460)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:534)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.HikariPool.&lt;init&gt;(HikariPool.java:115)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:151)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:115)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:78)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;	... 30 common frames omitted
+<br />Caused by: java.net.UnknownHostException: 47.98.374.61: nodename nor servname provided, or not known
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.InetAddress$2.lookupAllHostAddr(InetAddress.java:928)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1323)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.InetAddress.getAllByName0(InetAddress.java:1276)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.InetAddress.getAllByName(InetAddress.java:1192)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.InetAddress.getAllByName(InetAddress.java:1126)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:188)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.MysqlIO.&lt;init&gt;(MysqlIO.java:301)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;	... 53 common frames omitted
+</td></tr>
+<tr class="error even">
+<td class="Date">2018-10-31 12:24:30.011</td>
+<td class="Literal"> [</td>
+<td class="Thread">pool-2-thread-1</td>
+<td class="Literal">] </td>
+<td class="Level">ERROR</td>
+<td class="Literal"> </td>
+<td class="Logger">com.nbugs.client.attendance.dao.util.PropsUtil</td>
+<td class="Literal"> - </td>
+<td class="Message">prop err, e = java.io.IOException: No such file or directory, msg = No such file or directory, stackTrace = [java.io.UnixFileSystem.createFileExclusively(Native Method), java.io.File.createNewFile(File.java:1012), com.nbugs.client.attendance.dao.util.PropsUtil.createFile(PropsUtil.java:54), com.nbugs.client.attendance.dao.util.PropsUtil.createIfNotExist(PropsUtil.java:48), com.nbugs.client.attendance.dao.util.PropsUtil.getProp(PropsUtil.java:36), com.nbugs.client.attendance.dao.AttendanceDAO.getLastId(AttendanceDAO.java:43), com.nbugs.client.attendance.dao.AttendanceDAO.getAttendance(AttendanceDAO.java:26), com.nbugs.client.attendance.dao.AttendanceDAO$$FastClassBySpringCGLIB$$caa59a3d.invoke(&lt;generated&gt;), org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204), org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746), org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163), org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139), org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185), org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688), com.nbugs.client.attendance.dao.AttendanceDAO$$EnhancerBySpringCGLIB$$430c1e22.getAttendance(&lt;generated&gt;), com.nbugs.client.attendance.service.impl.AttendanceServiceImpl.getLocalAttendances(AttendanceServiceImpl.java:30), com.nbugs.client.attendance.task.tasks.AttendanceTask.doTask(AttendanceTask.java:28), sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method), sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62), sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43), java.lang.reflect.Method.invoke(Method.java:498), org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84), org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54), org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:93), java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511), java.util.concurrent.FutureTask.run(FutureTask.java:266), java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180), java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293), java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149), java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624), java.lang.Thread.run(Thread.java:748)]</td>
+<td class="LineSeparator">
+</td>
+</tr>
+
+<tr class="error odd">
+<td class="Date">2018-10-31 12:24:30.014</td>
+<td class="Literal"> [</td>
+<td class="Thread">pool-2-thread-1</td>
+<td class="Literal">] </td>
+<td class="Level">ERROR</td>
+<td class="Literal"> </td>
+<td class="Logger">com.nbugs.client.attendance.dao.util.PropsUtil</td>
+<td class="Literal"> - </td>
+<td class="Message">prop err, e = org.apache.commons.configuration.ConfigurationException: Unable to load the configuration file C:/tomcat8/attendance.properties, msg = Unable to load the configuration file C:/tomcat8/attendance.properties, stackTrace = [org.apache.commons.configuration.AbstractFileConfiguration.load(AbstractFileConfiguration.java:269), org.apache.commons.configuration.AbstractFileConfiguration.load(AbstractFileConfiguration.java:238), org.apache.commons.configuration.AbstractFileConfiguration.&lt;init&gt;(AbstractFileConfiguration.java:158), org.apache.commons.configuration.PropertiesConfiguration.&lt;init&gt;(PropertiesConfiguration.java:253), com.nbugs.client.attendance.dao.util.PropsUtil.getProp(PropsUtil.java:37), com.nbugs.client.attendance.dao.AttendanceDAO.getLastId(AttendanceDAO.java:43), com.nbugs.client.attendance.dao.AttendanceDAO.getAttendance(AttendanceDAO.java:26), com.nbugs.client.attendance.dao.AttendanceDAO$$FastClassBySpringCGLIB$$caa59a3d.invoke(&lt;generated&gt;), org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204), org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746), org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163), org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139), org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185), org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688), com.nbugs.client.attendance.dao.AttendanceDAO$$EnhancerBySpringCGLIB$$430c1e22.getAttendance(&lt;generated&gt;), com.nbugs.client.attendance.service.impl.AttendanceServiceImpl.getLocalAttendances(AttendanceServiceImpl.java:30), com.nbugs.client.attendance.task.tasks.AttendanceTask.doTask(AttendanceTask.java:28), sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method), sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62), sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43), java.lang.reflect.Method.invoke(Method.java:498), org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84), org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54), org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:93), java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511), java.util.concurrent.FutureTask.run(FutureTask.java:266), java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180), java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293), java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149), java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624), java.lang.Thread.run(Thread.java:748)]</td>
+<td class="LineSeparator">
+</td>
+</tr>
+
+<tr class="error even">
+<td class="Date">2018-10-31 12:24:31.030</td>
+<td class="Literal"> [</td>
+<td class="Thread">pool-2-thread-1</td>
+<td class="Literal">] </td>
+<td class="Level">ERROR</td>
+<td class="Literal"> </td>
+<td class="Logger">com.zaxxer.hikari.pool.HikariPool</td>
+<td class="Literal"> - </td>
+<td class="Message">HikariPool-2 - Exception during pool initialization.</td>
+<td class="LineSeparator">
+</td>
+</tr>
+<tr><td class="Exception" colspan="6">com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:990)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.MysqlIO.&lt;init&gt;(MysqlIO.java:342)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2197)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2230)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2025)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.&lt;init&gt;(ConnectionImpl.java:778)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.JDBC4Connection.&lt;init&gt;(JDBC4Connection.java:47)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:386)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:330)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:117)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:123)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:365)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:194)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:460)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:534)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.HikariPool.&lt;init&gt;(HikariPool.java:115)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:151)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:115)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:78)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:600)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:657)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:688)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:700)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:751)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.dao.AttendanceDAO.getAttendance(AttendanceDAO.java:25)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.dao.AttendanceDAO$$FastClassBySpringCGLIB$$caa59a3d.invoke(&lt;generated&gt;)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.dao.AttendanceDAO$$EnhancerBySpringCGLIB$$430c1e22.getAttendance(&lt;generated&gt;)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.service.impl.AttendanceServiceImpl.getLocalAttendances(AttendanceServiceImpl.java:30)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.task.tasks.AttendanceTask.doTask(AttendanceTask.java:28)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.reflect.Method.invoke(Method.java:498)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:93)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.Thread.run(Thread.java:748)
+<br />Caused by: java.net.UnknownHostException: 417.98.37.61: nodename nor servname provided, or not known
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.InetAddress$2.lookupAllHostAddr(InetAddress.java:928)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1323)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.InetAddress.getAllByName0(InetAddress.java:1276)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.InetAddress.getAllByName(InetAddress.java:1192)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.InetAddress.getAllByName(InetAddress.java:1126)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:188)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.MysqlIO.&lt;init&gt;(MysqlIO.java:301)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;	... 53 common frames omitted
+</td></tr>
+<tr class="error odd">
+<td class="Date">2018-10-31 12:24:31.041</td>
+<td class="Literal"> [</td>
+<td class="Thread">pool-2-thread-1</td>
+<td class="Literal">] </td>
+<td class="Level">ERROR</td>
+<td class="Literal"> </td>
+<td class="Logger">org.springframework.scheduling.support.TaskUtils$LoggingErrorHandler</td>
+<td class="Literal"> - </td>
+<td class="Message">Unexpected error occurred in scheduled task.</td>
+<td class="LineSeparator">
+</td>
+</tr>
+<tr><td class="Exception" colspan="6">org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:81)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:600)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:657)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:688)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:700)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:751)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.dao.AttendanceDAO.getAttendance(AttendanceDAO.java:25)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.dao.AttendanceDAO$$FastClassBySpringCGLIB$$caa59a3d.invoke(&lt;generated&gt;)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.dao.AttendanceDAO$$EnhancerBySpringCGLIB$$430c1e22.getAttendance(&lt;generated&gt;)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.service.impl.AttendanceServiceImpl.getLocalAttendances(AttendanceServiceImpl.java:30)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.task.tasks.AttendanceTask.doTask(AttendanceTask.java:28)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.reflect.Method.invoke(Method.java:498)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:93)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.Thread.run(Thread.java:748)
+<br />Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:990)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.MysqlIO.&lt;init&gt;(MysqlIO.java:342)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2197)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2230)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2025)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.&lt;init&gt;(ConnectionImpl.java:778)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.JDBC4Connection.&lt;init&gt;(JDBC4Connection.java:47)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:386)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:330)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:117)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:123)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:365)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:194)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:460)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:534)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.HikariPool.&lt;init&gt;(HikariPool.java:115)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:151)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:115)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:78)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;	... 30 common frames omitted
+<br />Caused by: java.net.UnknownHostException: 417.98.37.61: nodename nor servname provided, or not known
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.InetAddress$2.lookupAllHostAddr(InetAddress.java:928)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1323)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.InetAddress.getAllByName0(InetAddress.java:1276)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.InetAddress.getAllByName(InetAddress.java:1192)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.InetAddress.getAllByName(InetAddress.java:1126)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:188)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.MysqlIO.&lt;init&gt;(MysqlIO.java:301)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;	... 53 common frames omitted
+</td></tr>
+<tr class="error even">
+<td class="Date">2018-10-31 12:24:31.062</td>
+<td class="Literal"> [</td>
+<td class="Thread">pool-2-thread-1</td>
+<td class="Literal">] </td>
+<td class="Level">ERROR</td>
+<td class="Literal"> </td>
+<td class="Logger">com.nbugs.client.attendance.dao.util.PropsUtil</td>
+<td class="Literal"> - </td>
+<td class="Message">prop err, e = java.io.IOException: No such file or directory, msg = No such file or directory, stackTrace = [java.io.UnixFileSystem.createFileExclusively(Native Method), java.io.File.createNewFile(File.java:1012), com.nbugs.client.attendance.dao.util.PropsUtil.createFile(PropsUtil.java:54), com.nbugs.client.attendance.dao.util.PropsUtil.createIfNotExist(PropsUtil.java:48), com.nbugs.client.attendance.dao.util.PropsUtil.getProp(PropsUtil.java:36), com.nbugs.client.attendance.dao.UserDAO.getLastId(UserDAO.java:33), com.nbugs.client.attendance.dao.UserDAO.getUsers(UserDAO.java:25), com.nbugs.client.attendance.dao.UserDAO$$FastClassBySpringCGLIB$$6c9b9d1b.invoke(&lt;generated&gt;), org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204), org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746), org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163), org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139), org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185), org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688), com.nbugs.client.attendance.dao.UserDAO$$EnhancerBySpringCGLIB$$4a9fe17c.getUsers(&lt;generated&gt;), com.nbugs.client.attendance.service.impl.UserServiceImpl.getLocalUsers(UserServiceImpl.java:30), com.nbugs.client.attendance.task.tasks.UserTask.doTask(UserTask.java:29), sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method), sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62), sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43), java.lang.reflect.Method.invoke(Method.java:498), org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84), org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54), org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:93), java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511), java.util.concurrent.FutureTask.run(FutureTask.java:266), java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180), java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293), java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149), java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624), java.lang.Thread.run(Thread.java:748)]</td>
+<td class="LineSeparator">
+</td>
+</tr>
+
+<tr class="error odd">
+<td class="Date">2018-10-31 12:24:31.074</td>
+<td class="Literal"> [</td>
+<td class="Thread">pool-2-thread-1</td>
+<td class="Literal">] </td>
+<td class="Level">ERROR</td>
+<td class="Literal"> </td>
+<td class="Logger">com.nbugs.client.attendance.dao.util.PropsUtil</td>
+<td class="Literal"> - </td>
+<td class="Message">prop err, e = org.apache.commons.configuration.ConfigurationException: Unable to load the configuration file C:/tomcat8/user.properties, msg = Unable to load the configuration file C:/tomcat8/user.properties, stackTrace = [org.apache.commons.configuration.AbstractFileConfiguration.load(AbstractFileConfiguration.java:269), org.apache.commons.configuration.AbstractFileConfiguration.load(AbstractFileConfiguration.java:238), org.apache.commons.configuration.AbstractFileConfiguration.&lt;init&gt;(AbstractFileConfiguration.java:158), org.apache.commons.configuration.PropertiesConfiguration.&lt;init&gt;(PropertiesConfiguration.java:253), com.nbugs.client.attendance.dao.util.PropsUtil.getProp(PropsUtil.java:37), com.nbugs.client.attendance.dao.UserDAO.getLastId(UserDAO.java:33), com.nbugs.client.attendance.dao.UserDAO.getUsers(UserDAO.java:25), com.nbugs.client.attendance.dao.UserDAO$$FastClassBySpringCGLIB$$6c9b9d1b.invoke(&lt;generated&gt;), org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204), org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746), org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163), org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139), org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185), org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688), com.nbugs.client.attendance.dao.UserDAO$$EnhancerBySpringCGLIB$$4a9fe17c.getUsers(&lt;generated&gt;), com.nbugs.client.attendance.service.impl.UserServiceImpl.getLocalUsers(UserServiceImpl.java:30), com.nbugs.client.attendance.task.tasks.UserTask.doTask(UserTask.java:29), sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method), sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62), sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43), java.lang.reflect.Method.invoke(Method.java:498), org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84), org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54), org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:93), java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511), java.util.concurrent.FutureTask.run(FutureTask.java:266), java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180), java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293), java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149), java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624), java.lang.Thread.run(Thread.java:748)]</td>
+<td class="LineSeparator">
+</td>
+</tr>
+
+<tr class="error even">
+<td class="Date">2018-10-31 12:24:32.084</td>
+<td class="Literal"> [</td>
+<td class="Thread">pool-2-thread-1</td>
+<td class="Literal">] </td>
+<td class="Level">ERROR</td>
+<td class="Literal"> </td>
+<td class="Logger">com.zaxxer.hikari.pool.HikariPool</td>
+<td class="Literal"> - </td>
+<td class="Message">HikariPool-3 - Exception during pool initialization.</td>
+<td class="LineSeparator">
+</td>
+</tr>
+<tr><td class="Exception" colspan="6">com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:990)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.MysqlIO.&lt;init&gt;(MysqlIO.java:342)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2197)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2230)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2025)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.&lt;init&gt;(ConnectionImpl.java:778)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.JDBC4Connection.&lt;init&gt;(JDBC4Connection.java:47)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:386)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:330)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:117)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:123)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:365)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:194)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:460)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:534)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.HikariPool.&lt;init&gt;(HikariPool.java:115)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:151)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:115)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:78)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:600)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:657)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:688)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:700)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:751)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.dao.UserDAO.getUsers(UserDAO.java:24)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.dao.UserDAO$$FastClassBySpringCGLIB$$6c9b9d1b.invoke(&lt;generated&gt;)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.dao.UserDAO$$EnhancerBySpringCGLIB$$4a9fe17c.getUsers(&lt;generated&gt;)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.service.impl.UserServiceImpl.getLocalUsers(UserServiceImpl.java:30)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.task.tasks.UserTask.doTask(UserTask.java:29)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.reflect.Method.invoke(Method.java:498)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:93)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.Thread.run(Thread.java:748)
+<br />Caused by: java.net.UnknownHostException: 47.984.37.361: nodename nor servname provided, or not known
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.InetAddress$2.lookupAllHostAddr(InetAddress.java:928)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1323)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.InetAddress.getAllByName0(InetAddress.java:1276)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.InetAddress.getAllByName(InetAddress.java:1192)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.InetAddress.getAllByName(InetAddress.java:1126)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:188)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.MysqlIO.&lt;init&gt;(MysqlIO.java:301)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;	... 53 common frames omitted
+</td></tr>
+<tr class="error odd">
+<td class="Date">2018-10-31 12:24:32.088</td>
+<td class="Literal"> [</td>
+<td class="Thread">pool-2-thread-1</td>
+<td class="Literal">] </td>
+<td class="Level">ERROR</td>
+<td class="Literal"> </td>
+<td class="Logger">org.springframework.scheduling.support.TaskUtils$LoggingErrorHandler</td>
+<td class="Literal"> - </td>
+<td class="Message">Unexpected error occurred in scheduled task.</td>
+<td class="LineSeparator">
+</td>
+</tr>
+<tr><td class="Exception" colspan="6">org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:81)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:600)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:657)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:688)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:700)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:751)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.dao.UserDAO.getUsers(UserDAO.java:24)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.dao.UserDAO$$FastClassBySpringCGLIB$$6c9b9d1b.invoke(&lt;generated&gt;)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.dao.UserDAO$$EnhancerBySpringCGLIB$$4a9fe17c.getUsers(&lt;generated&gt;)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.service.impl.UserServiceImpl.getLocalUsers(UserServiceImpl.java:30)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.task.tasks.UserTask.doTask(UserTask.java:29)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.reflect.Method.invoke(Method.java:498)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:93)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.Thread.run(Thread.java:748)
+<br />Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:990)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.MysqlIO.&lt;init&gt;(MysqlIO.java:342)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2197)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2230)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2025)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.&lt;init&gt;(ConnectionImpl.java:778)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.JDBC4Connection.&lt;init&gt;(JDBC4Connection.java:47)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:386)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:330)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:117)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:123)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:365)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:194)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:460)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:534)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.HikariPool.&lt;init&gt;(HikariPool.java:115)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:151)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:115)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:78)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;	... 30 common frames omitted
+<br />Caused by: java.net.UnknownHostException: 47.984.37.361: nodename nor servname provided, or not known
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.InetAddress$2.lookupAllHostAddr(InetAddress.java:928)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1323)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.InetAddress.getAllByName0(InetAddress.java:1276)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.InetAddress.getAllByName(InetAddress.java:1192)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.InetAddress.getAllByName(InetAddress.java:1126)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:188)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.MysqlIO.&lt;init&gt;(MysqlIO.java:301)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;	... 53 common frames omitted
+</td></tr>
+<tr class="error even">
+<td class="Date">2018-10-31 12:24:33.005</td>
+<td class="Literal"> [</td>
+<td class="Thread">pool-2-thread-1</td>
+<td class="Literal">] </td>
+<td class="Level">ERROR</td>
+<td class="Literal"> </td>
+<td class="Logger">com.nbugs.client.attendance.dao.util.PropsUtil</td>
+<td class="Literal"> - </td>
+<td class="Message">prop err, e = java.io.IOException: No such file or directory, msg = No such file or directory, stackTrace = [java.io.UnixFileSystem.createFileExclusively(Native Method), java.io.File.createNewFile(File.java:1012), com.nbugs.client.attendance.dao.util.PropsUtil.createFile(PropsUtil.java:54), com.nbugs.client.attendance.dao.util.PropsUtil.createIfNotExist(PropsUtil.java:48), com.nbugs.client.attendance.dao.util.PropsUtil.getProp(PropsUtil.java:36), com.nbugs.client.attendance.dao.DeptDAO.getLastId(DeptDAO.java:33), com.nbugs.client.attendance.dao.DeptDAO.getAttendance(DeptDAO.java:25), com.nbugs.client.attendance.dao.DeptDAO$$FastClassBySpringCGLIB$$d209c061.invoke(&lt;generated&gt;), org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204), org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746), org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163), org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139), org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185), org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688), com.nbugs.client.attendance.dao.DeptDAO$$EnhancerBySpringCGLIB$$efdf870e.getAttendance(&lt;generated&gt;), com.nbugs.client.attendance.service.impl.DeptServiceImpl.getLocalDepts(DeptServiceImpl.java:30), com.nbugs.client.attendance.task.tasks.DeptTask.doTask(DeptTask.java:28), sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method), sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62), sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43), java.lang.reflect.Method.invoke(Method.java:498), org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84), org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54), org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:93), java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511), java.util.concurrent.FutureTask.run(FutureTask.java:266), java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180), java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293), java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149), java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624), java.lang.Thread.run(Thread.java:748)]</td>
+<td class="LineSeparator">
+</td>
+</tr>
+
+<tr class="error odd">
+<td class="Date">2018-10-31 12:24:33.015</td>
+<td class="Literal"> [</td>
+<td class="Thread">pool-2-thread-1</td>
+<td class="Literal">] </td>
+<td class="Level">ERROR</td>
+<td class="Literal"> </td>
+<td class="Logger">com.nbugs.client.attendance.dao.util.PropsUtil</td>
+<td class="Literal"> - </td>
+<td class="Message">prop err, e = org.apache.commons.configuration.ConfigurationException: Unable to load the configuration file C:/tomcat8/dept.properties, msg = Unable to load the configuration file C:/tomcat8/dept.properties, stackTrace = [org.apache.commons.configuration.AbstractFileConfiguration.load(AbstractFileConfiguration.java:269), org.apache.commons.configuration.AbstractFileConfiguration.load(AbstractFileConfiguration.java:238), org.apache.commons.configuration.AbstractFileConfiguration.&lt;init&gt;(AbstractFileConfiguration.java:158), org.apache.commons.configuration.PropertiesConfiguration.&lt;init&gt;(PropertiesConfiguration.java:253), com.nbugs.client.attendance.dao.util.PropsUtil.getProp(PropsUtil.java:37), com.nbugs.client.attendance.dao.DeptDAO.getLastId(DeptDAO.java:33), com.nbugs.client.attendance.dao.DeptDAO.getAttendance(DeptDAO.java:25), com.nbugs.client.attendance.dao.DeptDAO$$FastClassBySpringCGLIB$$d209c061.invoke(&lt;generated&gt;), org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204), org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746), org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163), org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139), org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185), org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688), com.nbugs.client.attendance.dao.DeptDAO$$EnhancerBySpringCGLIB$$efdf870e.getAttendance(&lt;generated&gt;), com.nbugs.client.attendance.service.impl.DeptServiceImpl.getLocalDepts(DeptServiceImpl.java:30), com.nbugs.client.attendance.task.tasks.DeptTask.doTask(DeptTask.java:28), sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method), sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62), sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43), java.lang.reflect.Method.invoke(Method.java:498), org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84), org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54), org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:93), java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511), java.util.concurrent.FutureTask.run(FutureTask.java:266), java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180), java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293), java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149), java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624), java.lang.Thread.run(Thread.java:748)]</td>
+<td class="LineSeparator">
+</td>
+</tr>
+
+<tr class="error even">
+<td class="Date">2018-10-31 12:24:34.028</td>
+<td class="Literal"> [</td>
+<td class="Thread">pool-2-thread-1</td>
+<td class="Literal">] </td>
+<td class="Level">ERROR</td>
+<td class="Literal"> </td>
+<td class="Logger">com.zaxxer.hikari.pool.HikariPool</td>
+<td class="Literal"> - </td>
+<td class="Message">HikariPool-1 - Exception during pool initialization.</td>
+<td class="LineSeparator">
+</td>
+</tr>
+<tr><td class="Exception" colspan="6">com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:990)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.MysqlIO.&lt;init&gt;(MysqlIO.java:342)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2197)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2230)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2025)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.&lt;init&gt;(ConnectionImpl.java:778)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.JDBC4Connection.&lt;init&gt;(JDBC4Connection.java:47)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:386)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:330)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:117)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:123)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:365)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:194)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:460)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:534)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.HikariPool.&lt;init&gt;(HikariPool.java:115)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:151)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:115)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:78)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:600)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:657)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:688)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:700)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:751)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.dao.DeptDAO.getAttendance(DeptDAO.java:24)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.dao.DeptDAO$$FastClassBySpringCGLIB$$d209c061.invoke(&lt;generated&gt;)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.dao.DeptDAO$$EnhancerBySpringCGLIB$$efdf870e.getAttendance(&lt;generated&gt;)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.service.impl.DeptServiceImpl.getLocalDepts(DeptServiceImpl.java:30)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.task.tasks.DeptTask.doTask(DeptTask.java:28)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.reflect.Method.invoke(Method.java:498)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:93)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.Thread.run(Thread.java:748)
+<br />Caused by: java.net.UnknownHostException: 47.98.374.61
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.InetAddress.getAllByName0(InetAddress.java:1280)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.InetAddress.getAllByName(InetAddress.java:1192)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.InetAddress.getAllByName(InetAddress.java:1126)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:188)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.MysqlIO.&lt;init&gt;(MysqlIO.java:301)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;	... 53 common frames omitted
+</td></tr>
+<tr class="error odd">
+<td class="Date">2018-10-31 12:24:34.035</td>
+<td class="Literal"> [</td>
+<td class="Thread">pool-2-thread-1</td>
+<td class="Literal">] </td>
+<td class="Level">ERROR</td>
+<td class="Literal"> </td>
+<td class="Logger">org.springframework.scheduling.support.TaskUtils$LoggingErrorHandler</td>
+<td class="Literal"> - </td>
+<td class="Message">Unexpected error occurred in scheduled task.</td>
+<td class="LineSeparator">
+</td>
+</tr>
+<tr><td class="Exception" colspan="6">org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:81)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:600)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:657)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:688)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:700)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:751)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.dao.DeptDAO.getAttendance(DeptDAO.java:24)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.dao.DeptDAO$$FastClassBySpringCGLIB$$d209c061.invoke(&lt;generated&gt;)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.dao.DeptDAO$$EnhancerBySpringCGLIB$$efdf870e.getAttendance(&lt;generated&gt;)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.service.impl.DeptServiceImpl.getLocalDepts(DeptServiceImpl.java:30)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.nbugs.client.attendance.task.tasks.DeptTask.doTask(DeptTask.java:28)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.reflect.Method.invoke(Method.java:498)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:93)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.Thread.run(Thread.java:748)
+<br />Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:990)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.MysqlIO.&lt;init&gt;(MysqlIO.java:342)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2197)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2230)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2025)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.&lt;init&gt;(ConnectionImpl.java:778)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.JDBC4Connection.&lt;init&gt;(JDBC4Connection.java:47)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:386)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:330)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:117)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:123)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:365)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:194)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:460)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:534)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.pool.HikariPool.&lt;init&gt;(HikariPool.java:115)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:151)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:115)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:78)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;	... 30 common frames omitted
+<br />Caused by: java.net.UnknownHostException: 47.98.374.61
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.InetAddress.getAllByName0(InetAddress.java:1280)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.InetAddress.getAllByName(InetAddress.java:1192)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.InetAddress.getAllByName(InetAddress.java:1126)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:188)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.mysql.jdbc.MysqlIO.&lt;init&gt;(MysqlIO.java:301)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;	... 53 common frames omitted
+</td></tr>

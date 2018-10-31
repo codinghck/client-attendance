@@ -18,6 +18,8 @@
    
    暂时略, 如有需要, 后续补充
    
+4. 如果按照 jar 包形式部署, 则跳过下面 tomcat 环境, 建议使用 jar 包形式部署
+   
 
 ### tomcat 环境
 
@@ -82,12 +84,12 @@
 
 ## 二、程序包配置
 
-1. 到 github 上下载或 clone 整个项目在根目录下拿到程序 war 包, 或者到根目录下只下载该 war 包
+1. 到 github 上下载或 clone 整个项目在根目录下拿到程序 war/jar 包, 或者到根目录下只下载该 war/jar 包
 
    [点我到达项目地址](https://github.com/hckisagoodboy/client-attendance)
 
 2. 使用 WinRAR 修改配置文件
-   1. 首先用 WinRAR 打开 .war 文件
+   1. 首先用 WinRAR 打开 .war/.jar 文件
    2. 选中需要修改的文件拖出到桌面, 需要修改的文件其目录如下
        * client-attendance
            * main  
@@ -108,9 +110,13 @@
 
 ## 三、启动运行
 
-有以下方式, 方式一需要重启
-1. 将 war 包放到 tomcat 安装目录下的 webapps 目录下, 运行启动 tomcat 即可, 如已启动, 则可以重启 tomcat
-2. 使用管理页面进行, 暂时略, 如有需要, 另行补充
+(一) war 包方式
+  有以下方式, 方式一需要重启
+  1. 将 war 包放到 tomcat 安装目录下的 webapps 目录下, 运行启动 tomcat 即可, 如已启动, 则可以重启 tomcat
+  2. 使用管理页面进行, 暂时略, 如有需要, 另行补充
+
+(二) jar 包方式
+  1. 将 jar 包放到合适位置, 双击运行即可, 浏览器访问 http://localhost:8080/test/go, 如果有返回, 则说明部署成功
 
 
 ----
@@ -122,6 +128,4 @@
 
    * 日志文件目录为  tomcat 安装目录 - logs 文件夹 - client_attendance 文件夹
    * 按需选择需要查看的日志文件后, 双击就可以使用浏览器打开查看, 如需查看更新, 刷新网页即可
-
-
 

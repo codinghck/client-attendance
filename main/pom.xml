@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <artifactId>main</artifactId>
-  <packaging>war</packaging>
+  <packaging>jar</packaging>
 
   <parent>
     <groupId>com.nbugs.client.attendance</groupId>
@@ -42,6 +42,7 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+        <!-- build 这块需要配置，不然打 jar 的时候可能会说找不到主类 -->
         <configuration>
           <mainClass>com.nbugs.client.attendance.MainApplication</mainClass>
           <layout>ZIP</layout>
