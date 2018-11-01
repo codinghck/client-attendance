@@ -18,15 +18,15 @@ public class Util {
     }
   }
 
-  public static String timeToMills(String str, String pattern) {
+  public static String timeToSecond(String str, String pattern) {
     if (null == str || "".equals(str)) {
       return "";
     }
-    if (!isMillsError(str)) {
+    if (!isSecondError(str)) {
       return str;
     }
     if (!isFmtError(str, pattern)) {
-      return timeFmt(str, pattern);
+      return timeFmtToSecond(str, pattern);
     }
     return "";
   }
@@ -41,10 +41,10 @@ public class Util {
     }
   }
 
-  private static boolean isMillsError(Object mills) {
+  private static boolean isSecondError(String mills) {
     try {
       java.util.Date date = new java.util.Date();
-      date.setTime(Long.valueOf(mills.toString()));
+      date.setTime(Long.valueOf(mills));
       return false;
     } catch (Exception e) {
       return true;
@@ -54,6 +54,15 @@ public class Util {
   private static String timeFmt(String str, String pattern) {
     try {
       return String.valueOf(new SimpleDateFormat(pattern).parse(str).getTime());
+    } catch (ParseException e) {
+      return "";
+    }
+  }
+
+  private static String timeFmtToSecond(String str, String pattern) {
+    try {
+      long second = new SimpleDateFormat(pattern).parse(str).getTime() / 1000;
+      return String.valueOf(second);
     } catch (ParseException e) {
       return "";
     }

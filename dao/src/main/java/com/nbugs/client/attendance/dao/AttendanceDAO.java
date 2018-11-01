@@ -56,7 +56,7 @@ public class AttendanceDAO {
     dataDTO.setDataId(Util.getByRs(rs, "id"));
     dataDTO.setDeviceId(Util.getByRs(rs, "device_id"));
     dataDTO.setTerminalId(Util.getByRs(rs, "terminal_id"));
-    dataDTO.setTime(Util.timeToMills(Util.getByRs(rs, "time"), source.getTimeFormat()));
+    dataDTO.setTime(Util.timeToSecond(Util.getByRs(rs, "time"), source.getTimeFormat()));
     dataDTO.setBehavior(Util.getByRs(rs, "behavior"));
     dataDTO.setPicUrls(Collections.singletonList(Util.getByRs(rs, "file_url")));
     return dataDTO;
