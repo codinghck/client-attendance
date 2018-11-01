@@ -7,7 +7,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
- * @author hongtiancai
+ * @author hck
  * @date 2018/10/22 2:26 PM
  */
 @EnableScheduling

@@ -4,7 +4,7 @@ import com.nbugs.client.attendance.dao.pojo.AttendanceDataDTO;
 import java.util.List;
 
 /**
- * @author 洪天才
+ * @author hck
  * @date 2018/10/23 10:22 AM
  */
 public interface AttendanceService {

@@ -4,19 +4,16 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.hongtiancai.base.util.common.base.DateUtil;
 import com.hongtiancai.base.util.common.base.LogUtil;
+import com.hongtiancai.base.util.common.constant.Const;
+import com.hongtiancai.base.util.common.exception.ParamException;
 import com.hongtiancai.base.util.common.http.HttpUtil;
-import com.hongtiancai.base.util.validation.Date;
-import com.hongtiancai.base.util.validation.NotEmpty;
-import com.hongtiancai.base.util.validation.Size;
-import com.hongtiancai.base.util.validation.aspect.LogHandler;
-import com.hongtiancai.base.util.validation.exception.ValidateException;
-import com.hongtiancai.base.util.validation.pojo.NormalDataOut;
-import com.hongtiancai.base.util.validation.request.RqResult;
-import com.hongtiancai.base.util.validation.request.RqResultHandler;
+import com.hongtiancai.base.util.common.request.NormalOut;
+import com.hongtiancai.base.util.common.request.Param;
+import com.hongtiancai.base.util.common.request.ReqRes;
+import com.hongtiancai.base.util.common.request.ResHandler;
 import com.nbugs.client.attendance.dao.source.OpenCenterSource;
 import com.nbugs.client.attendance.service.OpenCenterService;
 import com.nbugs.client.attendance.web.controller.pojo.LeaveParam;
-import com.nbugs.client.attendance.web.controller.pojo.Param;
 import java.text.ParseException;
 import java.util.HashMap;
 import java.util.Map;
@@ -26,11 +23,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @author hongtiancai
+ * @author hck
  * @date 2018/10/26 6:09 PM
  */
 @RestController
@@ -42,33 +38,21 @@ public class LeaveController {
   private final OpenCenterSource source;
 
   @RequestMapping(value = "/is_on_leave", method = RequestMethod.POST)
-  public RqResult<NormalDataOut> isOnLeaveTime(@RequestBody @Valid Param<LeaveParam> param) {
-    NormalDataOut<String> outData = new NormalDataOut<>("dd", "0");
+  public ReqRes<NormalOut> isOnLeaveTime(@RequestBody @Valid Param<LeaveParam> param) {
+    NormalOut<String> outData = new NormalOut<>(param.getRequestId(), Const.FALSE);
 
+    JSONArray leaveTimes = reqForLeaveTimes(param.getData());
+    if (null != leaveTimes) {
+      outData.setData(isInLeave(param.getData().getTime(), leaveTimes) ? Const.FALSE : Const.TRUE);
+    }
 
-    return new RqResultHandler<NormalDataOut>().getSuccessInvalidRqRes(outData);
+    return new ResHandler<NormalOut>().getSuccessRqRes(outData);
   }
 
-//  @RequestMapping(value = "/is_on_leave", method = RequestMethod.GET)
-//  public RqResult<NormalDataOut> isOnLeaveTime(
-//      @NotEmpty @RequestParam("requestId") @Size(max = 20) String requestId,
-//      @NotEmpty @RequestParam("time") @Date String time,
-//      @NotEmpty @RequestParam("orgId") @Size(max = 30) String orgId,
-//      @NotEmpty @RequestParam("userId") String userId) {
-//    NormalDataOut<String> outData = new NormalDataOut<>(requestId, "0");
-//
-//    JSONArray leaveTimes = reqForLeaveTimes(userId, orgId, time);
-//    if (null != leaveTimes) {
-//      outData.setData(isInLeave(time, leaveTimes) ? "0" : "1");
-//    }
-//
-//    return new RqResultHandler<NormalDataOut>().getSuccessInvalidRqRes(outData);
-//  }
-
-  private JSONArray reqForLeaveTimes(String userId, String orgId, String time) {
-    Map<String, String> params = getParams(userId, orgId, time);
+  private JSONArray reqForLeaveTimes(LeaveParam param) {
+    Map<String, String> params = getParams(param.getUserId(), param.getOrgId(), param.getTime());
     String reqRes = HttpUtil.getMap(source.getLeaveUrl(), params);
-    log.info("请求开放平台是否请假时间参数为: {}, 返回结果为: {}", params, reqRes);
+    log.info("params: {}, reqRes: {}", params, reqRes);
     return getLeaveTimes(reqRes);
   }
 
@@ -87,7 +71,7 @@ public class LeaveController {
   }
 
   private Map<String, String> getParams(
-      String userId, String orgId, String time) throws ValidateException {
+      String userId, String orgId, String time) {
     Map<String, String> params = new HashMap<>(4);
     params.put("access_token", openCenterService.getAccessToken());
     params.put("user_ids", userId);
@@ -114,7 +98,7 @@ public class LeaveController {
       return DateUtil.changeDateStrByPattern(time, "yyyy-MM-dd");
     } catch (ParseException e) {
       LogUtil.logErr(log, e);
-      throw new ValidateException("请检查日期格式!");
+      throw new ParamException("请检查日期格式!");
     }
   }
 

@@ -1,79 +1,67 @@
 package com.nbugs.client.attendance.web.aspect;
 
-import com.hongtiancai.base.util.validation.request.ErrorCode;
-import com.hongtiancai.base.util.validation.request.RqResult;
-import com.hongtiancai.base.util.validation.request.RqResultHandler;
+import com.hongtiancai.base.util.common.base.LogUtil;
+import com.hongtiancai.base.util.common.exception.ParamException;
+import com.hongtiancai.base.util.common.request.ErrCode;
+import com.hongtiancai.base.util.common.request.ReqRes;
+import com.hongtiancai.base.util.common.request.ResHandler;
+import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.ConstraintViolationException;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.annotation.Order;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.ConstraintViolationException;
-import java.util.List;
 
 /**
- * @author hongtiancai
+ * @author hck
  * @date 2018/10/30 1:52 PM
  */
 @RestControllerAdvice
+@Slf4j
+@Order(10)
 public class GlobalExceptionHandler {
-
-  private final Logger logger = LoggerFactory.getLogger(this.getClass());
-
-  /**
-   * 处理请求对象属性不满足校验规则的异常信息
-   *
-   * @param request
-   * @param exception
-   * @return
-   * @throws Exception
-   */
   @ExceptionHandler(value = MethodArgumentNotValidException.class)
-  public <T> RqResult<T> exception(HttpServletRequest request, MethodArgumentNotValidException exception) {
-    BindingResult result = exception.getBindingResult();
+  public <T> ReqRes<T> exception(MethodArgumentNotValidException e) {
+    LogUtil.logErr(log, e);
+    BindingResult result = e.getBindingResult();
     final List<FieldError> fieldErrors = result.getFieldErrors();
     StringBuilder builder = new StringBuilder();
 
     for (FieldError error : fieldErrors) {
-      builder.append(error.getDefaultMessage() + "\n");
+      builder.append("参数 ");
+      builder.append(error.getField());
+      builder.append(" ");
+      builder.append(error.getDefaultMessage());
     }
-//    return new ReturnMsg(ReturnEnum.FAIL, builder.toString());
-    RqResultHandler<T> handler = new RqResultHandler<>();
-    return handler.getErrRqRes(ErrorCode.UNEXPECTED_ERROR, builder.toString());
+
+    ResHandler<T> handler = new ResHandler<>();
+    return handler.getByParamErr(builder.toString());
   }
 
-  /**
-   * 处理请求单个参数不满足校验规则的异常信息
-   *
-   * @param request
-   * @param exception
-   * @return
-   * @throws Exception
-   */
+  @ExceptionHandler(value = ParamException.class)
+  public <T> ReqRes<T> paramExceptionHandler(ParamException e) {
+    LogUtil.logErr(log, e);
+    ResHandler<T> handler = new ResHandler<>();
+    return handler.getByParamErr(e.getMessage());
+  }
+
   @ExceptionHandler(value = ConstraintViolationException.class)
-  public <T> RqResult<T> constraintViolationExceptionHandler(HttpServletRequest request, ConstraintViolationException exception) {
-    logger.info(exception.getMessage());
-//    return new ReturnMsg(ReturnEnum.FAIL, exception.getMessage());
-    RqResultHandler<T> handler = new RqResultHandler<>();
-    return handler.getErrRqRes(ErrorCode.UNEXPECTED_ERROR, exception.getMessage());
+  public <T> ReqRes<T> constraintViolationExceptionHandler(ConstraintViolationException e) {
+    LogUtil.logErr(log, e);
+    ResHandler<T> handler = new ResHandler<>();
+    return handler.getByParamErr(e.getMessage());
   }
 
-
-  /**
-   * 处理未定义的其他异常信息
-   *
-   * @param request
-   * @param exception
-   * @return
-   */
   @ExceptionHandler(value = Exception.class)
-  public <T> RqResult<T> exceptionHandler(HttpServletRequest request, Exception exception) {
-    logger.error(exception.getMessage());
-//    return new ReturnMsg(ReturnEnum.FAIL, exception.getMessage());
-    RqResultHandler<T> handler = new RqResultHandler<>();
-    return handler.getErrRqRes(ErrorCode.UNEXPECTED_ERROR, exception.getMessage());
+  public <T> ReqRes<T> exceptionHandler(Exception e) {
+    LogUtil.logErr(log, e);
+    ResHandler<T> handler = new ResHandler<>();
+    return handler.getRqResByCode(ErrCode.UNEXPECTED_ERROR, e.getMessage());
   }
 }

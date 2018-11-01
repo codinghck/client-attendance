@@ -3,7 +3,7 @@ package com.nbugs.client.attendance.dao.pojo;
 import lombok.Data;
 
 /**
- * @author 洪天才
+ * @author hck
  * @date 2018/10/23 6:05 PM
  */
 @Data

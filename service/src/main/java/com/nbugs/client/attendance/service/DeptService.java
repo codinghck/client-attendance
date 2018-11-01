@@ -4,7 +4,7 @@ import com.nbugs.client.attendance.dao.pojo.DeptDataDTO;
 import java.util.List;
 
 /**
- * @author 洪天才
+ * @author hck
  * @date 2018/10/23 4:44 PM
  */
 public interface DeptService {
