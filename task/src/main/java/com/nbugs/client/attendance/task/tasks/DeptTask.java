@@ -12,7 +12,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 /**
- * @author 洪天才
+ * @author hck
  * @date 2018/10/22 4:07 PM
  */
 @Component

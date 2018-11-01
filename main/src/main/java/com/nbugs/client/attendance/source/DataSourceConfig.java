@@ -12,7 +12,7 @@ import org.springframework.context.annotation.PropertySources;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
- * @author 洪天才
+ * @author hck
  * @date 2018/10/23 9:53 AM
  */
 @Configuration

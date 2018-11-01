@@ -33,9 +33,5 @@
       <groupId>com.nbugs.client.attendance</groupId>
       <artifactId>service</artifactId>
     </dependency>
-    <dependency>
-      <groupId>com.hongtiancai.base.util</groupId>
-      <artifactId>validation</artifactId>
-    </dependency>
   </dependencies>
 </project>

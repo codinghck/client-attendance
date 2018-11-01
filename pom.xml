@@ -96,12 +96,7 @@
       <dependency>
         <groupId>com.hongtiancai.base.util.common</groupId>
         <artifactId>base-util</artifactId>
-        <version>1.0.7-RELEASE</version>
-      </dependency>
-      <dependency>
-        <groupId>com.hongtiancai.base.util</groupId>
-        <artifactId>validation</artifactId>
-        <version>1.0.0-RELEASE</version>
+        <version>1.0.8-RELEASE</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

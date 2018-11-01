@@ -10,7 +10,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 /**
- * @author hongtiancai
+ * @author hck
  * @date 2018/10/22 上午10:30
  * 日志的 order 需要最小，其次异常，其次校验
  */

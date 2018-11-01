@@ -7,7 +7,7 @@ import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
 
 /**
- * @author hongtiancai
+ * @author hck
  * @date 2018/10/26 3:52 PM
  */
 @Slf4j

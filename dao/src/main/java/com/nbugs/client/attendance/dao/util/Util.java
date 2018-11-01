@@ -6,7 +6,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 /**
- * @author hongtiancai
+ * @author hck
  * @date 2018/10/26 11:17 AM
  */
 public class Util {
