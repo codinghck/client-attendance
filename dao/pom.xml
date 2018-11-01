@@ -31,5 +31,9 @@
       <groupId>commons-configuration</groupId>
       <artifactId>commons-configuration</artifactId>
     </dependency>
+    <dependency>
+      <groupId>com.hongtiancai.base.util.common</groupId>
+      <artifactId>base-util</artifactId>
+    </dependency>
 	</dependencies>
 </project>

@@ -21,5 +21,5 @@ public class AttendanceSource {
   private String timeFormat;
   private String terminalAttendanceUrl;
   private String sendAttendanceMaxSize;
-  private String localDir;
+  private String executePositionFile;
 }

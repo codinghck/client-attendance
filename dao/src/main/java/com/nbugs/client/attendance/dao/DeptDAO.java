@@ -1,11 +1,13 @@
 package com.nbugs.client.attendance.dao;
 
+import com.hongtiancai.base.util.common.base.BaseUtil;
 import com.nbugs.client.attendance.dao.pojo.DeptDataDTO;
 import com.nbugs.client.attendance.dao.source.DeptSource;
 import com.nbugs.client.attendance.dao.util.PropsUtil;
 import com.nbugs.client.attendance.dao.util.Util;
 import java.sql.ResultSet;
 import java.util.List;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -16,11 +18,19 @@ import org.springframework.stereotype.Repository;
  * @date 2018/10/22 11:25 PM
  */
 @Repository
+@Slf4j
 public class DeptDAO {
+
   private final JdbcTemplate deptJdbcTemp;
   private final DeptSource source;
+  private final static String FILE_NULL_TIP = "数据执行位置文件不存在, 请参考 {} 配置文件中的 {} 项";
 
   public List<DeptDataDTO> getAttendance() {
+    String lastId = getLastId();
+    if (BaseUtil.isStrNull(lastId)) {
+      log.error(FILE_NULL_TIP, "dept.properties", "dept.execute-position-file");
+      return null;
+    }
     List<DeptDataDTO> res = deptJdbcTemp.query(
         source.getGetDeptSql(), new Object[]{getLastId()}, (rs, rowNum) -> getDtoFromRs(rs));
     setLastId(res);
@@ -28,18 +38,15 @@ public class DeptDAO {
   }
 
   private String getLastId() {
-    String path = source.getLocalDir() + "dept.properties";
     String key = "dept.last-execute-id";
-    String lastId = PropsUtil.getProp(path, key);
-    return null == lastId ? "0" : lastId;
+    return PropsUtil.getProp(source.getExecutePositionFile(), key);
   }
 
   private void setLastId(List<DeptDataDTO> res) {
     if (null != res && res.size() > 0) {
-      String path = source.getLocalDir() + "dept.properties";
       String key = "dept.last-execute-id";
       String lastId = res.get(res.size() - 1).getDataId();
-      PropsUtil.setProp(path, key, lastId);
+      PropsUtil.setProp(source.getExecutePositionFile(), key, lastId);
     }
   }
 

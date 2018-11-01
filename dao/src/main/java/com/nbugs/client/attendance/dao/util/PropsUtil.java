@@ -32,8 +32,10 @@ public class PropsUtil {
   }
 
   public static String getProp(String filePath, String key) {
+    if (!new File(filePath).exists()) {
+      return null;
+    }
     try {
-      createIfNotExist(filePath);
       PropertiesConfiguration config = new PropertiesConfiguration(filePath);
       return config.getString(key);
     } catch (ConfigurationException e) {

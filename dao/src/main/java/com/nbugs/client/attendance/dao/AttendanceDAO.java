@@ -1,5 +1,6 @@
 package com.nbugs.client.attendance.dao;
 
+import com.hongtiancai.base.util.common.base.BaseUtil;
 import com.nbugs.client.attendance.dao.pojo.AttendanceDataDTO;
 import com.nbugs.client.attendance.dao.source.AttendanceSource;
 import com.nbugs.client.attendance.dao.util.PropsUtil;
@@ -7,6 +8,7 @@ import com.nbugs.client.attendance.dao.util.Util;
 import java.sql.ResultSet;
 import java.util.Collections;
 import java.util.List;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -17,12 +19,20 @@ import org.springframework.stereotype.Repository;
  * @date 2018/10/22 11:25 PM
  */
 @Repository
+@Slf4j
 public class AttendanceDAO {
+
   private final JdbcTemplate attendanceJdbcTemp;
   private final AttendanceSource source;
+  private final static String FILE_NULL_TIP = "数据执行位置文件不存在, 请参考 {} 配置文件中的 {} 项";
 
   public List<AttendanceDataDTO> getAttendance() {
-    List<AttendanceDataDTO> res =  attendanceJdbcTemp.query(
+    String lastId = getLastId();
+    if (BaseUtil.isStrNull(lastId)) {
+      log.error(FILE_NULL_TIP, "attendance.properties", "attendance.execute-position-file");
+      return null;
+    }
+    List<AttendanceDataDTO> res = attendanceJdbcTemp.query(
         source.getAttendanceSql(), new Object[]{getLastId()}, (rs, rowNum) -> getDtoFromRs(rs));
     setLastId(res);
     return res;
@@ -30,23 +40,20 @@ public class AttendanceDAO {
 
   private void setLastId(List<AttendanceDataDTO> res) {
     if (null != res && res.size() > 0) {
-      String path = source.getLocalDir() + "attendance.properties";
       String key = "attendance.last-execute-id";
       String lastId = res.get(res.size() - 1).getDataId();
-      PropsUtil.setProp(path, key, lastId);
+      PropsUtil.setProp(source.getExecutePositionFile(), key, lastId);
     }
   }
 
   private String getLastId() {
-    String path = source.getLocalDir() + "attendance.properties";
     String key = "attendance.last-execute-id";
-    String lastId = PropsUtil.getProp(path, key);
-    return null == lastId ? "0" : lastId;
+    return PropsUtil.getProp(source.getExecutePositionFile(), key);
   }
 
   private AttendanceDataDTO getDtoFromRs(ResultSet rs) {
     AttendanceDataDTO dataDTO = new AttendanceDataDTO();
-    dataDTO.setDataId(Util.getByRs(rs,"id"));
+    dataDTO.setDataId(Util.getByRs(rs, "id"));
     dataDTO.setDeviceId(Util.getByRs(rs, "device_id"));
     dataDTO.setTerminalId(Util.getByRs(rs, "terminal_id"));
     dataDTO.setTime(Util.timeToMills(Util.getByRs(rs, "time"), source.getTimeFormat()));

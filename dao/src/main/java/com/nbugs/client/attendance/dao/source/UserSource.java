@@ -21,5 +21,5 @@ public class UserSource {
   private String orgId;
   private String sendUserUrl;
   private String sendUserMaxSize;
-  private String localDir;
+  private String executePositionFile;
 }
