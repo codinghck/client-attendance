@@ -2,16 +2,21 @@ package com.nbugs.client.attendance.dao;
 
 import com.hongtiancai.base.util.common.base.BaseUtil;
 import com.hongtiancai.base.util.common.base.LogUtil;
+import com.hongtiancai.base.util.common.exception.UnExpectedException;
+import com.hongtiancai.base.util.common.utils.PropertiesUtil;
 import com.nbugs.client.attendance.dao.pojo.AttendanceDataDTO;
 import com.nbugs.client.attendance.dao.source.AttendanceSource;
 import com.nbugs.client.attendance.dao.util.PropsUtil;
 import com.nbugs.client.attendance.dao.util.Util;
 import java.io.File;
+import java.io.UnsupportedEncodingException;
 import java.sql.ResultSet;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.configuration.ConfigurationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.io.support.PropertiesLoaderUtils;
@@ -41,17 +46,17 @@ public class AttendanceDAO {
     return res;
   }
 
+  @SneakyThrows({ConfigurationException.class, UnExpectedException.class})
   private void setLastId(List<AttendanceDataDTO> res) {
     if (null != res && res.size() > 0) {
-      String key = "attendance.last-execute-id";
       String lastId = res.get(res.size() - 1).getDataId();
-      PropsUtil.setProp(source.getExecutePositionFile(), key, lastId);
+      PropertiesUtil.setFirstValue(source.getExecutePositionFile(), lastId);
     }
   }
 
+  @SneakyThrows({ConfigurationException.class})
   private String getLastId() {
-    String key = "attendance.last-execute-id";
-    return PropsUtil.getProp(source.getExecutePositionFile(), key);
+    return PropertiesUtil.getFirstValue(source.getExecutePositionFile());
   }
 
   private AttendanceDataDTO getDtoFromRs(ResultSet rs) {
@@ -82,7 +87,9 @@ public class AttendanceDAO {
   }
 
   private boolean isExecuteFileExist() {
-    if (BaseUtil.isStrNull(getLastId())) {
+    String lastId;
+    lastId = getLastId();
+    if (BaseUtil.isStrNull(lastId)) {
       log.error(EXECUTE_FILE_NULL, "attendance.properties", "attendance.execute-position-file");
       return false;
     }
