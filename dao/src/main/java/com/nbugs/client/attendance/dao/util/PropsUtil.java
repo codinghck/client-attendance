@@ -2,6 +2,9 @@ package com.nbugs.client.attendance.dao.util;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
@@ -38,6 +41,26 @@ public class PropsUtil {
     try {
       PropertiesConfiguration config = new PropertiesConfiguration(filePath);
       return config.getString(key);
+    } catch (ConfigurationException e) {
+      log(e);
+      return null;
+    }
+  }
+
+  public static Map<String, String> getPropConf(String filePath) {
+    if (!new File(filePath).exists()) {
+      return null;
+    }
+    Map<String, String> res = new HashMap<>(32);
+    try {
+      PropertiesConfiguration conf = new PropertiesConfiguration(filePath);
+      Iterator<String> it = conf.getKeys();
+      if (it.hasNext()) {
+        String key = it.next();
+        String value = conf.getString(key);
+        res.put(key, value);
+      }
+      return res;
     } catch (ConfigurationException e) {
       log(e);
       return null;

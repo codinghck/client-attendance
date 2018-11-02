@@ -22,4 +22,6 @@ public class AttendanceSource {
   private String terminalAttendanceUrl;
   private String sendAttendanceMaxSize;
   private String executePositionFile;
+  private String deviceIdMap;
+  private String orgId;
 }

@@ -50,7 +50,9 @@ public class AttendanceServiceImpl implements AttendanceService {
     JSONObject json = new JSONObject();
     JSONArray dataArr = new JSONArray();
     for (AttendanceDataDTO data : dataDTOS) {
-      dataArr.add(JSONObject.parseObject(JSONObject.toJSONString(data)));
+      if (null != data) {
+        dataArr.add(JSONObject.parseObject(JSONObject.toJSONString(data)));
+      }
     }
     json.put("transactionId", BaseUtil.getUUID32());
     json.put("data", dataArr);
