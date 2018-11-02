@@ -31,6 +31,8 @@
        * resources
          * log
            * logback.xml ---- 日志，一般不做更改
+         * map
+           * device_id_map.properties ---- 部署环境中的设备 id 和开放平台的设备 id 映射关系配置       
          * tasks
            * open_center.properties ---- 开放平台访问凭证配置
            * attendance.properties ---- 考勤数据上传配置
