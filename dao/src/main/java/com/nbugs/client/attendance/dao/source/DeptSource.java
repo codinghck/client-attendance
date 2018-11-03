@@ -20,6 +20,6 @@ public class DeptSource {
   private String getDeptSql;
   private String orgId;
   private String sendDeptUrl;
-  private String sendDeptMaxSize;
+  private int sendDeptMaxSize;
   private String executePositionFile;
 }

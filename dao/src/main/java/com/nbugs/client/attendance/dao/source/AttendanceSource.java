@@ -20,7 +20,7 @@ public class AttendanceSource {
   private String attendanceSql;
   private String timeFormat;
   private String terminalAttendanceUrl;
-  private String sendAttendanceMaxSize;
+  private int sendAttendanceMaxSize;
   private String executePositionFile;
   private String deviceIdMap;
   private String orgId;

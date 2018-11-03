@@ -20,6 +20,6 @@ public class UserSource {
   private String getUserSql;
   private String orgId;
   private String sendUserUrl;
-  private String sendUserMaxSize;
+  private int sendUserMaxSize;
   private String executePositionFile;
 }

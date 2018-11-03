@@ -1,5 +1,6 @@
 package com.nbugs.client.attendance.task.tasks;
 
+import com.hongtiancai.base.util.common.utils.ListUtil;
 import com.nbugs.client.attendance.dao.pojo.DeptDataDTO;
 import com.nbugs.client.attendance.dao.source.DeptSource;
 import com.nbugs.client.attendance.service.DeptService;
@@ -26,7 +27,7 @@ public class DeptTask {
   public void doTask() {
     log.info("上传组织数据任务开始");
     List<DeptDataDTO> depts = deptService.getLocalDepts();
-    if (null != depts && !depts.isEmpty()) {
+    if (!ListUtil.isEmpty(depts)) {
       List<String> res = sendDeptsToOpenCenter(depts);
       log.info("上传组织数据任务结束, 共上传 {} 条数据, 返回结果为: {}", depts.size(), res);
     } else {
@@ -36,7 +37,7 @@ public class DeptTask {
 
   private List<String> sendDeptsToOpenCenter(List<DeptDataDTO> depts) {
     List<String> res = new ArrayList<>();
-    int max = Integer.valueOf(source.getSendDeptMaxSize());
+    int max = source.getSendDeptMaxSize();
     int partNum = depts.size() / max + 1;
     for (int i = 0; i < partNum; i++) {
       boolean isLast = (i == (partNum - 1));
