@@ -1,13 +1,16 @@
 package com.nbugs.client.attendance.dao;
 
-import com.hongtiancai.base.util.common.base.BaseUtil;
+import com.hongtiancai.base.util.common.exception.UnExpectedException;
+import com.hongtiancai.base.util.common.utils.ListUtil;
+import com.hongtiancai.base.util.common.utils.PropertiesUtil;
 import com.nbugs.client.attendance.dao.pojo.UserDataDTO;
 import com.nbugs.client.attendance.dao.source.UserSource;
-import com.nbugs.client.attendance.dao.util.PropsUtil;
 import com.nbugs.client.attendance.dao.util.Util;
 import java.sql.ResultSet;
 import java.util.List;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.configuration.ConfigurationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -22,30 +25,24 @@ import org.springframework.stereotype.Repository;
 public class UserDAO {
   private final JdbcTemplate userJdbcTemp;
   private final UserSource source;
-  private final static String FILE_NULL_TIP = "数据执行位置文件不存在, 请参考 {} 配置文件中的 {} 项";
 
   public List<UserDataDTO> getUsers() {
-    String lastId = getLastId();
-    if (BaseUtil.isStrNull(lastId)) {
-      log.error(FILE_NULL_TIP, "user.properties", "user.execute-position-file");
-      return null;
-    }
     List<UserDataDTO> res = userJdbcTemp.query(
         source.getGetUserSql(), new Object[]{getLastId()}, (rs, rowNum) -> getDtoFromRs(rs));
     setLastId(res);
     return res;
   }
 
+  @SneakyThrows({ConfigurationException.class})
   private String getLastId() {
-    String key = "user.last-execute-id";
-    return PropsUtil.getProp(source.getExecutePositionFile(), key);
+    return PropertiesUtil.getFirstValue(source.getExecutePositionFile());
   }
 
+  @SneakyThrows({ConfigurationException.class, UnExpectedException.class})
   private void setLastId(List<UserDataDTO> res) {
-    if (null != res && res.size() > 0) {
-      String key = "user.last-execute-id";
+    if (!ListUtil.isEmpty(res)) {
       String lastId = res.get(res.size() - 1).getDataId();
-      PropsUtil.setProp(source.getExecutePositionFile(), key, lastId);
+      PropertiesUtil.setFirstValue(source.getExecutePositionFile(), lastId);
     }
   }
 
@@ -63,8 +60,7 @@ public class UserDAO {
 
   @Autowired
   public UserDAO(
-      @Qualifier("userJdbcTemplate") JdbcTemplate userJdbcTemp,
-      UserSource userSource) {
+      @Qualifier("userJdbcTemplate") JdbcTemplate userJdbcTemp, UserSource userSource) {
     this.userJdbcTemp = userJdbcTemp;
     this.source = userSource;
   }
