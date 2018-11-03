@@ -6,7 +6,8 @@ package com.nbugs.client.attendance.service;
  */
 public interface OpenCenterService {
   /**
-   * 获取开放平台的 token
+   * <p>获取开放平台的 token</p>
+   *
    * @return 开放平台的 token 字符串
    */
   String getAccessToken();

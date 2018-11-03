@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.hongtiancai.base.util.common.base.BaseUtil;
 import com.hongtiancai.base.util.common.http.HttpUtil;
+import com.hongtiancai.base.util.common.utils.JsonUtil;
 import com.nbugs.client.attendance.dao.DeptDAO;
 import com.nbugs.client.attendance.dao.pojo.DeptDataDTO;
 import com.nbugs.client.attendance.service.DeptService;
@@ -35,8 +36,7 @@ public class DeptServiceImpl implements DeptService {
     String accessToken = openCenterService.getAccessToken();
     String sendDeptsUrl = getSendDeptsUrl(accessToken);
     String params = getSendDeptParams(dataDTOS);
-    return "";
-//    return HttpUtil.postJson(sendDeptsUrl, params);
+    return HttpUtil.postJson(sendDeptsUrl, params);
   }
 
   private String getSendDeptsUrl(String accessToken) {
@@ -46,12 +46,10 @@ public class DeptServiceImpl implements DeptService {
     return HttpUtil.addMapToUrl(sendDeptsUrl, args);
   }
 
-  private String getSendDeptParams(List<DeptDataDTO> dataDTOS) {
+  private String getSendDeptParams(List<DeptDataDTO> datas) {
     JSONObject json = new JSONObject();
     JSONArray dataArr = new JSONArray();
-    for (DeptDataDTO data : dataDTOS) {
-      dataArr.add(JSONObject.parseObject(JSONObject.toJSONString(data)));
-    }
+    datas.iterator().forEachRemaining(data -> dataArr.add(JsonUtil.objToJsonObj(data)));
     json.put("transactionId", BaseUtil.getUUID32());
     json.put("data", dataArr);
     return json.toJSONString();
@@ -59,9 +57,7 @@ public class DeptServiceImpl implements DeptService {
 
   @Autowired
   public DeptServiceImpl(
-      DeptDAO deptDAO,
-      OpenCenterService openCenterService,
-      DeptSource deptSource) {
+      DeptDAO deptDAO, OpenCenterService openCenterService, DeptSource deptSource) {
     this.deptDAO = deptDAO;
     this.openCenterService = openCenterService;
     this.deptSource = deptSource;

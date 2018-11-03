@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.hongtiancai.base.util.common.base.BaseUtil;
 import com.hongtiancai.base.util.common.http.HttpUtil;
+import com.hongtiancai.base.util.common.utils.JsonUtil;
 import com.nbugs.client.attendance.dao.UserDAO;
 import com.nbugs.client.attendance.dao.pojo.UserDataDTO;
 import com.nbugs.client.attendance.service.OpenCenterService;
@@ -35,8 +36,7 @@ public class UserServiceImpl implements UserService {
     String accessToken = openCenterService.getAccessToken();
     String sendUsersUrl = getSendUsersUrl(accessToken);
     String params = getSendUserParams(dataDTOS);
-//    return HttpUtil.postJson(sendUsersUrl, params);
-    return "";
+    return HttpUtil.postJson(sendUsersUrl, params);
   }
 
   private String getSendUsersUrl(String accessToken) {
@@ -46,15 +46,13 @@ public class UserServiceImpl implements UserService {
     return HttpUtil.addMapToUrl(sendUsersUrl, args);
   }
 
-  private String getSendUserParams(List<UserDataDTO> dataDTOS) {
-    JSONObject json = new JSONObject();
-    JSONArray dataArr = new JSONArray();
-    for (UserDataDTO data : dataDTOS) {
-      dataArr.add(JSONObject.parseObject(JSONObject.toJSONString(data)));
-    }
-    json.put("transactionId", BaseUtil.getUUID32());
-    json.put("data", dataArr);
-    return json.toJSONString();
+  private String getSendUserParams(List<UserDataDTO> datas) {
+    JSONArray jsonArr = new JSONArray();
+    datas.iterator().forEachRemaining(data -> jsonArr.add(JsonUtil.objToJsonObj(data)));
+    JSONObject params = new JSONObject();
+    params.put("transactionId", BaseUtil.getUUID32());
+    params.put("data", jsonArr);
+    return params.toJSONString();
   }
 
   @Autowired

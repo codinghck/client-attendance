@@ -9,13 +9,15 @@ import java.util.List;
  */
 public interface AttendanceService {
   /**
-   * 获取本地数据库中考勤的数据
+   * <p>获取本地数据库中考勤的数据</p>
+   *
    * @return 本地数据库中考勤的数据
    */
   List<AttendanceDataDTO> getLocalAttendances();
 
   /**
-   * 发送考勤数据到开放平台接入中心
+   * <p>发送考勤数据到开放平台接入中心</p>
+   *
    * @param dataDTOS 考勤数据列表
    * @return 发送结果
    */

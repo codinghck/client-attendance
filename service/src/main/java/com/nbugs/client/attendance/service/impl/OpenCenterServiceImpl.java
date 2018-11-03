@@ -2,6 +2,8 @@ package com.nbugs.client.attendance.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
 import com.hongtiancai.base.util.common.http.HttpUtil;
+import com.hongtiancai.base.util.common.utils.DateUtil;
+import com.hongtiancai.base.util.common.utils.ObjUtil;
 import com.nbugs.client.attendance.service.OpenCenterService;
 import com.nbugs.client.attendance.dao.source.OpenCenterSource;
 import java.util.HashMap;
@@ -23,25 +25,34 @@ public class OpenCenterServiceImpl implements OpenCenterService {
   @Override
   public String getAccessToken() {
     if (isExpired()) {
-      Map<String, String> args = new HashMap<>(5);
-      args.put("client_id", openCenterSource.getClientId());
-      args.put("client_secret", openCenterSource.getClientSecret());
-      args.put("grant_type", openCenterSource.getGrantType());
-      args.put("response_type", openCenterSource.getResponseType());
+      Map<String, String> args = getTokenParams();
       String res = HttpUtil.getMap(openCenterSource.getTokenUrl(), args);
-      JSONObject jsonObject = JSONObject.parseObject(res);
-      this.token = jsonObject.getJSONObject("data").get("accessToken").toString();
-      this.validTime = getValidTime(res);
-      this.lastTime = System.currentTimeMillis() / 1000;
+      saveTokenRes(res);
     }
     return this.token;
   }
 
   private boolean isExpired() {
-    if (null == this.token || null == this.validTime || null == this.lastTime) {
+    if (ObjUtil.hasObjsNull(this.token, this.validTime, this.lastTime)) {
       return true;
     }
-    return System.currentTimeMillis() / 1000 - this.lastTime > this.validTime;
+    return DateUtil.currentTimeSeconds() - this.lastTime > this.validTime;
+  }
+
+  private Map<String,String> getTokenParams() {
+    Map<String, String> args = new HashMap<>(5);
+    args.put("client_id", openCenterSource.getClientId());
+    args.put("client_secret", openCenterSource.getClientSecret());
+    args.put("grant_type", openCenterSource.getGrantType());
+    args.put("response_type", openCenterSource.getResponseType());
+    return args;
+  }
+
+  private void saveTokenRes(String reqRes) {
+    JSONObject jsonObject = JSONObject.parseObject(reqRes);
+    this.token = jsonObject.getJSONObject("data").get("accessToken").toString();
+    this.validTime = getValidTime(reqRes);
+    this.lastTime = System.currentTimeMillis() / 1000;
   }
 
   private Long getValidTime(String res) {

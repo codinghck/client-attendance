@@ -9,13 +9,15 @@ import java.util.List;
  */
 public interface UserService {
   /**
-   * 获取本地数据库中用户的数据
+   * <p>获取本地数据库中用户的数据</p>
+   *
    * @return 本地数据库中用户的数据
    */
   List<UserDataDTO> getLocalUsers();
 
   /**
-   * 发送用户数据到开放平台接入中心
+   * <p>发送用户数据到开放平台接入中心</p>
+   *
    * @param dataDTOS 需要上传到开放平台的用户数据列表
    * @return 开发平台返回的上传结果
    */

@@ -2,8 +2,9 @@ package com.nbugs.client.attendance.service.impl;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.hongtiancai.base.util.common.base.BaseUtil;
 import com.hongtiancai.base.util.common.http.HttpUtil;
+import com.hongtiancai.base.util.common.utils.JsonUtil;
+import com.hongtiancai.base.util.common.utils.UUIDUtil;
 import com.nbugs.client.attendance.dao.AttendanceDAO;
 import com.nbugs.client.attendance.dao.pojo.AttendanceDataDTO;
 import com.nbugs.client.attendance.service.AttendanceService;
@@ -35,8 +36,7 @@ public class AttendanceServiceImpl implements AttendanceService {
     String accessToken = openCenterService.getAccessToken();
     String attendanceUrl = getAttendanceUrl(accessToken);
     String params = getTerminalAttendanceParams(dataDTOS);
-//    return HttpUtil.postJson(attendanceUrl, params);
-    return "";
+    return HttpUtil.postJson(attendanceUrl, params);
   }
 
   private String getAttendanceUrl(String accessToken) {
@@ -46,15 +46,11 @@ public class AttendanceServiceImpl implements AttendanceService {
     return HttpUtil.addMapToUrl(terminalAttendanceUrl, args);
   }
 
-  private String getTerminalAttendanceParams(List<AttendanceDataDTO> dataDTOS) {
+  private String getTerminalAttendanceParams(List<AttendanceDataDTO> datas) {
     JSONObject json = new JSONObject();
     JSONArray dataArr = new JSONArray();
-    for (AttendanceDataDTO data : dataDTOS) {
-      if (null != data) {
-        dataArr.add(JSONObject.parseObject(JSONObject.toJSONString(data)));
-      }
-    }
-    json.put("transactionId", BaseUtil.getUUID32());
+    datas.iterator().forEachRemaining(data -> dataArr.add(JsonUtil.objToJsonObj(data)));
+    json.put("transactionId", UUIDUtil.getUUID32());
     json.put("data", dataArr);
     return json.toJSONString();
   }

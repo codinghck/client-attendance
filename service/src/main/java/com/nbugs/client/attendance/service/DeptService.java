@@ -9,13 +9,15 @@ import java.util.List;
  */
 public interface DeptService {
   /**
-   * 获取本地数据库中组织的数据
+   * <p>获取本地数据库中组织的数据</p>
+   *
    * @return 本地数据库中考勤的数据
    */
   List<DeptDataDTO> getLocalDepts();
 
   /**
-   * 发送组织数据到开放平台接入中心
+   * <p>发送组织数据到开放平台接入中心</p>
+   *
    * @param dataDTOS 需要上传的组织数据列表
    * @return 上传数据后，开放平台的返回结果
    */
