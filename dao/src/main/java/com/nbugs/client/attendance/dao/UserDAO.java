@@ -38,7 +38,7 @@ public class UserDAO {
     return PropertiesUtils.getFirstValue(source.getExecutePositionFile());
   }
 
-  @SneakyThrows({ConfigurationException.class, UnExpectedException.class})
+  @SneakyThrows({ConfigurationException.class})
   private void setLastId(List<UserDataDTO> res) {
     if (!ListUtils.isEmpty(res)) {
       String lastId = res.get(res.size() - 1).getDataId();

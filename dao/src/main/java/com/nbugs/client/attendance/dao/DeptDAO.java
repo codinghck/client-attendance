@@ -39,7 +39,7 @@ public class DeptDAO {
     return PropertiesUtils.getFirstValue(source.getExecutePositionFile());
   }
 
-  @SneakyThrows({ConfigurationException.class, UnExpectedException.class})
+  @SneakyThrows({ConfigurationException.class})
   private void setLastId(List<DeptDataDTO> res) {
     if (!ListUtils.isEmpty(res)) {
       String lastId = res.get(res.size() - 1).getDataId();
