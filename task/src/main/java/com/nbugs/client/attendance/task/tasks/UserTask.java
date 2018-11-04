@@ -1,6 +1,6 @@
 package com.nbugs.client.attendance.task.tasks;
 
-import com.github.hckisagoodboy.base.util.common.util.ListUtils;
+import com.github.hckisagoodboy.base.util.common.base.ListUtils;
 import com.nbugs.client.attendance.dao.pojo.UserDataDTO;
 import com.nbugs.client.attendance.dao.source.UserSource;
 import com.nbugs.client.attendance.service.UserService;

@@ -1,8 +1,8 @@
 package com.nbugs.client.attendance.dao;
 
+import com.github.hckisagoodboy.base.util.common.base.ListUtils;
+import com.github.hckisagoodboy.base.util.common.base.PropertiesUtils;
 import com.github.hckisagoodboy.base.util.common.exception.UnExpectedException;
-import com.github.hckisagoodboy.base.util.common.util.ListUtils;
-import com.github.hckisagoodboy.base.util.common.util.PropertiesUtils;
 import com.nbugs.client.attendance.dao.pojo.UserDataDTO;
 import com.nbugs.client.attendance.dao.source.UserSource;
 import com.nbugs.client.attendance.dao.util.Util;

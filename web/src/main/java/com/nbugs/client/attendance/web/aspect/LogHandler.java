@@ -1,6 +1,6 @@
 package com.nbugs.client.attendance.web.aspect;
 
-import com.github.hckisagoodboy.base.util.common.util.LogUtils;
+import com.github.hckisagoodboy.base.util.common.base.LogUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

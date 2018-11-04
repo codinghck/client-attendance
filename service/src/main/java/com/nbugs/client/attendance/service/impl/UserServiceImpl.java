@@ -2,9 +2,9 @@ package com.nbugs.client.attendance.service.impl;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.github.hckisagoodboy.base.util.common.base.JsonUtils;
+import com.github.hckisagoodboy.base.util.common.base.UUIDUtils;
 import com.github.hckisagoodboy.base.util.common.http.HttpUtil;
-import com.github.hckisagoodboy.base.util.common.util.JsonUtils;
-import com.github.hckisagoodboy.base.util.common.util.UUIDUtils;
 import com.nbugs.client.attendance.dao.UserDAO;
 import com.nbugs.client.attendance.dao.pojo.UserDataDTO;
 import com.nbugs.client.attendance.service.OpenCenterService;

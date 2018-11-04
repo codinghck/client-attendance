@@ -1,10 +1,10 @@
 package com.nbugs.client.attendance.web.aspect;
 
+import com.github.hckisagoodboy.base.util.common.base.LogUtils;
 import com.github.hckisagoodboy.base.util.common.exception.ParamException;
 import com.github.hckisagoodboy.base.util.common.request.ErrCode;
 import com.github.hckisagoodboy.base.util.common.request.ReqRes;
 import com.github.hckisagoodboy.base.util.common.request.ResHandler;
-import com.github.hckisagoodboy.base.util.common.util.LogUtils;
 import java.util.List;
 import javax.validation.ConstraintViolationException;
 import lombok.extern.slf4j.Slf4j;
