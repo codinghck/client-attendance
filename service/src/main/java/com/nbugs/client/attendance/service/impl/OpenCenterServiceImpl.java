@@ -2,11 +2,11 @@ package com.nbugs.client.attendance.service.impl;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.hongtiancai.base.util.common.base.LogUtil;
-import com.hongtiancai.base.util.common.exception.ParamException;
-import com.hongtiancai.base.util.common.http.HttpUtil;
-import com.hongtiancai.base.util.common.utils.DateUtil;
-import com.hongtiancai.base.util.common.utils.ObjUtil;
+import com.github.hckisagoodboy.base.util.common.exception.ParamException;
+import com.github.hckisagoodboy.base.util.common.http.HttpUtil;
+import com.github.hckisagoodboy.base.util.common.util.DateUtils;
+import com.github.hckisagoodboy.base.util.common.util.LogUtils;
+import com.github.hckisagoodboy.base.util.common.util.ObjUtils;
 import com.nbugs.client.attendance.service.OpenCenterService;
 import com.nbugs.client.attendance.dao.source.OpenCenterSource;
 import java.text.ParseException;
@@ -39,10 +39,10 @@ public class OpenCenterServiceImpl implements OpenCenterService {
   }
 
   private boolean isTokenExpired() {
-    if (ObjUtil.hasObjsNull(this.token, this.validTime, this.lastTime)) {
+    if (ObjUtils.hasNull(this.token, this.validTime, this.lastTime)) {
       return true;
     }
-    return DateUtil.currentTimeSeconds() - this.lastTime > this.validTime;
+    return DateUtils.currentTimeSeconds() - this.lastTime > this.validTime;
   }
 
   private Map<String,String> getTokenParams() {
@@ -100,9 +100,9 @@ public class OpenCenterServiceImpl implements OpenCenterService {
 
   private String getFmtTime(String time) {
     try {
-      return DateUtil.changeDateStr(time, "yyyy-MM-dd");
+      return DateUtils.changeDateStr(time, "yyyy-MM-dd");
     } catch (ParseException e) {
-      LogUtil.logErr(log, e);
+      LogUtils.logErr(log, e);
       throw new ParamException("请检查日期格式!");
     }
   }

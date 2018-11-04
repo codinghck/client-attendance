@@ -1,6 +1,6 @@
 package com.nbugs.client.attendance.task.tasks;
 
-import com.hongtiancai.base.util.common.utils.ListUtil;
+import com.github.hckisagoodboy.base.util.common.util.ListUtils;
 import com.nbugs.client.attendance.dao.pojo.UserDataDTO;
 import com.nbugs.client.attendance.dao.source.UserSource;
 import com.nbugs.client.attendance.service.UserService;
@@ -28,7 +28,7 @@ public class UserTask {
   public void doTask() {
     log.info("上传用户数据任务开始");
     List<UserDataDTO> users = userService.getLocalUsers();
-    if (!ListUtil.isEmpty(users)) {
+    if (!ListUtils.isEmpty(users)) {
       List<String> res = sendUsersToOpenCenter(users);
       log.info("上传用户数据任务结束, 共上传 {} 条数据, 返回结果为: {}", users.size(), res);
     } else {

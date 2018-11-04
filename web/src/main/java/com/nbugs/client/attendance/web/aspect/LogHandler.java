@@ -1,6 +1,6 @@
 package com.nbugs.client.attendance.web.aspect;
 
-import com.hongtiancai.base.util.common.base.LogUtil;
+import com.github.hckisagoodboy.base.util.common.util.LogUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -25,7 +25,7 @@ public class LogHandler {
   @Around("logHandle()")
   public Object doLog(ProceedingJoinPoint pjp) throws Throwable {
     Object res = pjp.proceed();
-    LogUtil.aspectLogWithRes(log, pjp, res);
+    LogUtils.aspectLogWithRes(log, pjp, res);
     return res;
   }
 }

@@ -26,7 +26,7 @@
       <artifactId>commons-configuration</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.hongtiancai.base.util.common</groupId>
+      <groupId>com.github.hckisagoodboy</groupId>
       <artifactId>base-util</artifactId>
     </dependency>
     <dependency>

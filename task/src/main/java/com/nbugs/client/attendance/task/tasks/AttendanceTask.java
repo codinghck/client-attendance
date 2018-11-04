@@ -1,6 +1,6 @@
 package com.nbugs.client.attendance.task.tasks;
 
-import com.hongtiancai.base.util.common.utils.ListUtil;
+import com.github.hckisagoodboy.base.util.common.util.ListUtils;
 import com.nbugs.client.attendance.dao.pojo.AttendanceDataDTO;
 import com.nbugs.client.attendance.dao.source.AttendanceSource;
 import com.nbugs.client.attendance.service.AttendanceService;
@@ -27,7 +27,7 @@ public class AttendanceTask {
   public void doTask() {
     log.info("上传考勤任务开始");
     List<AttendanceDataDTO> attendances = attendanceService.getLocalAttendances();
-    if (!ListUtil.isEmpty(attendances)) {
+    if (!ListUtils.isEmpty(attendances)) {
       List<String> res = sendAttendanceToOpenCenter(attendances);
       log.info("上传考勤任务结束, 共上传 {} 条数据, 返回结果为: {}", attendances.size(), res);
     } else {

@@ -19,7 +19,6 @@ public class MainApplication extends SpringBootServletInitializer {
 
   @Override
   protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-    System.out.println("spring boot success");
     return application.sources(MainApplication.class);
   }
 }

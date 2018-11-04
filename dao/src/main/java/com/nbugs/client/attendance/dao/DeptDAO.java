@@ -1,8 +1,8 @@
 package com.nbugs.client.attendance.dao;
 
-import com.hongtiancai.base.util.common.exception.UnExpectedException;
-import com.hongtiancai.base.util.common.utils.ListUtil;
-import com.hongtiancai.base.util.common.utils.PropertiesUtil;
+import com.github.hckisagoodboy.base.util.common.exception.UnExpectedException;
+import com.github.hckisagoodboy.base.util.common.util.ListUtils;
+import com.github.hckisagoodboy.base.util.common.util.PropertiesUtils;
 import com.nbugs.client.attendance.dao.pojo.DeptDataDTO;
 import com.nbugs.client.attendance.dao.source.DeptSource;
 import com.nbugs.client.attendance.dao.util.Util;
@@ -36,14 +36,14 @@ public class DeptDAO {
 
   @SneakyThrows({ConfigurationException.class})
   private String getLastId() {
-    return PropertiesUtil.getFirstValue(source.getExecutePositionFile());
+    return PropertiesUtils.getFirstValue(source.getExecutePositionFile());
   }
 
   @SneakyThrows({ConfigurationException.class, UnExpectedException.class})
   private void setLastId(List<DeptDataDTO> res) {
-    if (!ListUtil.isEmpty(res)) {
+    if (!ListUtils.isEmpty(res)) {
       String lastId = res.get(res.size() - 1).getDataId();
-      PropertiesUtil.setFirstValue(source.getExecutePositionFile(), lastId);
+      PropertiesUtils.setFirstValue(source.getExecutePositionFile(), lastId);
     }
   }
 

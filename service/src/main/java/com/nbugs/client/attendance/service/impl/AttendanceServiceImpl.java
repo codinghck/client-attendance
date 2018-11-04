@@ -2,9 +2,9 @@ package com.nbugs.client.attendance.service.impl;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.hongtiancai.base.util.common.http.HttpUtil;
-import com.hongtiancai.base.util.common.utils.JsonUtil;
-import com.hongtiancai.base.util.common.utils.UUIDUtil;
+import com.github.hckisagoodboy.base.util.common.http.HttpUtil;
+import com.github.hckisagoodboy.base.util.common.util.JsonUtils;
+import com.github.hckisagoodboy.base.util.common.util.UUIDUtils;
 import com.nbugs.client.attendance.dao.AttendanceDAO;
 import com.nbugs.client.attendance.dao.pojo.AttendanceDataDTO;
 import com.nbugs.client.attendance.service.AttendanceService;
@@ -49,8 +49,8 @@ public class AttendanceServiceImpl implements AttendanceService {
   private String getTerminalAttendanceParams(List<AttendanceDataDTO> datas) {
     JSONObject json = new JSONObject();
     JSONArray dataArr = new JSONArray();
-    datas.iterator().forEachRemaining(data -> dataArr.add(JsonUtil.objToJsonObj(data)));
-    json.put("transactionId", UUIDUtil.getUUID32());
+    datas.iterator().forEachRemaining(data -> dataArr.add(JsonUtils.objToJsonObj(data)));
+    json.put("transactionId", UUIDUtils.getUUID32());
     json.put("data", dataArr);
     return json.toJSONString();
   }

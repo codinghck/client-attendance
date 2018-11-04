@@ -2,9 +2,9 @@ package com.nbugs.client.attendance.service.impl;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.hongtiancai.base.util.common.base.BaseUtil;
-import com.hongtiancai.base.util.common.http.HttpUtil;
-import com.hongtiancai.base.util.common.utils.JsonUtil;
+import com.github.hckisagoodboy.base.util.common.http.HttpUtil;
+import com.github.hckisagoodboy.base.util.common.util.JsonUtils;
+import com.github.hckisagoodboy.base.util.common.util.UUIDUtils;
 import com.nbugs.client.attendance.dao.DeptDAO;
 import com.nbugs.client.attendance.dao.pojo.DeptDataDTO;
 import com.nbugs.client.attendance.service.DeptService;
@@ -49,8 +49,8 @@ public class DeptServiceImpl implements DeptService {
   private String getSendDeptParams(List<DeptDataDTO> datas) {
     JSONObject json = new JSONObject();
     JSONArray dataArr = new JSONArray();
-    datas.iterator().forEachRemaining(data -> dataArr.add(JsonUtil.objToJsonObj(data)));
-    json.put("transactionId", BaseUtil.getUUID32());
+    datas.iterator().forEachRemaining(data -> dataArr.add(JsonUtils.objToJsonObj(data)));
+    json.put("transactionId", UUIDUtils.getUUID32());
     json.put("data", dataArr);
     return json.toJSONString();
   }

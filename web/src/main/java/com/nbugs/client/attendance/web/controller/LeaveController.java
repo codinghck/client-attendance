@@ -2,12 +2,12 @@ package com.nbugs.client.attendance.web.controller;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.hongtiancai.base.util.common.constant.Const;
-import com.hongtiancai.base.util.common.request.NormalOut;
-import com.hongtiancai.base.util.common.request.Param;
-import com.hongtiancai.base.util.common.request.ReqRes;
-import com.hongtiancai.base.util.common.request.ResHandler;
-import com.hongtiancai.base.util.common.utils.DateUtil;
+import com.github.hckisagoodboy.base.util.common.constant.Const;
+import com.github.hckisagoodboy.base.util.common.request.NormalOut;
+import com.github.hckisagoodboy.base.util.common.request.Param;
+import com.github.hckisagoodboy.base.util.common.request.ReqRes;
+import com.github.hckisagoodboy.base.util.common.request.ResHandler;
+import com.github.hckisagoodboy.base.util.common.util.DateUtils;
 import com.nbugs.client.attendance.service.OpenCenterService;
 import com.nbugs.client.attendance.web.controller.pojo.LeaveParam;
 import java.text.ParseException;
@@ -49,7 +49,7 @@ public class LeaveController {
       String start = leaveTime.getString("leaveTime");
       String end = leaveTime.getString("backTime");
       try {
-        if (DateUtil.isInRange(time, start, end, Const.NORMAL_DATE_FMT)) {
+        if (DateUtils.isInRange(time, start, end, Const.NORMAL_DATE_FMT)) {
           return Const.TRUE;
         }
       } catch (ParseException ignored) {}

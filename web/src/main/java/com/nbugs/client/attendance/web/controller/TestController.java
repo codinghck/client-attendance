@@ -1,8 +1,9 @@
 package com.nbugs.client.attendance.web.controller;
 
-import com.hongtiancai.base.util.common.request.NormalOut;
-import com.hongtiancai.base.util.common.request.ReqRes;
-import com.hongtiancai.base.util.common.request.ResHandler;
+
+import com.github.hckisagoodboy.base.util.common.request.NormalOut;
+import com.github.hckisagoodboy.base.util.common.request.ReqRes;
+import com.github.hckisagoodboy.base.util.common.request.ResHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

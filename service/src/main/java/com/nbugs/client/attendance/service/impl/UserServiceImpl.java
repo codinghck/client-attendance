@@ -2,9 +2,9 @@ package com.nbugs.client.attendance.service.impl;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.hongtiancai.base.util.common.base.BaseUtil;
-import com.hongtiancai.base.util.common.http.HttpUtil;
-import com.hongtiancai.base.util.common.utils.JsonUtil;
+import com.github.hckisagoodboy.base.util.common.http.HttpUtil;
+import com.github.hckisagoodboy.base.util.common.util.JsonUtils;
+import com.github.hckisagoodboy.base.util.common.util.UUIDUtils;
 import com.nbugs.client.attendance.dao.UserDAO;
 import com.nbugs.client.attendance.dao.pojo.UserDataDTO;
 import com.nbugs.client.attendance.service.OpenCenterService;
@@ -48,9 +48,9 @@ public class UserServiceImpl implements UserService {
 
   private String getSendUserParams(List<UserDataDTO> datas) {
     JSONArray jsonArr = new JSONArray();
-    datas.iterator().forEachRemaining(data -> jsonArr.add(JsonUtil.objToJsonObj(data)));
+    datas.iterator().forEachRemaining(data -> jsonArr.add(JsonUtils.objToJsonObj(data)));
     JSONObject params = new JSONObject();
-    params.put("transactionId", BaseUtil.getUUID32());
+    params.put("transactionId", UUIDUtils.getUUID32());
     params.put("data", jsonArr);
     return params.toJSONString();
   }

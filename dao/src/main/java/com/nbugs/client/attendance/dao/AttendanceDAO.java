@@ -1,10 +1,10 @@
 package com.nbugs.client.attendance.dao;
 
-import com.hongtiancai.base.util.common.base.LogUtil;
-import com.hongtiancai.base.util.common.exception.UnExpectedException;
-import com.hongtiancai.base.util.common.utils.DateUtil;
-import com.hongtiancai.base.util.common.utils.ListUtil;
-import com.hongtiancai.base.util.common.utils.PropertiesUtil;
+import com.github.hckisagoodboy.base.util.common.exception.UnExpectedException;
+import com.github.hckisagoodboy.base.util.common.util.DateUtils;
+import com.github.hckisagoodboy.base.util.common.util.ListUtils;
+import com.github.hckisagoodboy.base.util.common.util.LogUtils;
+import com.github.hckisagoodboy.base.util.common.util.PropertiesUtils;
 import com.nbugs.client.attendance.dao.pojo.AttendanceDataDTO;
 import com.nbugs.client.attendance.dao.source.AttendanceSource;
 import com.nbugs.client.attendance.dao.util.Util;
@@ -41,14 +41,14 @@ public class AttendanceDAO {
 
   @SneakyThrows({ConfigurationException.class})
   private String getLastId() {
-    return PropertiesUtil.getFirstValue(source.getExecutePositionFile());
+    return PropertiesUtils.getFirstValue(source.getExecutePositionFile());
   }
 
   @SneakyThrows({ConfigurationException.class, UnExpectedException.class})
   private void setLastId(List<AttendanceDataDTO> res) {
-    if (!ListUtil.isEmpty(res)) {
+    if (!ListUtils.isEmpty(res)) {
       String lastId = res.get(res.size() - 1).getDataId();
-      PropertiesUtil.setFirstValue(source.getExecutePositionFile(), lastId);
+      PropertiesUtils.setFirstValue(source.getExecutePositionFile(), lastId);
     }
   }
 
@@ -66,21 +66,21 @@ public class AttendanceDAO {
 
   private String getSecondStr(ResultSet rs) {
     try {
-      long s = DateUtil.dateStrToSecond(
+      long s = DateUtils.dateStrToSecond(
           Util.getByRs(rs, "time"), source.getTimeFormat());
       return String.valueOf(s);
     } catch (ParseException e) {
-      LogUtil.logErr(log, e);
+      LogUtils.logErr(log, e);
       return "";
     }
   }
 
   private String getMapDeviceId(String localId) throws ConfigurationException {
-    Map<String, String> map = PropertiesUtil.getToMap(source.getDeviceIdMap());
+    Map<String, String> map = PropertiesUtils.getToMap(source.getDeviceIdMap());
     try {
       return map.get(localId);
     } catch (NullPointerException e) {
-      LogUtil.logErr(log, e);
+      LogUtils.logErr(log, e);
       return source.getOrgId();
     }
   }
