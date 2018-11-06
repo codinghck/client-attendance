@@ -147,7 +147,7 @@
      The service ‘tomcat8’ has been installed 
      ```
      
-  4. 打开 windows 服务, 找到 Apache Tomcat 的服务修改它的运行级别为自动
+  4. 打开 windows 服务, 找到 Apache Tomcat 的服务修改它的运行级别为自动并启动该服务
   
   5. 将 tomcat 下面 bin 目录下的 tomcat8w.exe 放到开机自动启动项的注册表里即可开机启动 tomcat
      
@@ -157,7 +157,7 @@
      点击确定, 关闭注册表即可
   
   有以下方式
-  1. 将 war 包放到 tomcat 安装目录下的 webapps 目录下, 运行启动 tomcat 即可, 如已启动, 则可以重启 tomcat
+  1. 将 war 包放到 tomcat 安装目录下的 webapps 目录下, 运行启动 tomcat 即可, 如已启动, 则可以选择重启 tomcat
   2. 使用管理页面进行, 暂时略, 如有需要, 另行补充
 
 (二) jar 包方式
