@@ -93,7 +93,7 @@
 
 ## 二、程序包配置
 
-1. 到 github 上下载或 clone 整个项目在根目录下拿到程序 war/jar 包, 或者到根目录下只下载该 war/jar 包
+1. 部署所需 war 包或 jar 包请找 技术支持 或 基础组 @洪采康 提供
 
    [点我到达项目地址](https://github.com/hckisagoodboy/client-attendance)
 
