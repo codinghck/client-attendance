@@ -45,15 +45,15 @@
         <!-- build 这块需要配置，不然打 jar 的时候可能会说找不到主类 -->
         <configuration>
           <mainClass>com.nbugs.client.attendance.MainApplication</mainClass>
-          <layout>ZIP</layout>
+          <!--<layout>ZIP</layout>-->
         </configuration>
-        <executions>
-          <execution>
-            <goals>
-              <goal>repackage</goal>
-            </goals>
-          </execution>
-        </executions>
+        <!--<executions>-->
+          <!--<execution>-->
+            <!--<goals>-->
+              <!--<goal>repackage</goal>-->
+            <!--</goals>-->
+          <!--</execution>-->
+        <!--</executions>-->
       </plugin>
     </plugins>
   </build>
