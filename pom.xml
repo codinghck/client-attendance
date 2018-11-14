@@ -98,6 +98,11 @@
         <artifactId>base-util</artifactId>
         <version>1.1.2-RELEASE</version>
       </dependency>
+      <dependency>
+        <groupId>net.sourceforge.jtds</groupId>
+        <artifactId>jtds</artifactId>
+        <version>1.2.4</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
@@ -110,7 +115,7 @@
 
   <build>
     <!-- pom.xml - build 加入 finalName。避免生成 war 包名歧义-->
-    <finalName>ClientAttendance</finalName>
+    <finalName>ClientAttendance-${project.version}</finalName>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
