@@ -52,16 +52,16 @@
       
    2. 下载相应版本的安装包, 例如(这是 64 位 windows 电脑的示例, 如果是 32 位电脑, 请下载 32 位压缩包)
    
-      下载名称: apache-tomcat-8.5.32-windows-x64.zip
+      下载名称: `apache-tomcat-8.5.32-windows-x64.zip`
       
    3. 打开压缩包解压到合适位置, 例如
    
        解压地址为 D 盘, 并且文件夹重命名(重命名有时可以防止目录找不到等问题), 例如
-       重命名为 Tomcat8 如: "D:\tomcat8\"
+       重命名为 Tomcat8 如: `D:\tomcat8\`
    
    4. 试启动
       
-      此时双击打开 D:\tomcat8\bin 目录下的 startup.bat, 一般有两种情况: 
+      此时双击打开 `D:\tomcat8\bin` 目录下的 `startup.bat`, 一般有两种情况: 
       
       1.提示启动成功
       ```
