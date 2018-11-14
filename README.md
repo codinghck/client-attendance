@@ -113,26 +113,22 @@
 
 2. 使用 WinRAR 修改配置文件
    1. 首先用 WinRAR 打开 .war/.jar 文件
-   2. 选中需要修改的文件拖出到桌面, 需要修改的文件其目录如下
-       * client-attendance
-           * main  
-             * resources
-               * log
-                 * logback.xml ---- 日志, 一般不做更改
-               * map
-                 * device_id_map.properties ---- 部署环境中的设备 id 和开放平台的设备 id 映射关系配置
-               * tasks
-                 * open_center.properties ---- 开放平台访问凭证配置
-                 * attendance.properties ---- 考勤数据上传配置
-                 * dept.properties ---- 组织数据上传配置
-                 * user.properties ---- 用户数据上传配置
-   3. 找到以上四个一般情况下需要修改的 .properties 文件后, 参照文件中注释修改配置
+   2. 找到下面的文件结构👇找到四个一般情况下需要修改的 .properties 文件后拖出到桌面, 需要修改的文件其目录如下
+      * WEB-INF
+        * classes
+          * map
+            * device_id_map.properties ---- 部署环境中的设备 id 和开放平台的设备 id 映射关系配置
+          * tasks
+            * attendance.properties ---- 考勤数据上传配置
+            * dept.properties ---- 组织数据上传配置
+            * user.properties ---- 用户数据上传配置
+   3. 参照文件中的注释修改配置
    4. 保存后再次放到 war 中, 配置即修改完成
 
 ----
 
 
-## 步骤三、启动运行
+## 步骤三、部署程序
 
 (一) war 包方式
   1. 将步骤二中改好配置文件的 war 包放到tomcat 安装目录下的 webapps 目录下
@@ -159,3 +155,5 @@
      一会儿后仍没有产生日志, 说明程序部署可能出现问题. 
    * 按需选择需要查看的日志文件后, 双击就可以使用浏览器打开查看, 如需查看更新, 刷新网页即可
 
+3. 技术支持问题
+    如下载链接失效或其他问题需要支持, 则请找 @技术支持 或 基础组 @洪采康
