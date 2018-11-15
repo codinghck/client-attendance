@@ -102,7 +102,7 @@ public class OpenCenterServiceImpl implements OpenCenterService {
     try {
       return DateUtils.changeDateStr(time, "yyyy-MM-dd");
     } catch (ParseException e) {
-      LogUtils.logErr(log, e);
+      LogUtils.logThrowable(log, e);
       throw new ParamException("请检查日期格式!");
     }
   }

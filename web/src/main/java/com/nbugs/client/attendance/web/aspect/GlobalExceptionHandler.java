@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class GlobalExceptionHandler {
   @ExceptionHandler(value = MethodArgumentNotValidException.class)
   public <T> ReqRes<T> exception(MethodArgumentNotValidException e) {
-    LogUtils.logErr(log, e);
+    LogUtils.logThrowable(log, e);
     BindingResult result = e.getBindingResult();
     final List<FieldError> fieldErrors = result.getFieldErrors();
     StringBuilder builder = new StringBuilder();
@@ -43,21 +43,21 @@ public class GlobalExceptionHandler {
 
   @ExceptionHandler(value = ParamException.class)
   public <T> ReqRes<T> paramExceptionHandler(ParamException e) {
-    LogUtils.logErr(log, e);
+    LogUtils.logThrowable(log, e);
     ResHandler<T> handler = new ResHandler<>();
     return handler.getByParamErr(e.getMessage());
   }
 
   @ExceptionHandler(value = ConstraintViolationException.class)
   public <T> ReqRes<T> constraintViolationExceptionHandler(ConstraintViolationException e) {
-    LogUtils.logErr(log, e);
+    LogUtils.logThrowable(log, e);
     ResHandler<T> handler = new ResHandler<>();
     return handler.getByParamErr(e.getMessage());
   }
 
   @ExceptionHandler(value = Exception.class)
   public <T> ReqRes<T> exceptionHandler(Exception e) {
-    LogUtils.logErr(log, e);
+    LogUtils.logThrowable(log, e);
     ResHandler<T> handler = new ResHandler<>();
     return handler.getRqResByCode(ErrCode.UNEXPECTED_ERROR, e.getMessage());
   }

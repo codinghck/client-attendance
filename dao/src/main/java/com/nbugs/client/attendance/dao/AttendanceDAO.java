@@ -69,7 +69,7 @@ public class AttendanceDAO {
           Util.getByRs(rs, "time"), source.getTimeFormat());
       return String.valueOf(s);
     } catch (ParseException e) {
-      LogUtils.logErr(log, e);
+      LogUtils.logThrowable(log, e);
       return "";
     }
   }
@@ -79,7 +79,7 @@ public class AttendanceDAO {
     try {
       return map.get(localId);
     } catch (NullPointerException e) {
-      LogUtils.logErr(log, e);
+      LogUtils.logThrowable(log, e);
       return source.getOrgId();
     }
   }
