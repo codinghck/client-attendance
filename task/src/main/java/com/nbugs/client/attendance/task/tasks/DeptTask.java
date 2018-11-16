@@ -42,7 +42,7 @@ public class DeptTask {
     for (int i = 0; i < partNum; i++) {
       boolean isLast = (i == (partNum - 1));
       int start = i * max;
-      int end = isLast ? (depts.size() - 1) : (i + 1) * max;
+      int end = isLast ? (depts.size() - 1) : (i + 1) * max + 1;
       List<DeptDataDTO> tempDepts = new ArrayList<>(depts.subList(start, end));
       res.add(deptService.sendDeptsToOpenCenter(tempDepts));
     }

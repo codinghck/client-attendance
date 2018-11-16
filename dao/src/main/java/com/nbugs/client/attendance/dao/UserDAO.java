@@ -2,6 +2,7 @@ package com.nbugs.client.attendance.dao;
 
 import com.github.hckisagoodboy.base.util.common.base.ListUtils;
 import com.github.hckisagoodboy.base.util.common.base.PropertiesUtils;
+import com.github.hckisagoodboy.base.util.common.base.StrUtils;
 import com.nbugs.client.attendance.dao.pojo.UserDataDTO;
 import com.nbugs.client.attendance.dao.source.UserSource;
 import com.nbugs.client.attendance.dao.util.Util;
@@ -22,11 +23,11 @@ import org.springframework.stereotype.Repository;
 @Repository
 @Slf4j
 public class UserDAO {
-  private final JdbcTemplate userJdbcTemp;
+  private final JdbcTemplate jdbcTemplate;
   private final UserSource source;
 
   public List<UserDataDTO> getUsers() {
-    List<UserDataDTO> res = userJdbcTemp.query(
+    List<UserDataDTO> res = jdbcTemplate.query(
         source.getGetUserSql(), new Object[]{getLastId()}, (rs, rowNum) -> getDtoFromRs(rs));
     setLastId(res);
     return res;
@@ -49,18 +50,26 @@ public class UserDAO {
     UserDataDTO dataDTO = new UserDataDTO();
     dataDTO.setDataId(Util.getByRs(rs, "id"));
     dataDTO.setOrgId(source.getOrgId());
-    dataDTO.setUserId(Util.getByRs(rs, "user_id"));
     dataDTO.setUserName(Util.getByRs(rs, "user_name"));
-    dataDTO.setCard(Util.getByRs(rs, "card"));
     dataDTO.setDeptId(Util.getByRs(rs, "dept_id"));
     dataDTO.setDeptName(Util.getByRs(rs, "dept_name"));
+    String userId = Util.getByRs(rs, "user_id");
+    String cardId = Util.getByRs(rs, "card");
+    if (userId != null) {
+      userId = StrUtils.addLeftIfLenNotEnough(userId, '0', 10);
+    }
+    if (cardId != null) {
+      cardId = StrUtils.addLeftIfLenNotEnough(cardId, '0', 10);
+    }
+    dataDTO.setUserId(userId);
+    dataDTO.setCard(cardId);
     return dataDTO;
   }
 
   @Autowired
   public UserDAO(
-      @Qualifier("userJdbcTemplate") JdbcTemplate userJdbcTemp, UserSource userSource) {
-    this.userJdbcTemp = userJdbcTemp;
+      @Qualifier("jdbcTemplate") JdbcTemplate jdbcTemplate, UserSource userSource) {
+    this.jdbcTemplate = jdbcTemplate;
     this.source = userSource;
   }
 }

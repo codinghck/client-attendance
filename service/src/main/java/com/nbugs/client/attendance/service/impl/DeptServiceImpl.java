@@ -12,9 +12,7 @@ import com.nbugs.client.attendance.service.DeptService;
 import com.nbugs.client.attendance.service.OpenCenterService;
 import com.nbugs.client.attendance.dao.source.DeptSource;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,10 +50,7 @@ public class DeptServiceImpl implements DeptService {
   }
 
   private String getSendDeptsUrl(String accessToken) {
-    String sendDeptsUrl = deptSource.getSendDeptUrl();
-    Map<String, String> args = new HashMap<>(1);
-    args.put("access_token", accessToken);
-    return HttpUtil.addMapToUrl(sendDeptsUrl, args);
+    return deptSource.getSendDeptUrl() + "?access_token=" + accessToken;
   }
 
   private String getSendDeptParams(List<DeptDataDTO> datas) {

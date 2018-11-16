@@ -43,7 +43,7 @@ public class AttendanceTask {
     for (int i = 0; i < partNum; i++) {
       boolean isLast = (i == (partNum - 1));
       int start = i * max;
-      int end = isLast ? (attendances.size() - 1) : (i + 1) * max;
+      int end = isLast ? (attendances.size() - 1) : (i + 1) * max + 1;
       List<AttendanceDataDTO> tempAttendances = new ArrayList<>(attendances.subList(start, end));
       res.add(attendanceService.sendAttendanceMsg(tempAttendances));
     }

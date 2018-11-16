@@ -52,10 +52,11 @@ public class AttendanceServiceImpl implements AttendanceService {
   }
 
   private String getAttendanceUrl(String accessToken) {
-    String terminalAttendanceUrl = attendanceSource.getTerminalAttendanceUrl();
-    Map<String, String> args = new HashMap<>(1);
-    args.put("access_token", accessToken);
-    return HttpUtil.addMapToUrl(terminalAttendanceUrl, args);
+//    String terminalAttendanceUrl = attendanceSource.getTerminalAttendanceUrl();
+//    Map<String, String> args = new HashMap<>(1);
+//    args.put("access_token", accessToken);
+//    return HttpUtil.addMapToUrl(terminalAttendanceUrl, args);
+    return attendanceSource.getTerminalAttendanceUrl() + "?access_token=" + accessToken;
   }
 
   private String getTerminalAttendanceParams(List<AttendanceDataDTO> datas) {

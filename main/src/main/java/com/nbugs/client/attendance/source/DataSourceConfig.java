@@ -16,49 +16,19 @@ import org.springframework.jdbc.core.JdbcTemplate;
  * @date 2018/10/23 9:53 AM
  */
 @Configuration
-@PropertySources({
-    @PropertySource("classpath:tasks/user.properties"),
-    @PropertySource("classpath:tasks/dept.properties"),
-    @PropertySource("classpath:tasks/attendance.properties")
-})
+@PropertySources({ @PropertySource("classpath:tasks/attendance.properties") })
 public class DataSourceConfig {
-  @Bean(name = "attendanceDataSource")
-  @Qualifier("attendanceDataSource")
   @Primary
-  @ConfigurationProperties(prefix = "attendance.db")
+  @Bean(name = "dataSource")
+  @Qualifier("dataSource")
+  @ConfigurationProperties(prefix = "db")
   public DataSource attendanceDataSource() {
     return DataSourceBuilder.create().build();
   }
 
-  @Bean(name = "userDataSource")
-  @Qualifier("userDataSource")
-  @ConfigurationProperties(prefix = "user.db")
-  public DataSource userDataSource() {
-    return DataSourceBuilder.create().build();
-  }
-
-  @Bean(name = "deptDataSource")
-  @Qualifier("deptDataSource")
-  @ConfigurationProperties(prefix = "dept.db")
-  public DataSource deptDataSource() {
-    return DataSourceBuilder.create().build();
-  }
-
-  @Bean(name = "attendanceJdbcTemplate")
+  @Bean(name = "jdbcTemplate")
   public JdbcTemplate attendanceJdbcTemplate(
-      @Qualifier("attendanceDataSource") DataSource dataSource) {
-    return new JdbcTemplate(dataSource);
-  }
-
-  @Bean(name = "userJdbcTemplate")
-  public JdbcTemplate userJdbcTemplate(
-      @Qualifier("userDataSource") DataSource dataSource) {
-    return new JdbcTemplate(dataSource);
-  }
-
-  @Bean(name = "deptJdbcTemplate")
-  public JdbcTemplate deptJdbcTemplate(
-      @Qualifier("deptDataSource") DataSource dataSource) {
+      @Qualifier("dataSource") DataSource dataSource) {
     return new JdbcTemplate(dataSource);
   }
 }

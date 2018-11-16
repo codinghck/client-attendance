@@ -4,6 +4,7 @@ import com.github.hckisagoodboy.base.util.common.base.DateUtils;
 import com.github.hckisagoodboy.base.util.common.base.ListUtils;
 import com.github.hckisagoodboy.base.util.common.base.LogUtils;
 import com.github.hckisagoodboy.base.util.common.base.PropertiesUtils;
+import com.github.hckisagoodboy.base.util.common.base.StrUtils;
 import com.nbugs.client.attendance.dao.pojo.AttendanceDataDTO;
 import com.nbugs.client.attendance.dao.source.AttendanceSource;
 import com.nbugs.client.attendance.dao.util.Util;
@@ -28,11 +29,11 @@ import org.springframework.stereotype.Repository;
 @Slf4j
 public class AttendanceDAO {
 
-  private final JdbcTemplate attendanceJdbcTemp;
+  private final JdbcTemplate jdbcTemplate;
   private final AttendanceSource source;
 
   public List<AttendanceDataDTO> getAttendance() {
-    List<AttendanceDataDTO> res = attendanceJdbcTemp.query(
+    List<AttendanceDataDTO> res = jdbcTemplate.query(
         source.getAttendanceSql(), new Object[]{getLastId()}, (rs, rowNum) -> getDtoFromRs(rs));
     setLastId(res);
     return res;
@@ -56,10 +57,14 @@ public class AttendanceDAO {
     AttendanceDataDTO dataDTO = new AttendanceDataDTO();
     dataDTO.setDataId(Util.getByRs(rs, "id"));
     dataDTO.setDeviceId(getMapDeviceId(Util.getByRs(rs, "device_id")));
-    dataDTO.setTerminalId(Util.getByRs(rs, "terminal_id"));
     dataDTO.setTime(getSecondStr(rs));
     dataDTO.setBehavior(Util.getByRs(rs, "behavior"));
     dataDTO.setPicUrls(Collections.singletonList(Util.getByRs(rs, "file_url")));
+    String terminalId = Util.getByRs(rs, "terminal_id");
+    if (terminalId != null) {
+      terminalId = StrUtils.addLeftIfLenNotEnough(terminalId, '0', 10);
+    }
+    dataDTO.setTerminalId(terminalId);
     return dataDTO;
   }
 
@@ -86,9 +91,9 @@ public class AttendanceDAO {
 
   @Autowired
   public AttendanceDAO(
-      @Qualifier("attendanceJdbcTemplate") JdbcTemplate attendanceJdbcTemp,
+      @Qualifier("jdbcTemplate") JdbcTemplate jdbcTemplate,
       AttendanceSource attendanceSource) {
-    this.attendanceJdbcTemp = attendanceJdbcTemp;
+    this.jdbcTemplate = jdbcTemplate;
     this.source = attendanceSource;
   }
 }

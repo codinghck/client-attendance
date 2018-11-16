@@ -23,11 +23,11 @@ import org.springframework.stereotype.Repository;
 @Slf4j
 public class DeptDAO {
 
-  private final JdbcTemplate deptJdbcTemp;
+  private final JdbcTemplate jdbcTemplate;
   private final DeptSource source;
 
   public List<DeptDataDTO> getAttendance() {
-    List<DeptDataDTO> res = deptJdbcTemp.query(
+    List<DeptDataDTO> res = jdbcTemplate.query(
         source.getGetDeptSql(), new Object[]{getLastId()}, (rs, rowNum) -> getDtoFromRs(rs));
     setLastId(res);
     return res;
@@ -58,8 +58,8 @@ public class DeptDAO {
 
   @Autowired
   public DeptDAO(
-      @Qualifier("deptJdbcTemplate") JdbcTemplate deptJdbcTemp, DeptSource deptSource) {
-    this.deptJdbcTemp = deptJdbcTemp;
+      @Qualifier("jdbcTemplate") JdbcTemplate jdbcTemplate, DeptSource deptSource) {
+    this.jdbcTemplate = jdbcTemplate;
     this.source = deptSource;
   }
 }
