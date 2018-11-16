@@ -12,9 +12,7 @@ import com.nbugs.client.attendance.service.AttendanceService;
 import com.nbugs.client.attendance.service.OpenCenterService;
 import com.nbugs.client.attendance.dao.source.AttendanceSource;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,10 +50,6 @@ public class AttendanceServiceImpl implements AttendanceService {
   }
 
   private String getAttendanceUrl(String accessToken) {
-//    String terminalAttendanceUrl = attendanceSource.getTerminalAttendanceUrl();
-//    Map<String, String> args = new HashMap<>(1);
-//    args.put("access_token", accessToken);
-//    return HttpUtil.addMapToUrl(terminalAttendanceUrl, args);
     return attendanceSource.getTerminalAttendanceUrl() + "?access_token=" + accessToken;
   }
 

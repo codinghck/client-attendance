@@ -40,11 +40,14 @@ public class UserTask {
     List<String> res = new ArrayList<>();
     int max = source.getSendUserMaxSize();
     int partNum = users.size() / max + 1;
+    log.info("需上传用户数据 {} 条, 最大上传数据 {} 条, 需要分成 {} 部分上传", users.size(), max, partNum);
     for (int i = 0; i < partNum; i++) {
       boolean isLast = (i == (partNum - 1));
       int start = i * max;
-      int end = isLast ? (users.size() - 1) : (i + 1) * max + 1;
+      int end = (isLast ? (users.size() - 1) : (i + 1) * max) + 1;
       List<UserDataDTO> tempUsers = new ArrayList<>(users.subList(start, end));
+      log.info("上传用户第 {} 部分开始, 开始索引 {}, 结束索引 {}, 需上传数据第一条示例 = {}",
+          i + 1, start, end, tempUsers.get(0));
       res.add(userService.sendUsersToOpenCenter(tempUsers));
     }
     return res;

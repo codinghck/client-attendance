@@ -6,10 +6,12 @@ import com.nbugs.client.attendance.dao.pojo.DeptDataDTO;
 import com.nbugs.client.attendance.dao.source.DeptSource;
 import com.nbugs.client.attendance.dao.util.Util;
 import java.sql.ResultSet;
+import java.util.Iterator;
 import java.util.List;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.configuration.ConfigurationException;
+import org.apache.commons.configuration.PropertiesConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -35,14 +37,24 @@ public class DeptDAO {
 
   @SneakyThrows({ConfigurationException.class})
   private String getLastId() {
-    return PropertiesUtils.getFirstValue(source.getExecutePositionFile());
+//    String lastId = PropertiesUtils.getFirstValue(source.getExecutePositionFile());
+    String lastId = PropertiesUtils.load(source.getExecutePositionFile()).getString("dept.last-execute-id");
+    log.info("上次组织执行位置为 {}", lastId);
+    return lastId;
   }
 
   @SneakyThrows({ConfigurationException.class})
   private void setLastId(List<DeptDataDTO> res) {
     if (!ListUtils.isEmpty(res)) {
       String lastId = res.get(res.size() - 1).getDataId();
-      PropertiesUtils.setFirstValue(source.getExecutePositionFile(), lastId);
+      PropertiesConfiguration props = PropertiesUtils.load(source.getExecutePositionFile());
+      props.setAutoSave(true);
+      props.setEncoding("UTF-8");
+      Iterator<String> it = props.getKeys();
+      String key = it.next();
+      log.info("下次组织执行开始位置为 {}, 需要设置的 key = {}", lastId, key);
+      props.setProperty("dept.last-execute-id", lastId);
+//     PropertiesUtils.setFirstValue(source.getExecutePositionFile(), "last-execute-id", lastId);
     }
   }
 

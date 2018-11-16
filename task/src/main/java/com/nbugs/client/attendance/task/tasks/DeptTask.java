@@ -39,11 +39,14 @@ public class DeptTask {
     List<String> res = new ArrayList<>();
     int max = source.getSendDeptMaxSize();
     int partNum = depts.size() / max + 1;
+    log.info("需上传组织数据 {} 条, 最大上传数据 {} 条, 需要分成 {} 部分上传", depts.size(), max, partNum);
     for (int i = 0; i < partNum; i++) {
       boolean isLast = (i == (partNum - 1));
       int start = i * max;
-      int end = isLast ? (depts.size() - 1) : (i + 1) * max + 1;
+      int end = (isLast ? (depts.size() - 1) : (i + 1) * max) + 1;
       List<DeptDataDTO> tempDepts = new ArrayList<>(depts.subList(start, end));
+      log.info("上传组织第 {} 部分开始, 开始索引 {}, 结束索引 {}, 需上传数据第一条示例 = {}",
+          i + 1, start, end, tempDepts.get(0));
       res.add(deptService.sendDeptsToOpenCenter(tempDepts));
     }
     return res;
