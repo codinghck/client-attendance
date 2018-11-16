@@ -7,12 +7,10 @@ import com.nbugs.client.attendance.dao.pojo.UserDataDTO;
 import com.nbugs.client.attendance.dao.source.UserSource;
 import com.nbugs.client.attendance.dao.util.Util;
 import java.sql.ResultSet;
-import java.util.Iterator;
 import java.util.List;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.configuration.ConfigurationException;
-import org.apache.commons.configuration.PropertiesConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -37,9 +35,7 @@ public class UserDAO {
 
   @SneakyThrows({ConfigurationException.class})
   private String getLastId() {
-//    String lastId = PropertiesUtils.getFirstValue(source.getExecutePositionFile());
-//    String lastId = PropertiesUtils.load(source.getExecutePositionFile()).getString("user.last-execute-id");
-    String lastId = PropertiesUtils.load(source.getExecutePositionFile()).getString("user.last-execute-id");
+    String lastId = PropertiesUtils.getFirstValue(source.getExecutePositionFile());
     log.info("上次用户执行位置为 {}", lastId);
     return lastId;
   }
@@ -48,14 +44,8 @@ public class UserDAO {
   private void setLastId(List<UserDataDTO> res) {
     if (!ListUtils.isEmpty(res)) {
       String lastId = res.get(res.size() - 1).getDataId();
-      PropertiesConfiguration props = PropertiesUtils.load(source.getExecutePositionFile());
-      props.setAutoSave(true);
-      props.setEncoding("UTF-8");
-      Iterator<String> it = props.getKeys();
-      String key = it.next();
-      log.info("下次用户执行开始位置为 {}, 需要设置的 key = {}", lastId, key);
-      props.setProperty("user.last-execute-id", lastId);
-//      PropertiesUtils.setFirstValue(source.getExecutePositionFile(), "last-execute-id", lastId);
+      log.info("下次用户执行开始位置为 {}", lastId);
+      PropertiesUtils.setFirstValue(source.getExecutePositionFile(), lastId);
     }
   }
 

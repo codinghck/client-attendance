@@ -37,8 +37,7 @@ public class DeptDAO {
 
   @SneakyThrows({ConfigurationException.class})
   private String getLastId() {
-//    String lastId = PropertiesUtils.getFirstValue(source.getExecutePositionFile());
-    String lastId = PropertiesUtils.load(source.getExecutePositionFile()).getString("dept.last-execute-id");
+    String lastId = PropertiesUtils.getFirstValue(source.getExecutePositionFile());
     log.info("上次组织执行位置为 {}", lastId);
     return lastId;
   }
@@ -47,14 +46,8 @@ public class DeptDAO {
   private void setLastId(List<DeptDataDTO> res) {
     if (!ListUtils.isEmpty(res)) {
       String lastId = res.get(res.size() - 1).getDataId();
-      PropertiesConfiguration props = PropertiesUtils.load(source.getExecutePositionFile());
-      props.setAutoSave(true);
-      props.setEncoding("UTF-8");
-      Iterator<String> it = props.getKeys();
-      String key = it.next();
-      log.info("下次组织执行开始位置为 {}, 需要设置的 key = {}", lastId, key);
-      props.setProperty("dept.last-execute-id", lastId);
-//     PropertiesUtils.setFirstValue(source.getExecutePositionFile(), "last-execute-id", lastId);
+      log.info("下次组织执行开始位置为 {}", lastId);
+      PropertiesUtils.setFirstValue(source.getExecutePositionFile(), lastId);
     }
   }
 

@@ -1,7 +1,6 @@
 package com.nbugs.client.attendance.dao;
 
 import com.github.hckisagoodboy.base.util.common.base.DateUtils;
-import com.github.hckisagoodboy.base.util.common.base.IteratorUtils;
 import com.github.hckisagoodboy.base.util.common.base.ListUtils;
 import com.github.hckisagoodboy.base.util.common.base.LogUtils;
 import com.github.hckisagoodboy.base.util.common.base.PropertiesUtils;
@@ -12,13 +11,11 @@ import com.nbugs.client.attendance.dao.util.Util;
 import java.sql.ResultSet;
 import java.text.ParseException;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.configuration.ConfigurationException;
-import org.apache.commons.configuration.PropertiesConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -44,8 +41,7 @@ public class AttendanceDAO {
 
   @SneakyThrows({ConfigurationException.class})
   private String getLastId() {
-//    String lastId = PropertiesUtils.getFirstValue(source.getExecutePositionFile());
-    String lastId = PropertiesUtils.load(source.getExecutePositionFile()).getString("attendance.last-execute-id");
+    String lastId = PropertiesUtils.getFirstValue(source.getExecutePositionFile());
     log.info("上次考勤执行位置为 {}", lastId);
     return lastId;
   }
@@ -54,16 +50,8 @@ public class AttendanceDAO {
   private void setLastId(List<AttendanceDataDTO> res) {
     if (!ListUtils.isEmpty(res)) {
       String lastId = res.get(res.size() - 1).getDataId();
-      PropertiesConfiguration props = PropertiesUtils.load(source.getExecutePositionFile());
-      props.setAutoSave(true);
-      props.setEncoding("UTF-8");
-      Iterator<String> it = props.getKeys();
-      String key = it.next();
-      log.info("下次考勤执行开始位置为 {}, 需要设置的 key = {}", lastId, key);
-      props.setProperty("attendance.last-execute-id", lastId);
-
-
-//      PropertiesUtils.setFirstValue(source.getExecutePositionFile(), "attendance.last-execute-id", lastId);
+      log.info("下次考勤执行开始位置为 {}", lastId);
+      PropertiesUtils.setFirstValue(source.getExecutePositionFile(), lastId);
     }
   }
 
