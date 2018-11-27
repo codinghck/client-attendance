@@ -1,6 +1,7 @@
 package com.nbugs.client.attendance.task.tasks;
 
 import com.github.hckisagoodboy.base.util.common.base.ListUtils;
+import com.github.hckisagoodboy.base.util.common.base.LogUtils;
 import com.nbugs.client.attendance.dao.pojo.UserDataDTO;
 import com.nbugs.client.attendance.dao.source.UserSource;
 import com.nbugs.client.attendance.service.UserService;
@@ -26,6 +27,14 @@ public class UserTask {
 
   @Scheduled(cron = "${user.schedule}")
   public void doTask() {
+    try {
+      doUserTask();
+    } catch (Throwable e) {
+      LogUtils.logThrowable(log, e, "上传用户任务发生错误!");
+    }
+  }
+
+  private void doUserTask() {
     log.info("上传用户数据任务开始");
     List<UserDataDTO> users = userService.getLocalUsers();
     if (!ListUtils.isEmpty(users)) {

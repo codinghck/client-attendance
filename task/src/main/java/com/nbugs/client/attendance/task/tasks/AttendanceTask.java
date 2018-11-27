@@ -1,6 +1,7 @@
 package com.nbugs.client.attendance.task.tasks;
 
 import com.github.hckisagoodboy.base.util.common.base.ListUtils;
+import com.github.hckisagoodboy.base.util.common.base.LogUtils;
 import com.nbugs.client.attendance.dao.pojo.AttendanceDataDTO;
 import com.nbugs.client.attendance.dao.source.AttendanceSource;
 import com.nbugs.client.attendance.service.AttendanceService;
@@ -26,6 +27,14 @@ public class AttendanceTask {
 
   @Scheduled(cron = "${attendance.schedule}")
   public void doTask() {
+    try {
+      doAttendanceTask();
+    } catch (Throwable e) {
+      LogUtils.logThrowable(log, e, "上传考勤任务发生错误!");
+    }
+  }
+
+  private void doAttendanceTask() {
     log.info("上传考勤任务开始");
     List<AttendanceDataDTO> attendances = attendanceService.getLocalAttendances();
     log.info("需要上传 {} 条数据", attendances.size());
