@@ -21,5 +21,6 @@ public class DeptSource {
   private String orgId;
   private String sendDeptUrl;
   private int sendDeptMaxSize;
+  private int taskTimeOut;
   private String executePositionFile;
 }

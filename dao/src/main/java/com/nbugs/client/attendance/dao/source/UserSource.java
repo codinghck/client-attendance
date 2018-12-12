@@ -21,5 +21,6 @@ public class UserSource {
   private String orgId;
   private String sendUserUrl;
   private int sendUserMaxSize;
+  private int taskTimeOut;
   private String executePositionFile;
 }

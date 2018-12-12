@@ -17,9 +17,13 @@ import org.springframework.scheduling.config.ScheduledTaskRegistrar;
 public class ScheduleConfig implements SchedulingConfigurer {
   @Override
   public void configureTasks(@NotNull ScheduledTaskRegistrar taskRegistrar) {
-    ScheduledExecutorService executor = new ScheduledThreadPoolExecutor(10,
-       new BasicThreadFactory.Builder().namingPattern("schedule-pool-%d").daemon(true).build());
-    //参数传入一个size为10的线程池
+    BasicThreadFactory factory = new BasicThreadFactory
+        .Builder()
+        .namingPattern("schedule-pool-%d")
+        .daemon(true)
+        .build();
+    ScheduledExecutorService executor = new ScheduledThreadPoolExecutor(10, factory);
+    // 参数传入一个 size 为 10 的线程池
     taskRegistrar.setScheduler(executor);
   }
 }

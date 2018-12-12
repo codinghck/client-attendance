@@ -21,6 +21,7 @@ public class AttendanceSource {
   private String timeFormat;
   private String terminalAttendanceUrl;
   private int sendAttendanceMaxSize;
+  private int taskTimeOut;
   private String executePositionFile;
   private String deviceIdMap;
   private String orgId;

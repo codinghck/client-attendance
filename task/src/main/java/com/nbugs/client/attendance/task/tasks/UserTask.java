@@ -5,6 +5,8 @@ import com.github.hckisagoodboy.base.util.common.base.LogUtils;
 import com.nbugs.client.attendance.dao.pojo.UserDataDTO;
 import com.nbugs.client.attendance.dao.source.UserSource;
 import com.nbugs.client.attendance.service.UserService;
+import com.nbugs.client.attendance.task.tasks.thread.MonitorService;
+import com.nbugs.client.attendance.task.tasks.thread.TaskStatus;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
@@ -24,11 +26,15 @@ public class UserTask {
 
   private final UserService userService;
   private final UserSource source;
+  private final MonitorService monitor;
 
   @Scheduled(cron = "${user.schedule}")
   public void doTask() {
     try {
+      TaskStatus status = new TaskStatus();
+      monitor.monitor(source.getTaskTimeOut(), Thread.currentThread(), status);
       doUserTask();
+      status.setSuccess(true);
     } catch (Throwable e) {
       LogUtils.logThrowable(log, e, "上传用户任务发生错误!");
     }
@@ -63,8 +69,9 @@ public class UserTask {
   }
 
   @Autowired
-  public UserTask(UserService userService, UserSource userSource) {
+  public UserTask(UserService userService, UserSource userSource, MonitorService monitor) {
     this.userService = userService;
     this.source = userSource;
+    this.monitor = monitor;
   }
 }

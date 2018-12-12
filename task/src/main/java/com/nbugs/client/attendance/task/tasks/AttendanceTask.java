@@ -5,6 +5,8 @@ import com.github.hckisagoodboy.base.util.common.base.LogUtils;
 import com.nbugs.client.attendance.dao.pojo.AttendanceDataDTO;
 import com.nbugs.client.attendance.dao.source.AttendanceSource;
 import com.nbugs.client.attendance.service.AttendanceService;
+import com.nbugs.client.attendance.task.tasks.thread.MonitorService;
+import com.nbugs.client.attendance.task.tasks.thread.TaskStatus;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
@@ -24,11 +26,15 @@ public class AttendanceTask {
 
   private final AttendanceService attendanceService;
   private final AttendanceSource source;
+  private final MonitorService monitor;
 
   @Scheduled(cron = "${attendance.schedule}")
   public void doTask() {
     try {
+      TaskStatus status = new TaskStatus();
+      monitor.monitor(source.getTaskTimeOut(), Thread.currentThread(), status);
       doAttendanceTask();
+      status.setSuccess(true);
     } catch (Throwable e) {
       LogUtils.logThrowable(log, e, "上传考勤任务发生错误!");
     }
@@ -67,8 +73,10 @@ public class AttendanceTask {
   @Autowired
   public AttendanceTask(
       AttendanceService attendanceService,
-      AttendanceSource attendanceSource) {
+      AttendanceSource attendanceSource,
+      MonitorService monitor) {
     this.attendanceService = attendanceService;
     this.source = attendanceSource;
+    this.monitor = monitor;
   }
 }

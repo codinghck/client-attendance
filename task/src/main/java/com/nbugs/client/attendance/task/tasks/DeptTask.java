@@ -5,6 +5,8 @@ import com.github.hckisagoodboy.base.util.common.base.LogUtils;
 import com.nbugs.client.attendance.dao.pojo.DeptDataDTO;
 import com.nbugs.client.attendance.dao.source.DeptSource;
 import com.nbugs.client.attendance.service.DeptService;
+import com.nbugs.client.attendance.task.tasks.thread.MonitorService;
+import com.nbugs.client.attendance.task.tasks.thread.TaskStatus;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
@@ -21,13 +23,18 @@ import org.springframework.stereotype.Component;
 @PropertySource("classpath:tasks/dept.properties")
 @Slf4j
 public class DeptTask {
+
   private final DeptService deptService;
   private final DeptSource source;
+  private final MonitorService monitor;
 
   @Scheduled(cron = "${dept.schedule}")
   public void doTask() {
     try {
+      TaskStatus status = new TaskStatus();
+      monitor.monitor(source.getTaskTimeOut(), Thread.currentThread(), status);
       doDeptTask();
+      status.setSuccess(true);
     } catch (Throwable e) {
       LogUtils.logThrowable(log, e, "上传组织任务发生错误!");
     }
@@ -62,8 +69,9 @@ public class DeptTask {
   }
 
   @Autowired
-  public DeptTask(DeptService deptService, DeptSource deptSource) {
+  public DeptTask(DeptService deptService, DeptSource deptSource, MonitorService monitor) {
     this.deptService = deptService;
     this.source = deptSource;
+    this.monitor = monitor;
   }
 }
